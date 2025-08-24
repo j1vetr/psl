@@ -1,0 +1,283 @@
+{% extends "base.html" %}
+
+{% block title %}Teknoloji - PSL Mobil Enerji{% endblock %}
+{% block description %}Gelişmiş mobil jeneratör teknolojisi: sessiz çalışma, uzaktan izleme, yakıt verimliliği ve güvenlik özellikleri.{% endblock %}
+
+{% block content %}
+    <!-- Page Header -->
+    <section class="pt-24 pb-12 bg-gradient-to-r from-electric-dark to-black">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+                <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
+                    Gelişmiş Teknoloji
+                </span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Modern teknoloji ile donatılmış mobil jeneratörlerimiz, yüksek performans ve çevre dostu çalışma sunar.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Technology Features -->
+    <section class="py-20 bg-electric-dark">
+        <div class="container mx-auto px-4">
+            <div class="space-y-20">
+                {% for tech in tech_features %}
+                <div class="{% if loop.index is even %}lg:flex-row-reverse{% else %}lg:flex-row{% endif %}" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                    <div class="glass-panel p-8 rounded-2xl border border-white/10 hover:border-electric-blue/30 transition-all duration-500">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <!-- Content -->
+                            <div class="space-y-6">
+                                <h2 class="text-3xl md:text-4xl font-bold text-white">{{ tech.title }}</h2>
+                                <p class="text-lg text-gray-400 leading-relaxed">{{ tech.description }}</p>
+                                
+                                <!-- Specifications -->
+                                <div class="space-y-4">
+                                    <h3 class="text-xl font-semibold text-electric-blue">Teknik Özellikler:</h3>
+                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                        {% for spec in tech.specs %}
+                                        <div class="glass-panel p-4 rounded-lg text-center">
+                                            <div class="text-electric-cyan text-lg font-bold">{{ spec.value }}</div>
+                                            <div class="text-xs text-gray-400 mt-1">{{ spec.label }}</div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Visual Element -->
+                            <div class="relative">
+                                <div class="glass-panel p-6 rounded-xl">
+                                    <div class="w-full h-64 bg-gradient-to-br from-electric-blue/20 to-electric-cyan/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+                                        <!-- Tech illustration placeholder -->
+                                        <svg class="w-32 h-32 text-electric-blue opacity-80" fill="currentColor" viewBox="0 0 24 24">
+                                            {% if loop.index == 1 %}
+                                                <!-- Volume/Sound icon for first tech -->
+                                                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                                            {% elif loop.index == 2 %}
+                                                <!-- Smartphone/monitoring icon -->
+                                                <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+                                            {% else %}
+                                                <!-- Battery/efficiency icon -->
+                                                <path d="M15.67 4H14V2c0-.55-.45-1-1-1h-2c-.55 0-1 .45-1 1v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/>
+                                            {% endif %}
+                                        </svg>
+                                        
+                                        <!-- Electric effect overlay -->
+                                        <div class="absolute inset-0 opacity-30">
+                                            <svg class="w-full h-full" viewBox="0 0 200 200">
+                                                <path d="M20,100 Q60,80 100,100 T180,90" stroke="url(#electricGradient)" stroke-width="1" fill="none" 
+                                                      stroke-dasharray="5,5" style="animation: electric-flow 3s linear infinite;"/>
+                                                <path d="M20,120 Q60,140 100,120 T180,130" stroke="url(#electricGradient)" stroke-width="1" fill="none" 
+                                                      stroke-dasharray="3,3" style="animation: electric-flow 4s linear infinite reverse;"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Floating indicator -->
+                                <div class="absolute -top-4 -right-4 bg-electric-blue text-electric-dark px-3 py-1 rounded-full text-sm font-semibold">
+                                    {{ loop.index }}/{{ tech_features|length }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <!-- Power Ranges -->
+    <section class="py-20 bg-gradient-to-b from-electric-dark to-black">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
+                        Güç Aralıkları
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-400">İhtiyacınıza uygun güç kapasitesi seçenekleri</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {% for range in power_ranges %}
+                <div class="glass-panel p-6 rounded-xl text-center hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                    <div class="bg-electric-blue/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-electric-blue/30 transition-colors">
+                        <i data-feather="zap" class="w-8 h-8 text-electric-blue"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-electric-cyan mb-2">{{ range.range }}</h3>
+                    <p class="text-gray-400 text-sm">{{ range.usage }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technical Specifications -->
+    <section class="py-20 bg-electric-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
+                        Teknik Özellikler
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-400">Detaylı sistem özellikleri ve performans değerleri</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Engine Specs -->
+                <div class="glass-panel p-8 rounded-xl" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center space-x-3">
+                        <i data-feather="settings" class="w-6 h-6 text-electric-blue"></i>
+                        <span>Motor Özellikleri</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Motor Tipi</span>
+                            <span class="font-semibold">4 Zamanlı Dizel</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Soğutma Sistemi</span>
+                            <span class="font-semibold">Su Soğutmalı</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Emisyon Standardı</span>
+                            <span class="font-semibold text-green-400">Euro 5</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Yakıt Tüketimi</span>
+                            <span class="font-semibold text-electric-cyan">4-25 L/h</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-400">Çalışma Sıcaklığı</span>
+                            <span class="font-semibold">-20°C / +50°C</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Electrical Specs -->
+                <div class="glass-panel p-8 rounded-xl" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center space-x-3">
+                        <i data-feather="zap" class="w-6 h-6 text-electric-cyan"></i>
+                        <span>Elektrik Özellikleri</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Voltaj</span>
+                            <span class="font-semibold">230/400V</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Frekans</span>
+                            <span class="font-semibold">50 Hz</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Güç Faktörü</span>
+                            <span class="font-semibold">0.8</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Voltaj Regülasyonu</span>
+                            <span class="font-semibold text-green-400">±1%</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-400">Frekans Regülasyonu</span>
+                            <span class="font-semibold text-green-400">±0.5%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Control System -->
+                <div class="glass-panel p-8 rounded-xl" data-aos="fade-right" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center space-x-3">
+                        <i data-feather="monitor" class="w-6 h-6 text-electric-blue"></i>
+                        <span>Kontrol Sistemi</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Otomatik Başlatma</span>
+                            <span class="font-semibold text-green-400">✓</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">GSM İzleme</span>
+                            <span class="font-semibold text-green-400">✓</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">LCD Ekran</span>
+                            <span class="font-semibold text-green-400">✓</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Uyarı Sistemi</span>
+                            <span class="font-semibold text-green-400">SMS/E-posta</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-400">Uzaktan Kontrol</span>
+                            <span class="font-semibold text-electric-cyan">Web/Mobil</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Safety Features -->
+                <div class="glass-panel p-8 rounded-xl" data-aos="fade-left" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center space-x-3">
+                        <i data-feather="shield" class="w-6 h-6 text-electric-cyan"></i>
+                        <span>Güvenlik Özellikleri</span>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Aşırı Yük Koruması</span>
+                            <span class="font-semibold text-green-400">✓</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Kısa Devre Koruması</span>
+                            <span class="font-semibold text-green-400">✓</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Düşük Yağ Koruması</span>
+                            <span class="font-semibold text-green-400">✓</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-white/10">
+                            <span class="text-gray-400">Aşırı Sıcaklık Koruması</span>
+                            <span class="font-semibold text-green-400">✓</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-400">Acil Durdurma</span>
+                            <span class="font-semibold text-red-400">Büyük Kırmızı</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-electric-blue/10 to-electric-cyan/10 border-y border-electric-blue/20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto space-y-8" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold">
+                    Teknik Detaylar İçin<br>
+                    <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
+                        Uzmanlarımızla Görüşün
+                    </span>
+                </h2>
+                
+                <p class="text-xl text-gray-400 leading-relaxed">
+                    Projeniz için en uygun teknik çözümü belirlemek üzere uzman ekibimizle iletişime geçin.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="{{ url_for('iletisim') }}" 
+                       class="bg-electric-blue hover:bg-electric-cyan text-electric-dark font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 flex items-center space-x-2">
+                        <i data-feather="phone" class="w-5 h-5"></i>
+                        <span>Teknik Danışmanlık</span>
+                    </a>
+                    <a href="{{ url_for('galeri') }}" 
+                       class="border-2 border-electric-blue hover:bg-electric-blue text-electric-blue hover:text-electric-dark font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 flex items-center space-x-2">
+                        <i data-feather="eye" class="w-5 h-5"></i>
+                        <span>Sistem Galerisi</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

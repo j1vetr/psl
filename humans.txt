@@ -1,0 +1,69 @@
+/* TEAM */
+
+Developer: PSL Mobil Enerji Development Team
+Site: https://pslmobilenerji.com
+Location: İstanbul, Türkiye
+
+/* THANKS */
+
+Framework: Flask (Python)
+CSS Framework: Tailwind CSS
+Icons: Feather Icons
+Animations: AOS (Animate On Scroll)
+Fonts: Inter (Google Fonts)
+
+/* SITE */
+
+Last update: 2025/01/24
+Language: Turkish / Türkçe
+Doctype: HTML5
+IDE: Modern Development Environment
+Standards: HTML5, CSS3, ES6+
+Components: Glassmorphism, Electric Effects, Responsive Design
+Accessibility: WCAG 2.1 AA Compliant
+Performance: Lighthouse 95+ Score Target
+
+/* TECHNOLOGY STACK */
+
+Backend: Python Flask
+Frontend: HTML5, CSS3, JavaScript ES6+
+Database: JSON File Storage (Development)
+Email: SMTP Integration
+Analytics: Ready for Google Analytics
+CDN: Ready for CloudFlare
+
+/* CONTACT */
+
+Email: info@pslmobilenerji.com
+Phone: +90 555 123 45 67
+WhatsApp: +90 555 123 45 67
+Service Area: Türkiye Geneli
+
+/* SERVICES */
+
+- Araç Üstü Mobil Jeneratör
+- Etkinlik Enerji Desteği
+- Şantiye Güç Çözümleri
+- Acil Durum Elektriği
+- Film Set Enerjisi
+- Tarım & Kırsal Alan Güç
+
+/* FEATURES */
+
+- 5-250 kVA Güç Aralığı
+- < 60 dB Sessiz Çalışma
+- Euro 5 Emisyon Standardı
+- 7/24 Teknik Destek
+- Türkiye Geneli Hizmet
+- 10 Dakika Hızlı Kurulum
+
+                              ⚡
+                         PSL MOBİL ENERJİ
+                      Sahada Kesintisiz Güç
+                              ⚡
+
+          ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+          ░   █▀▀ █   █▀▀ █▀▀ ▀█▀ █▀█ █   ░
+          ░   █▀▀ █   █▀▀ █   ▀█▀ █▀▄ █   ░
+          ░   ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀ ▀ ▀ ▀▀▀ ░
+          ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

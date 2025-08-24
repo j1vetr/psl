@@ -1,0 +1,84 @@
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('{{ url_for('static', filename='img/placeholder-van-hero.svg') }}')">
+        <!-- Electric Animation Overlay -->
+        <div class="absolute inset-0">
+            <svg class="w-full h-full opacity-30" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="electricGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:0" />
+                        <stop offset="50%" style="stop-color:#00D4FF;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#00FFFF;stop-opacity:0" />
+                    </linearGradient>
+                </defs>
+                
+                <!-- Electric Lines -->
+                <path class="electric-line" d="M0,200 Q300,150 600,200 T1200,180" stroke="url(#electricGradient)" stroke-width="2" fill="none" 
+                      stroke-dasharray="20,10" style="animation: electric-flow 4s linear infinite;"/>
+                <path class="electric-line" d="M0,400 Q400,350 800,400 T1200,380" stroke="url(#electricGradient)" stroke-width="1.5" fill="none" 
+                      stroke-dasharray="15,8" style="animation: electric-flow 5s linear infinite reverse;"/>
+                <path class="electric-line" d="M0,600 Q200,550 600,600 T1200,580" stroke="url(#electricGradient)" stroke-width="1" fill="none" 
+                      stroke-dasharray="10,5" style="animation: electric-flow 3s linear infinite;"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center space-y-8 px-4 max-w-4xl mx-auto">
+        <!-- Main Headline -->
+        <div class="space-y-4" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                <span class="block text-white">Sahada</span>
+                <span class="block bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
+                    Kesintisiz Güç
+                </span>
+            </h1>
+            <div class="w-24 h-1 bg-gradient-to-r from-electric-blue to-electric-cyan mx-auto rounded-full"></div>
+        </div>
+        
+        <!-- Subtitle -->
+        <p class="text-xl md:text-2xl text-gray-300 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+            Araç Üstü Mobil Jeneratör ile Her Yerde Enerji<br>
+            <span class="text-electric-blue font-semibold">7/24 Profesyonel Hizmet</span>
+        </p>
+        
+        <!-- Trust Badges -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-8" data-aos="fade-up" data-aos-delay="400">
+            <div class="glass-panel p-4 rounded-lg text-center">
+                <div class="text-electric-blue text-2xl font-bold">< 10 dk</div>
+                <div class="text-sm text-gray-400">Hızlı Kurulum</div>
+            </div>
+            <div class="glass-panel p-4 rounded-lg text-center">
+                <div class="text-electric-blue text-2xl font-bold">< 60 dB</div>
+                <div class="text-sm text-gray-400">Sessiz Çalışma</div>
+            </div>
+            <div class="glass-panel p-4 rounded-lg text-center">
+                <div class="text-electric-blue text-2xl font-bold">7/24</div>
+                <div class="text-sm text-gray-400">Kesintisiz Hizmet</div>
+            </div>
+        </div>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-up" data-aos-delay="600">
+            <a href="{{ url_for('iletisim') }}" 
+               class="bg-electric-blue hover:bg-electric-cyan text-electric-dark font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-electric-blue/25 flex items-center space-x-2">
+                <i data-feather="zap" class="w-5 h-5"></i>
+                <span>Teklif Al</span>
+            </a>
+            <a href="tel:+905551234567" 
+               class="border-2 border-electric-blue hover:bg-electric-blue text-electric-blue hover:text-electric-dark font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 flex items-center space-x-2">
+                <i data-feather="phone" class="w-5 h-5"></i>
+                <span>Hemen Ara</span>
+            </a>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce" data-aos="fade-in" data-aos-delay="1000">
+            <i data-feather="chevron-down" class="w-8 h-8"></i>
+        </div>
+    </div>
+    
+    <!-- Floating Energy Orb -->
+    <div class="absolute top-1/4 right-1/4 w-4 h-4 bg-electric-blue rounded-full opacity-75 animate-float" data-aos="zoom-in" data-aos-delay="800"></div>
+    <div class="absolute bottom-1/3 left-1/4 w-2 h-2 bg-electric-cyan rounded-full opacity-50 animate-float" style="animation-delay: -2s;" data-aos="zoom-in" data-aos-delay="1200"></div>
+</section>
