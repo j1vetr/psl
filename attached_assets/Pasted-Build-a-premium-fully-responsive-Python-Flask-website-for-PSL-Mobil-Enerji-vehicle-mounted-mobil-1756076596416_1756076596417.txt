@@ -1,0 +1,121 @@
+Build a premium, fully responsive Python Flask website for “PSL Mobil Enerji” (vehicle-mounted mobile generator services).
+
+Tech & Structure
+
+Python + Flask app with clean structure:
+
+app.py, templates/, static/css/, static/js/, static/img/
+
+Use Jinja2 templating with a single base layout (base.html) + partials for navbar.html, footer.html, hero.html.
+
+CSS: Prefer Tailwind via CDN or a handcrafted styles.css (no inline styles). Add a small utility CSS for effects.
+
+JS: Use AOS (scroll animations) or GSAP, and vanilla JS only.
+
+Optimize for Lighthouse 95+: preload fonts, lazy-load images, minify assets.
+
+Pages & Routes
+
+/ (Home): Hero with my van + generator image (I’ll upload), big claim: “Sahada Kesintisiz Güç”.
+
+/sektorler (Sector Solutions): cards for Etkinlik & Organizasyon, Film/Dizi Seti, İnşaat/Şantiye, Acil Durum & Afet, Tarım & Kırsal Alan.
+
+/teknoloji (Technology): silent/low-emission, remote monitoring, fuel efficiency, safety.
+
+/galeri (Gallery): responsive grid with lightbox.
+
+/iletisim (Contact): form (name, phone, email, message) + WhatsApp CTA button.
+
+Design — “Premium 2100 + Electric”
+
+Dark theme with subtle electric/neon accents (electric blue / cyan). Keep it classy, no cheap glow.
+
+Hero: full-width image background (my van), animated electric energy lines overlay (CSS or Canvas). Slow, elegant.
+
+Micro-interactions: hover glows on buttons/cards, parallax on hero, AOS fade/slide on scroll.
+
+Glassmorphism panels (light blur) for cards/CTA.
+
+Sticky top navbar with a “Teklif Al” button. Sticky floating WhatsApp button bottom-right.
+
+Typography: modern, legible (e.g., Inter). Tight scale, generous spacing.
+
+Components
+
+Hero: headline, subcopy, two CTAs (Teklif Al, Hemen Ara). Secondary line of trust badges (7/24, Sessiz Çalışma, Türkiye Geneli).
+
+Sector cards: icon, 2-3 bullet value props, “Detay” link.
+
+Stats band: “<10 dk kurulum”, “%30 yakıt verimli”, “<60 dB sessiz”.
+
+Tech highlights: 3 feature blocks with icon + short spec table (kVA ranges, fuel tank, runtime).
+
+Gallery: masonry grid with lightbox. Use my images; fallback placeholders if empty.
+
+Contact form: Flask route to validate + send (create a stub send_email() reading SMTP creds from env; if not set, store to /tmp/leads.json). Show success/error toast.
+
+Content Placeholders (editable in HTML)
+
+Slogans:
+
+“Sahada Kesintisiz Güç”
+
+“Araç Üstü Mobil Jeneratör ile Her Yerde Enerji”
+
+Short copy blocks for each sector (SEO-friendly, Turkish).
+
+Footer: location, phone, email, social links.
+
+SEO & Performance
+
+Semantic HTML, proper headings (one H1 per page).
+
+Meta tags + Open Graph + JSON-LD LocalBusiness for “PSL Mobil Enerji”.
+
+Canonical tags, humans.txt/robots.txt, sitemap.xml (static).
+
+Images: convert to WebP with <picture> fallback; loading="lazy", decoding="async".
+
+Favicon + app icons.
+
+ARIA labels, good contrast, focus states.
+
+Electric Effects (tasteful)
+
+Create a lightweight electric line overlay:
+
+Option A: Canvas that draws slow flowing bezier “energy” lines with subtle glow (opacity < 0.25).
+
+Option B: SVG paths with animated stroke-dashoffset.
+
+Add a subtle neon pulse to CTA borders on hover. No aggressive flicker.
+
+Forms & CTAs
+
+/iletisim posts to /send, server-side validate, flash messages.
+
+Environment vars: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, TO_EMAIL.
+
+WhatsApp deep link: https://wa.me/<PHONE>?text=Merhaba, mobil jeneratör hizmeti için bilgi almak istiyorum.
+
+Assets & Placeholders
+
+In static/img/, add placeholders named van-hero.webp, van-side.webp, setup.webp. I will replace with my real images.
+
+Provide an easily readable README at project root: where to put my images, how to set env vars, and how to change color accents.
+
+Nice-to-Have
+
+Back-to-top button with progress indicator.
+
+Very light noise texture over sections for premium feel.
+
+404 page matching theme.
+
+Deliverables
+
+Complete Flask app running locally with the above pages, animations, and placeholder content.
+
+Clean, commented code; all text strings centralized for easy edits.
+
+Mobile-first CSS; test breakpoints (≤380px, 768px, 1024px, ≥1440px).
