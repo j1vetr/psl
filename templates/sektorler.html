@@ -19,12 +19,12 @@
     </section>
     
     <!-- Sectors Grid -->
-    <section class="py-20 bg-electric-dark">
+    <section class="py-20 bg-electric-dark electric-circuit relative">
         <div class="container mx-auto px-4">
             <div class="space-y-16">
                 {% for sector in sectors %}
                 <div id="{{ sector.id }}" class="group" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
-                    <div class="glass-panel p-8 rounded-2xl hover:scale-105 transition-all duration-500 border border-white/10 hover:border-electric-blue/30">
+                    <div class="electric-card glass-panel p-8 rounded-2xl hover:scale-105 transition-all duration-500 border border-white/10 hover:border-electric-blue/30">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                             <!-- Content -->
                             <div class="space-y-6 {% if loop.index is even %}lg:order-2{% endif %}">
@@ -53,7 +53,7 @@
                                 
                                 <div class="pt-4">
                                     <a href="{{ url_for('iletisim') }}?sector={{ sector.id }}" 
-                                       class="bg-electric-blue hover:bg-electric-cyan text-electric-dark font-semibold px-6 py-3 rounded-full transition-all duration-300 inline-flex items-center space-x-2">
+                                       class="premium-glow bg-electric-blue hover:bg-electric-cyan text-electric-dark font-semibold px-6 py-3 rounded-full transition-all duration-300 inline-flex items-center space-x-2">
                                         <i data-feather="send" class="w-5 h-5"></i>
                                         <span>Teklif İste</span>
                                     </a>
