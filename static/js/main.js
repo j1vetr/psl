@@ -418,6 +418,6 @@ document.addEventListener('keydown', function(e) {
 });
 
 // Console branding
-console.log('%c⚡ PSL Mobil Enerji ⚡', 'color: #00D4FF; font-size: 20px; font-weight: bold;');
-console.log('%cSahada Kesintisiz Güç', 'color: #00FFFF; font-size: 14px;');
+console.log('%c⚡ PSL Mobil Enerji ⚡', 'color: #FFD700; font-size: 20px; font-weight: bold;');
+console.log('%cSahada Kesintisiz Güç', 'color: #FFA500; font-size: 14px;');
 console.log('%c🚐 Araç Üstü Mobil Jeneratör Hizmetleri', 'color: #ffffff; font-size: 12px;');
