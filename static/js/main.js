@@ -455,27 +455,34 @@ function initGSAPAnimations() {
 
 // Electric Loading Animation - Faster Preloading
 function createElectricLoadingAnimation() {
-    // Preload critical resources
-    const preloadResources = [
-        { type: 'font', url: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap' },
-        { type: 'script', url: 'https://unpkg.com/feather-icons' },
-        { type: 'style', url: 'https://unpkg.com/aos@2.3.1/dist/aos.css' }
-    ];
-    
-    // Create electric loading overlay
+    // Create modern loading overlay
     const loadingOverlay = document.createElement('div');
     loadingOverlay.id = 'electric-loader';
     loadingOverlay.innerHTML = `
-        <div class="electric-loader-content">
-            <div class="electric-bolt">
-                <svg width="80" height="80" viewBox="0 0 100 100">
-                    <path id="bolt-path" d="M30,10 L70,10 L45,45 L65,45 L35,90 L55,55 L35,55 Z" 
-                          fill="none" stroke="#FFD700" stroke-width="3"/>
-                </svg>
+        <div class="modern-loader-content">
+            <div class="loader-brand">
+                <div class="brand-icon">
+                    <div class="rotating-gear">
+                        <svg width="60" height="60" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="25" fill="none" stroke="#FFD700" stroke-width="2" stroke-dasharray="10 5"/>
+                            <circle cx="30" cy="30" r="15" fill="none" stroke="#FFA500" stroke-width="2"/>
+                            <circle cx="30" cy="30" r="8" fill="#FFD700"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="brand-text">
+                    <div class="main-title">PSL MOBİL ENERJİ</div>
+                    <div class="sub-title">Sahada Kesintisiz Güç</div>
+                </div>
             </div>
-            <div class="loader-text">PSL MOBİL ENERJİ</div>
-            <div class="electric-progress">
-                <div class="progress-bar"></div>
+            
+            <div class="loading-indicator">
+                <div class="pulse-dots">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="dot dot-3"></div>
+                </div>
+                <div class="loading-text">Yükleniyor...</div>
             </div>
         </div>
     `;
@@ -485,7 +492,7 @@ function createElectricLoadingAnimation() {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: linear-gradient(135deg, #0A0A0A, #1A1A1A);
+        background: linear-gradient(135deg, #000000 0%, #0A0A0A 50%, #1A1A1A 100%);
         z-index: 9999;
         display: flex;
         align-items: center;
@@ -496,42 +503,47 @@ function createElectricLoadingAnimation() {
     
     document.body.appendChild(loadingOverlay);
     
-    // Faster timeline with preloading logic
+    // Modern GSAP animation timeline
     const tl = gsap.timeline();
     
-    // Simulate preloading with faster animations
-    let loadProgress = 0;
-    const loadInterval = setInterval(() => {
-        loadProgress += Math.random() * 25 + 15; // Faster increment
-        if (loadProgress >= 100) {
-            loadProgress = 100;
-            clearInterval(loadInterval);
-        }
-        gsap.to('.progress-bar', { width: `${loadProgress}%`, duration: 0.1 });
-    }, 80); // Faster interval
-    
-    // Animate loading sequence - Much faster
-    tl.set('.electric-loader-content', { opacity: 0, scale: 0.9 })
-      .to('.electric-loader-content', { opacity: 1, scale: 1, duration: 0.3 })
-      .fromTo('#bolt-path', 
-        { strokeDasharray: 200, strokeDashoffset: 200 },
-        { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 0.1)
-      .to('#bolt-path', { 
-        fill: '#FFD700', 
-        stroke: '#FFA500', 
-        duration: 0.15,
-        repeat: 2,
-        yoyo: true 
+    // Animate loading sequence
+    tl.set('.modern-loader-content', { opacity: 0, scale: 0.8 })
+      .to('.modern-loader-content', { 
+        opacity: 1, 
+        scale: 1, 
+        duration: 0.6,
+        ease: "back.out(1.7)"
+      })
+      .from('.brand-icon', {
+        rotation: -180,
+        scale: 0,
+        duration: 0.8,
+        ease: "elastic.out(1, 0.3)"
+      }, 0.2)
+      .from('.main-title', {
+        y: 30,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out"
       }, 0.4)
-      .fromTo('.loader-text', 
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.3 }, 0.2)
+      .from('.sub-title', {
+        y: 20,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.out"
+      }, 0.6)
+      .from('.loading-indicator', {
+        y: 40,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out"
+      }, 0.8)
       .to('#electric-loader', { 
         opacity: 0, 
-        duration: 0.4, 
-        delay: 0.8, // Much shorter delay
+        duration: 0.5, 
+        delay: 1.5,
+        ease: "power2.inOut",
         onComplete: () => {
-          clearInterval(loadInterval);
           document.body.removeChild(loadingOverlay);
         }
       });
