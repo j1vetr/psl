@@ -1495,34 +1495,6 @@ section {
   }
 }
 
-.tech-scanning-line {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.6), transparent);
-  animation: tech-scan 8s ease-in-out infinite;
-  opacity: 0.4;
-}
-
-@keyframes tech-scan {
-  0%, 90% { 
-    left: -100%; 
-    opacity: 0;
-  }
-  10%, 80% { 
-    opacity: 0.8;
-  }
-  45% { 
-    left: 100%; 
-    opacity: 0.8;
-  }
-  100% { 
-    left: 100%; 
-    opacity: 0;
-  }
-}
 
 .tech-image-frame::before {
   content: '';
