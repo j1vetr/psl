@@ -2,8 +2,7 @@ import os
 import json
 import logging
 from datetime import datetime
-from flask import Flask, render_template, request, flash, redirect, url_for, jsonify, session
-from flask_babel import Babel, gettext, ngettext, lazy_gettext, get_locale
+from flask import Flask, render_template, request, flash, redirect, url_for, jsonify
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 # Configure logging
@@ -13,30 +12,6 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret-key-change-in-production")
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
-
-# Babel Configuration
-app.config['LANGUAGES'] = {
-    'tr': 'Türkçe',
-    'en': 'English'
-}
-app.config['BABEL_DEFAULT_LOCALE'] = 'tr'
-app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
-
-babel = Babel(app)
-
-def get_locale():
-    # 1. Check if language is forced in session
-    if 'language' in session:
-        return session['language']
-    # 2. Check if language is provided in URL parameters
-    if 'lang' in request.args:
-        if request.args['lang'] in app.config['LANGUAGES']:
-            session['language'] = request.args['lang']
-            return request.args['lang']
-    # 3. Default to Turkish
-    return app.config['BABEL_DEFAULT_LOCALE']
-
-babel.init_app(app, locale_selector=get_locale)
 
 # Configuration
 SMTP_CONFIG = {
@@ -83,13 +58,6 @@ def send_email(name, phone, email, message):
     except Exception as e:
         app.logger.error(f"Error saving lead: {str(e)}")
         return False
-
-@app.route('/set_language/<language>')
-def set_language(language=None):
-    """Set the language for the user session"""
-    if language in app.config['LANGUAGES']:
-        session['language'] = language
-    return redirect(request.referrer or url_for('index'))
 
 @app.route('/')
 def index():
