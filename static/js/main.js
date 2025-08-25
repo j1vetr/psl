@@ -1,24 +1,6 @@
 // PSL Mobil Enerji - Main JavaScript
 // Premium dark theme with electric effects
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
-    initMobileMenu();
-    initBackToTop();
-    initElectricEffects();
-    initFormEnhancements();
-    initPerformanceOptimizations();
-    initGSAPAnimations();
-    initPageTransitions();
-    
-    // Initialize external libraries if available
-    if (typeof feather !== 'undefined') {
-        feather.replace();
-    }
-    
-    // AOS removed - immediate content display
-});
-
 // Mobile Menu Toggle
 function initMobileMenu() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -26,28 +8,40 @@ function initMobileMenu() {
     const mobileMenuClose = document.getElementById('mobile-menu-close');
     const menuIcon = mobileMenuButton?.querySelector('[data-feather="menu"]');
     
-    if (!mobileMenuButton || !mobileMenu) return;
+    console.log('Mobile Menu Init:', { mobileMenuButton, mobileMenu, mobileMenuClose });
+    
+    if (!mobileMenuButton || !mobileMenu) {
+        console.log('Mobile menu elements not found');
+        return;
+    }
     
     function openMobileMenu() {
+        console.log('Opening mobile menu');
         mobileMenu.classList.add('active');
         document.body.classList.add('mobile-menu-open');
         if (menuIcon) {
             menuIcon.setAttribute('data-feather', 'x');
-            feather.replace();
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
         }
     }
     
     function closeMobileMenu() {
+        console.log('Closing mobile menu');
         mobileMenu.classList.remove('active');
         document.body.classList.remove('mobile-menu-open');
         if (menuIcon) {
             menuIcon.setAttribute('data-feather', 'menu');
-            feather.replace();
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
         }
     }
     
     // Open mobile menu
     mobileMenuButton.addEventListener('click', function(e) {
+        console.log('Mobile menu button clicked');
         e.stopPropagation();
         if (mobileMenu.classList.contains('active')) {
             closeMobileMenu();
@@ -94,6 +88,7 @@ function initMobileMenu() {
         }
     });
 }
+
 
 // Back to Top Button
 function initBackToTop() {
