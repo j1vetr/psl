@@ -22,7 +22,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(135deg, var(--electric-dark) 0%, var(--electric-gray) 100%);
   min-height: 100vh;
   overflow-x: hidden;
@@ -755,25 +755,25 @@ section {
   overflow: hidden;
 }
 
-/* Futuristic Grid Background */
+/* Futuristic Grid Background - Subtle */
 .futuristic-grid {
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: grid-pulse 4s ease-in-out infinite;
+    linear-gradient(rgba(255, 215, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 215, 0, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: grid-pulse 6s ease-in-out infinite;
 }
 
 @keyframes grid-pulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.6; }
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.25; }
 }
 
-/* Electric Field Container */
+/* Electric Field Container - More Subtle */
 .electric-field-container {
-  opacity: 0.4;
+  opacity: 0.15;
 }
 
 .circuit-line-1 {
@@ -805,12 +805,12 @@ section {
 
 .energy-orb {
   position: absolute;
-  width: 8px;
-  height: 8px;
-  background: radial-gradient(circle, #FFD700, #FFA500);
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.6), rgba(255, 165, 0, 0.3));
   border-radius: 50%;
-  filter: blur(1px);
-  box-shadow: 0 0 20px #FFD700;
+  filter: blur(0.5px);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
 .orb-1 {
@@ -902,7 +902,7 @@ section {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 900;
   line-height: 0.9;
   text-transform: uppercase;
@@ -959,7 +959,7 @@ section {
 
 /* Futuristic Subtitle */
 .futuristic-subtitle {
-  font-family: 'Inter', monospace;
+  font-family: 'Poppins', monospace;
   font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   color: #CCCCCC;
   letter-spacing: 2px;
@@ -990,7 +990,7 @@ section {
   border: 2px solid #FFD700;
   color: #FFD700;
   text-decoration: none;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 1px;
@@ -1047,7 +1047,7 @@ section {
   font-size: 2rem;
   font-weight: 900;
   color: #FFD700;
-  font-family: 'Inter', monospace;
+  font-family: 'Poppins', monospace;
   margin-bottom: 8px;
   text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
 }
@@ -1082,7 +1082,7 @@ section {
   align-items: center;
   gap: 8px;
   color: #FFD700;
-  font-family: 'Inter', monospace;
+  font-family: 'Poppins', monospace;
   font-size: 10px;
   letter-spacing: 1px;
   text-transform: uppercase;
