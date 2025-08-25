@@ -7,12 +7,12 @@
     <!-- Page Header -->
     <section class="pt-24 pb-12 bg-gradient-to-r from-electric-dark to-black">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
                 <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
                     Galeri
                 </span>
             </h1>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
                 Mobil jeneratör sistemlerimiz, kurulum süreçleri ve başarılı projelerimizden görüntüler.
             </p>
         </div>
@@ -21,7 +21,7 @@
     <!-- Filter Buttons -->
     <section class="py-12 bg-electric-dark">
         <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up">
+            <div class="flex flex-wrap justify-center gap-4">
                 {% for category in categories %}
                 <button class="gallery-filter px-6 py-2 rounded-full font-semibold transition-all duration-300 
                              {% if category == 'all' %}bg-electric-blue text-electric-dark{% else %}border border-white/20 text-gray-400 hover:border-electric-blue hover:text-electric-blue{% endif %}"
@@ -42,7 +42,7 @@
         <div class="container mx-auto px-4">
             <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {% for item in gallery_items %}
-                <div class="gallery-item {{ item.category }}" data-category="{{ item.category }}" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                <div class="gallery-item {{ item.category }}" data-category="{{ item.category }}">
                     <div class="glass-panel rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 group cursor-pointer"
                          onclick="openLightbox({{ item.id }})">
                         <div class="relative">
@@ -85,7 +85,7 @@
                 {% endfor %}
                 
                 <!-- Placeholder items for a full gallery look -->
-                <div class="gallery-item equipment" data-category="equipment" data-aos="fade-up" data-aos-delay="300">
+                <div class="gallery-item equipment" data-category="equipment">
                     <div class="glass-panel rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 group cursor-pointer"
                          onclick="openLightbox(4)">
                         <div class="relative">
@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 
-                <div class="gallery-item projects" data-category="projects" data-aos="fade-up" data-aos-delay="400">
+                <div class="gallery-item projects" data-category="projects">
                     <div class="glass-panel rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 group cursor-pointer"
                          onclick="openLightbox(5)">
                         <div class="relative">
@@ -131,7 +131,7 @@
                     </div>
                 </div>
                 
-                <div class="gallery-item setup" data-category="setup" data-aos="fade-up" data-aos-delay="500">
+                <div class="gallery-item setup" data-category="setup">
                     <div class="glass-panel rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 group cursor-pointer"
                          onclick="openLightbox(6)">
                         <div class="relative">
@@ -193,7 +193,7 @@
     <!-- Upload Your Images Section -->
     <section class="py-20 bg-gradient-to-r from-electric-blue/10 to-electric-cyan/10 border-y border-electric-blue/20">
         <div class="container mx-auto px-4 text-center">
-            <div class="max-w-4xl mx-auto space-y-8" data-aos="fade-up">
+            <div class="max-w-4xl mx-auto space-y-8">
                 <h2 class="text-3xl md:text-5xl font-bold">
                     Fotoğraflarınızı<br>
                     <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
