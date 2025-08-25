@@ -983,8 +983,61 @@ function initPageTransitions() {
 window.resetParticles = resetParticles;
 window.toggleParticlePanel = toggleParticlePanel;
 
+// Initialize floating contact panel
+function initializeContactPanel() {
+    const contactToggle = document.getElementById('contactToggle');
+    const contactOptions = document.querySelector('.contact-options');
+    const contactIcon = document.getElementById('contactIcon');
+    
+    if (contactToggle && contactOptions) {
+        contactToggle.addEventListener('click', function() {
+            const isOpen = contactOptions.classList.contains('show');
+            
+            if (isOpen) {
+                contactOptions.classList.remove('show');
+                contactToggle.classList.remove('active');
+                setTimeout(() => {
+                    contactOptions.classList.add('hidden');
+                }, 300);
+            } else {
+                contactOptions.classList.remove('hidden');
+                setTimeout(() => {
+                    contactOptions.classList.add('show');
+                    contactToggle.classList.add('active');
+                }, 10);
+            }
+        });
+        
+        // Close when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#contactPanel')) {
+                contactOptions.classList.remove('show');
+                contactToggle.classList.remove('active');
+                setTimeout(() => {
+                    contactOptions.classList.add('hidden');
+                }, 300);
+            }
+        });
+    }
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all features
+    initMobileMenu();
+    initBackToTop();
+    initPageTransitions();
+    initializeContactPanel();
+    
+    // Initialize GSAP if available
+    if (typeof gsap !== 'undefined') {
+        initGSAPAnimations();
+    }
+});
+
 // Console branding
 console.log('%c⚡ PSL Mobil Enerji ⚡', 'color: #FFD700; font-size: 20px; font-weight: bold;');
 console.log('%cSahada Kesintisiz Güç', 'color: #FFA500; font-size: 14px;');
 console.log('%c🚐 Araç Üstü Mobil Jeneratör Hizmetleri', 'color: #ffffff; font-size: 12px;');
 console.log('%c⚡ GSAP Electric Animations Loaded ⚡', 'color: #FFD700; font-size: 14px; font-weight: bold;');
+console.log('%c⚡ Electric Particle System Initialized ⚡', 'color: #FFD700; font-size: 12px; font-weight: bold;');

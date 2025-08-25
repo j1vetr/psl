@@ -2051,3 +2051,128 @@ section {
     box-shadow: 0 0 15px rgba(255,215,0,0.5);
   }
 }
+
+/* ================================
+   FLOATING CONTACT PANEL STYLES
+   ================================ */
+
+.contact-option-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.contact-tooltip {
+  position: absolute;
+  right: 60px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.contact-option-btn:hover .contact-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.contact-options {
+  animation: slideIn 0.3s ease-out;
+}
+
+.contact-options.show {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.contact-main-btn.active {
+  transform: rotate(45deg);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   MOBILE BOTTOM NAVIGATION STYLES
+   ================================ */
+
+.mobile-bottom-nav {
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 4px;
+  text-decoration: none;
+  color: #9CA3AF;
+  font-size: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-height: 60px;
+  position: relative;
+}
+
+.mobile-nav-item:hover {
+  color: #FFD700;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.mobile-nav-item.active {
+  color: #FFD700;
+  background: rgba(255, 215, 0, 0.15);
+}
+
+.mobile-nav-item.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  border-radius: 0 0 4px 4px;
+}
+
+.mobile-nav-item i {
+  margin-bottom: 4px;
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav-item:active i {
+  transform: scale(0.9);
+}
+
+/* Adjust main content padding for mobile navbar */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 70px;
+  }
+  
+  /* Hide floating contact panel on very small screens to avoid overlap */
+  @media (max-width: 480px) {
+    #contactPanel {
+      bottom: 80px;
+    }
+  }
+}
