@@ -122,6 +122,39 @@ def sektorler():
                 'Uzak bölge erişimi',
                 'Çevre dostu teknoloji'
             ]
+        },
+        {
+            'id': 'saglik',
+            'title': 'Sağlık & Hastane',
+            'icon': 'heart',
+            'description': 'Hastane ve sağlık tesisleri için kritik güç desteği.',
+            'features': [
+                'UPS entegrasyonu',
+                'Tıbbi cihaz uyumluluğu',
+                'Kesintisiz güç garantisi'
+            ]
+        },
+        {
+            'id': 'telekom',
+            'title': 'Telekomünikasyon',
+            'icon': 'radio',
+            'description': 'Baz istasyon ve telecom altyapısı için sürekli enerji.',
+            'features': [
+                'DC/AC dönüştürücü',
+                'Uzaktan izleme sistemi',
+                'Otomatik başlatma'
+            ]
+        },
+        {
+            'id': 'egitim',
+            'title': 'Eğitim & Kampüs',
+            'icon': 'book-open',
+            'description': 'Okul, üniversite ve eğitim kurumları için güvenilir enerji.',
+            'features': [
+                'Çok nokta besleme',
+                'Sessiz çalışma',
+                'Güvenli kurulum'
+            ]
         }
     ]
     return render_template('sektorler.html', sectors=sectors)

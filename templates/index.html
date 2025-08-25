@@ -84,6 +84,42 @@
                         <i data-feather="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
+                
+                <div class="electric-card glass-panel p-6 rounded-xl hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-electric-cyan/20 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-electric-cyan/30 transition-colors">
+                        <i data-feather="heart" class="w-8 h-8 text-electric-cyan"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Sağlık & Hastane</h3>
+                    <p class="text-gray-400 text-sm mb-4">Hastane ve sağlık tesisleri için kritik güç desteği</p>
+                    <a href="{{ url_for('sektorler') }}#saglik" class="text-electric-cyan hover:text-electric-blue font-medium text-sm flex items-center space-x-2">
+                        <span>Detaylar</span>
+                        <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                
+                <div class="electric-card glass-panel p-6 rounded-xl hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="bg-electric-blue/20 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-electric-blue/30 transition-colors">
+                        <i data-feather="radio" class="w-8 h-8 text-electric-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Telekomünikasyon</h3>
+                    <p class="text-gray-400 text-sm mb-4">Baz istasyon ve telecom altyapısı için sürekli enerji</p>
+                    <a href="{{ url_for('sektorler') }}#telekom" class="text-electric-blue hover:text-electric-cyan font-medium text-sm flex items-center space-x-2">
+                        <span>Detaylar</span>
+                        <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                
+                <div class="electric-card glass-panel p-6 rounded-xl hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="bg-electric-cyan/20 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-electric-cyan/30 transition-colors">
+                        <i data-feather="book-open" class="w-8 h-8 text-electric-cyan"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Eğitim & Kampüs</h3>
+                    <p class="text-gray-400 text-sm mb-4">Okul, üniversite ve eğitim kurumları için güvenilir enerji</p>
+                    <a href="{{ url_for('sektorler') }}#egitim" class="text-electric-cyan hover:text-electric-blue font-medium text-sm flex items-center space-x-2">
+                        <span>Detaylar</span>
+                        <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
             </div>
             
             <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
@@ -149,7 +185,7 @@
                 
                 <div class="relative" data-aos="fade-left">
                     <div class="glass-panel p-8 rounded-2xl">
-                        <img src="{{ url_for('static', filename='img/placeholder-van-side.svg') }}" 
+                        <img src="{{ url_for('static', filename='img/mobile-generator-van.png') }}" 
                              alt="PSL Mobil Enerji Van" 
                              class="w-full h-auto rounded-xl">
                     </div>

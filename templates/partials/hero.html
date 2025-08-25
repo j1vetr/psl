@@ -4,18 +4,43 @@
         <!-- Dark Overlay -->
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
         
-        <!-- Subtle Electric Animation -->
-        <div class="absolute inset-0 opacity-10">
+        <!-- Electric Background Effects -->
+        <div class="hero-electric-overlay"></div>
+        
+        <!-- Enhanced Electric Animation -->
+        <div class="absolute inset-0 opacity-20">
             <svg class="w-full h-full" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="subtleElectric" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <linearGradient id="powerElectric" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" style="stop-color:#FFD700;stop-opacity:0" />
-                        <stop offset="50%" style="stop-color:#FFD700;stop-opacity:0.5" />
+                        <stop offset="30%" style="stop-color:#FFD700;stop-opacity:0.8" />
+                        <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+                        <stop offset="70%" style="stop-color:#FFD700;stop-opacity:0.8" />
                         <stop offset="100%" style="stop-color:#FFA500;stop-opacity:0" />
                     </linearGradient>
+                    <filter id="electricGlow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge> 
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
                 </defs>
-                <path d="M0,400 Q600,380 1200,400" stroke="url(#subtleElectric)" stroke-width="1" fill="none" 
-                      stroke-dasharray="30,20" style="animation: electric-flow 6s linear infinite;"/>
+                <!-- Main power lines -->
+                <path d="M0,300 Q300,280 600,300 T1200,300" stroke="url(#powerElectric)" stroke-width="2" fill="none" 
+                      stroke-dasharray="40,20" filter="url(#electricGlow)" style="animation: electric-flow 4s linear infinite;"/>
+                <path d="M0,500 Q300,520 600,500 T1200,500" stroke="url(#powerElectric)" stroke-width="2" fill="none" 
+                      stroke-dasharray="30,15" filter="url(#electricGlow)" style="animation: electric-flow 5s linear infinite reverse;"/>
+                <!-- Electric nodes -->
+                <circle cx="200" cy="300" r="3" fill="#FFD700" opacity="0.8">
+                    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="600" cy="300" r="4" fill="#FFA500" opacity="0.9">
+                    <animate attributeName="opacity" values="0.9;1;0.9" dur="1.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="1000" cy="300" r="3" fill="#FFD700" opacity="0.7">
+                    <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+                </circle>
             </svg>
         </div>
     </div>
