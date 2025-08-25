@@ -78,10 +78,12 @@
             <div class="text-sm text-gray-400">
                 © {{ current_year }} PSL Mobil Enerji. Tüm hakları saklıdır.
             </div>
-            <div class="flex items-center space-x-6 text-sm">
-                <a href="/robots.txt" class="text-gray-400 hover:text-electric-blue transition-colors">Robots</a>
-                <a href="/sitemap.xml" class="text-gray-400 hover:text-electric-blue transition-colors">Site Haritası</a>
-                <a href="/humans.txt" class="text-gray-400 hover:text-electric-blue transition-colors">Humans</a>
+            <div class="flex items-center space-x-3">
+                <span class="text-sm text-gray-400">Tasarım & Yazılım:</span>
+                <a href="https://toov.com.tr" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                    <img src="{{ url_for('static', filename='img/toov-logo.png') }}" alt="TOOV" class="h-6 w-auto">
+                    <span class="text-sm text-electric-blue font-medium">TOOV</span>
+                </a>
             </div>
         </div>
     </div>
