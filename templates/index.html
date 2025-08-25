@@ -7,7 +7,9 @@
     {% include 'partials/hero.html' %}
     
     <!-- Stats Section -->
-    <section class="py-20 bg-gradient-to-r from-black/80 to-electric-gray/80">
+    <section class="py-20 bg-gradient-to-r from-black/90 to-electric-dark/80 relative">
+        <!-- Smooth transition overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-transparent"></div>
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
                 <div class="space-y-2" data-aos="fade-up" data-aos-delay="100">
@@ -35,7 +37,9 @@
     </section>
     
     <!-- Services Preview -->
-    <section class="py-20 bg-electric-dark electric-circuit relative">
+    <section class="py-20 bg-gradient-to-b from-electric-dark via-electric-dark to-black electric-circuit relative">
+        <!-- Smooth color transition -->
+        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black/50 to-transparent"></div>
         <div class="container mx-auto px-4">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-5xl font-bold mb-6">
@@ -133,7 +137,9 @@
     </section>
     
     <!-- Technology Preview -->
-    <section class="py-20 bg-gradient-to-b from-electric-dark to-black">
+    <section class="py-20 bg-gradient-to-b from-black via-electric-dark/50 to-black relative">
+        <!-- Seamless transition -->
+        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-electric-dark to-transparent"></div>
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-8" data-aos="fade-right">
@@ -184,21 +190,10 @@
                 </div>
                 
                 <div class="relative" data-aos="fade-left">
-                    <div class="glass-panel p-8 rounded-2xl">
-                        <img src="{{ url_for('static', filename='img/mobile-generator-van.png') }}" 
-                             alt="PSL Mobil Enerji Van" 
-                             class="w-full h-auto rounded-xl">
-                    </div>
-                    
-                    <!-- Floating specs -->
-                    <div class="absolute -top-4 -right-4 glass-panel p-4 rounded-lg" data-aos="zoom-in" data-aos-delay="500">
-                        <div class="text-electric-blue text-2xl font-bold">250 kVA</div>
-                        <div class="text-xs text-gray-400">Maks. Güç</div>
-                    </div>
-                    
-                    <div class="absolute -bottom-4 -left-4 glass-panel p-4 rounded-lg" data-aos="zoom-in" data-aos-delay="700">
-                        <div class="text-electric-cyan text-2xl font-bold">24h</div>
-                        <div class="text-xs text-gray-400">Çalışma</div>
+                    <div class="glass-panel p-4 rounded-2xl">
+                        <img src="{{ url_for('static', filename='img/technology-photo.jpeg') }}" 
+                             alt="PSL Mobil Enerji Teknoloji" 
+                             class="w-full h-auto rounded-xl object-cover">
                     </div>
                 </div>
             </div>
@@ -206,7 +201,9 @@
     </section>
     
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-electric-blue/10 to-electric-cyan/10 border-y border-electric-blue/20">
+    <section class="py-20 bg-gradient-to-r from-electric-blue/10 to-electric-cyan/10 border-y border-electric-blue/20 relative">
+        <!-- Smooth top transition -->
+        <div class="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-black/80 to-transparent"></div>
         <div class="container mx-auto px-4 text-center">
             <div class="max-w-4xl mx-auto space-y-8" data-aos="fade-up">
                 <h2 class="text-3xl md:text-5xl font-bold">
