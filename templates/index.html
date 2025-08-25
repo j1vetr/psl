@@ -6,26 +6,57 @@
     <!-- Hero Section -->
     {% include 'partials/hero.html' %}
     
-    <!-- Modern Separator -->
-    <div class="relative h-24 bg-gradient-to-b from-black via-electric-dark/30 to-electric-dark overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-electric-blue/5 to-transparent"></div>
-        <svg class="absolute bottom-0 w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,60 Q300,0 600,60 T1200,60 L1200,120 L0,120 Z" fill="url(#goldGradient)"/>
-            <defs>
-                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:rgba(255,215,0,0.1);stop-opacity:1" />
-                    <stop offset="50%" style="stop-color:rgba(255,165,0,0.2);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(255,215,0,0.1);stop-opacity:1" />
-                </linearGradient>
-            </defs>
-        </svg>
+    <!-- Enhanced Electric Transition -->
+    <div class="relative h-32 bg-gradient-to-b from-black via-electric-dark/40 to-electric-dark overflow-hidden">
+        <!-- Dynamic Electric Current -->
+        <div class="absolute inset-0">
+            <svg class="w-full h-full" viewBox="0 0 1200 128" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="electricFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgba(255,215,0,0.1)" />
+                        <stop offset="25%" style="stop-color:rgba(255,215,0,0.4)" />
+                        <stop offset="50%" style="stop-color:rgba(255,165,0,0.6)" />
+                        <stop offset="75%" style="stop-color:rgba(255,215,0,0.4)" />
+                        <stop offset="100%" style="stop-color:rgba(255,215,0,0.1)" />
+                        <animateTransform attributeName="gradientTransform" type="translate" values="-100 0;100 0;-100 0" dur="4s" repeatCount="indefinite"/>
+                    </linearGradient>
+                    <filter id="electricGlow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                <!-- Electric Current Lines -->
+                <path d="M0,64 Q200,40 400,64 T800,64 Q1000,80 1200,64" stroke="url(#electricFlow)" stroke-width="2" fill="none" filter="url(#electricGlow)" opacity="0.8"/>
+                <path d="M0,80 Q300,50 600,80 T1200,80" stroke="url(#electricFlow)" stroke-width="1" fill="none" filter="url(#electricGlow)" opacity="0.6"/>
+                <!-- Bottom Wave -->
+                <path d="M0,96 Q300,80 600,96 T1200,96 L1200,128 L0,128 Z" fill="url(#electricFlow)" opacity="0.3"/>
+            </svg>
+        </div>
+        <!-- Floating Particles -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="electric-particles">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <div class="particle particle-5"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Enhanced Stats Section -->
-    <section class="py-20 bg-gradient-to-b from-electric-dark to-black relative">
+    <section class="py-24 bg-gradient-to-b from-electric-dark via-electric-dark/80 to-black relative overflow-hidden">
+        <!-- Enhanced Background Effects -->
         <div class="absolute inset-0 opacity-5">
             <div class="futuristic-grid"></div>
         </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-electric-gold/5 to-transparent transform skew-y-1"></div>
+        <!-- Floating Energy Rings -->
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 border border-electric-gold/20 rounded-full animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-48 h-48 border border-electric-orange/20 rounded-full animate-pulse" style="animation-delay: 1s"></div>
         <div class="container mx-auto px-4 relative z-10">
             <!-- Section Header -->
             <div class="text-center mb-16" data-aos="fade-up">
@@ -69,10 +100,25 @@
         </div>
     </section>
     
+    <!-- Dynamic Section Divider -->
+    <div class="relative h-24 bg-gradient-to-b from-black to-electric-dark overflow-hidden">
+        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1200 96" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="energyWave" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgba(255,215,0,0.2)" />
+                    <stop offset="50%" style="stop-color:rgba(255,165,0,0.4)" />
+                    <stop offset="100%" style="stop-color:rgba(255,215,0,0.2)" />
+                </linearGradient>
+            </defs>
+            <path d="M0,48 Q400,20 800,48 T1600,48" stroke="url(#energyWave)" stroke-width="3" fill="none" opacity="0.6">
+                <animateTransform attributeName="transform" type="translate" values="-400 0;0 0;-400 0" dur="6s" repeatCount="indefinite"/>
+            </path>
+            <path d="M0,60 Q300,35 600,60 T1200,60 L1200,96 L0,96 Z" fill="url(#energyWave)" opacity="0.3"/>
+        </svg>
+    </div>
+
     <!-- Services Preview -->
-    <section class="py-20 bg-gradient-to-b from-electric-dark via-electric-dark to-black electric-circuit relative">
-        <!-- Smooth color transition -->
-        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black/50 to-transparent"></div>
+    <section class="py-24 bg-gradient-to-b from-electric-dark via-electric-dark/90 to-black electric-circuit relative overflow-hidden">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16" data-aos="fade-up" data-aos-offset="100">
                 <h2 class="text-3xl md:text-5xl font-bold mb-6">
@@ -87,24 +133,24 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="electric-card glass-panel p-6 rounded-xl hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="50" data-aos-offset="100">
-                    <div class="bg-electric-blue/20 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-electric-blue/30 transition-colors">
-                        <i data-feather="calendar" class="w-8 h-8 text-electric-blue"></i>
+                    <div class="bg-electric-gold/20 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-electric-gold/30 transition-colors">
+                        <i data-feather="calendar" class="w-8 h-8 text-electric-gold"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Etkinlik & Organizasyon</h3>
                     <p class="text-gray-400 text-sm mb-4">Konsert, festival ve düğünler için sessiz, güvenilir güç desteği</p>
-                    <a href="{{ url_for('sektorler') }}#etkinlik" class="text-electric-blue hover:text-electric-cyan font-medium text-sm flex items-center space-x-2">
+                    <a href="{{ url_for('sektorler') }}#etkinlik" class="text-electric-gold hover:text-electric-orange font-medium text-sm flex items-center space-x-2">
                         <span>Detaylar</span>
                         <i data-feather="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
                 
                 <div class="electric-card glass-panel p-6 rounded-xl hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-electric-cyan/20 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-electric-cyan/30 transition-colors">
-                        <i data-feather="tool" class="w-8 h-8 text-electric-cyan"></i>
+                    <div class="bg-electric-orange/20 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-electric-orange/30 transition-colors">
+                        <i data-feather="tool" class="w-8 h-8 text-electric-orange"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">İnşaat/Şantiye</h3>
                     <p class="text-gray-400 text-sm mb-4">Ağır makine ve şantiye ihtiyaçları için yüksek kapasiteli çözümler</p>
-                    <a href="{{ url_for('sektorler') }}#insaat" class="text-electric-cyan hover:text-electric-blue font-medium text-sm flex items-center space-x-2">
+                    <a href="{{ url_for('sektorler') }}#insaat" class="text-electric-orange hover:text-electric-gold font-medium text-sm flex items-center space-x-2">
                         <span>Detaylar</span>
                         <i data-feather="arrow-right" class="w-4 h-4"></i>
                     </a>
@@ -169,10 +215,17 @@
         </div>
     </section>
     
+    <!-- Technology Section Transition -->
+    <div class="relative h-20 bg-gradient-to-b from-electric-dark to-black overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-electric-gold/10 via-transparent to-electric-orange/10 transform -skew-y-1"></div>
+        <!-- Scanning Line Effect -->
+        <div class="absolute top-1/2 w-full h-px bg-gradient-to-r from-transparent via-electric-gold to-transparent transform -translate-y-1/2">
+            <div class="scan-line"></div>
+        </div>
+    </div>
+
     <!-- Technology Preview -->
-    <section class="py-20 bg-gradient-to-b from-black via-electric-dark/50 to-black relative">
-        <!-- Seamless transition -->
-        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-electric-dark to-transparent"></div>
+    <section class="py-24 bg-gradient-to-b from-black via-electric-dark/60 to-black relative overflow-hidden">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-8" data-aos="fade-right">
@@ -242,10 +295,26 @@
         </div>
     </section>
     
+    <!-- CTA Section Transition -->
+    <div class="relative h-16 bg-gradient-to-b from-black to-electric-dark/30 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-electric-gold/20 via-electric-orange/30 to-electric-gold/20"></div>
+        <div class="absolute bottom-0 w-full h-px bg-gradient-to-r from-transparent via-electric-gold via-electric-orange to-transparent"></div>
+    </div>
+
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-electric-blue/10 to-electric-cyan/10 border-y border-electric-blue/20 relative">
-        <!-- Smooth top transition -->
-        <div class="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-black/80 to-transparent"></div>
+    <section class="py-24 bg-gradient-to-r from-electric-blue/15 to-electric-cyan/15 border-y border-electric-blue/30 relative overflow-hidden">
+        <!-- Enhanced Background -->
+        <div class="absolute inset-0 bg-gradient-to-b from-electric-dark/20 via-transparent to-electric-dark/20"></div>
+        <div class="absolute inset-0">
+            <div class="grid grid-cols-6 gap-4 opacity-5 transform rotate-12 scale-150">
+                <div class="h-32 bg-gradient-to-b from-electric-gold/30 to-transparent"></div>
+                <div class="h-24 bg-gradient-to-b from-electric-orange/30 to-transparent" style="animation-delay: 0.5s"></div>
+                <div class="h-40 bg-gradient-to-b from-electric-gold/30 to-transparent" style="animation-delay: 1s"></div>
+                <div class="h-28 bg-gradient-to-b from-electric-orange/30 to-transparent" style="animation-delay: 1.5s"></div>
+                <div class="h-36 bg-gradient-to-b from-electric-gold/30 to-transparent" style="animation-delay: 2s"></div>
+                <div class="h-32 bg-gradient-to-b from-electric-orange/30 to-transparent" style="animation-delay: 2.5s"></div>
+            </div>
+        </div>
         <div class="container mx-auto px-4 text-center">
             <div class="max-w-4xl mx-auto space-y-8" data-aos="fade-up">
                 <h2 class="text-3xl md:text-5xl font-bold">
