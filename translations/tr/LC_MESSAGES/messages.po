@@ -1,0 +1,161 @@
+# Turkish translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-01-25 00:49:00+0000\n"
+"PO-Revision-Date: 2025-01-25 00:49:00+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: tr\n"
+"Language-Team: tr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+# Common translations
+msgid "Home"
+msgstr "Ana Sayfa"
+
+msgid "Sectors"
+msgstr "Sektörler"
+
+msgid "Technology" 
+msgstr "Teknoloji"
+
+msgid "Gallery"
+msgstr "Galeri"
+
+msgid "Contact"
+msgstr "İletişim"
+
+msgid "Get Quote"
+msgstr "Teklif Al"
+
+msgid "Call Now"
+msgstr "Hemen Ara"
+
+msgid "Field Power Solutions"
+msgstr "Sahada Kesintisiz Güç"
+
+msgid "Mobile Generator Services for Every Location"
+msgstr "Araç Üstü Mobil Jeneratör ile Her Yerde Enerji"
+
+msgid "< 10 min Setup"
+msgstr "< 10 dk Kurulum"
+
+msgid "< 60 dB Silent"
+msgstr "< 60 dB Sessiz"
+
+msgid "24/7 Service"
+msgstr "7/24 Hizmet"
+
+msgid "Setup Time"
+msgstr "Kurulum Süresi"
+
+msgid "Fast and practical installation"
+msgstr "Hızlı ve pratik kurulum"
+
+msgid "Fuel Efficiency"
+msgstr "Yakıt Verimliliği"
+
+msgid "Economical operation"
+msgstr "Tasarruflu çalışma"
+
+msgid "Sound Level"
+msgstr "Ses Seviyesi"
+
+msgid "Silent operation"
+msgstr "Sessiz operasyon"
+
+msgid "Technical Support"
+msgstr "Teknik Destek"
+
+msgid "Uninterrupted service"
+msgstr "Kesintisiz hizmet"
+
+msgid "Sector Solutions"
+msgstr "Sektör Çözümleri"
+
+msgid "Professional energy solutions for every field from events to construction sites"
+msgstr "Etkinlikten şantiyeye, acil durumdan tarıma kadar her alanda profesyonel enerji çözümleri"
+
+msgid "Event & Organization"
+msgstr "Etkinlik & Organizasyon"
+
+msgid "Silent, reliable power support for concerts, festivals and weddings"
+msgstr "Konsert, festival ve düğünler için sessiz, güvenilir güç desteği"
+
+msgid "Construction/Site"
+msgstr "İnşaat/Şantiye"
+
+msgid "High capacity solutions for heavy machinery and construction site needs"
+msgstr "Ağır makine ve şantiye ihtiyaçları için yüksek kapasiteli çözümler"
+
+msgid "Emergency & Disaster"
+msgstr "Acil Durum & Afet"
+
+msgid "Instant power support for critical infrastructure in emergencies"
+msgstr "Kritik anlarda anında devreye giren acil güç desteği"
+
+msgid "Healthcare & Hospital"
+msgstr "Sağlık & Hastane"
+
+msgid "Critical power support for hospitals and healthcare facilities"
+msgstr "Hastane ve sağlık tesisleri için kritik güç desteği"
+
+msgid "Telecommunications"
+msgstr "Telekomünikasyon"
+
+msgid "Continuous energy for base stations and telecom infrastructure"
+msgstr "Baz istasyon ve telecom altyapısı için sürekli enerji"
+
+msgid "Education & Campus"
+msgstr "Eğitim & Kampüs"
+
+msgid "Reliable energy for schools, universities and educational institutions"
+msgstr "Okul, üniversite ve eğitim kurumları için güvenilir enerji"
+
+msgid "All Sectors"
+msgstr "Tüm Sektörler"
+
+msgid "Details"
+msgstr "Detaylar"
+
+msgid "Advanced Technology"
+msgstr "Gelişmiş Teknoloji"
+
+msgid "Silent Operation"
+msgstr "Sessiz Çalışma"
+
+msgid "Modern sound insulation with operation below 60 dB"
+msgstr "Modern ses yalıtımı ile 60 dB altında çalışma"
+
+msgid "Remote Monitoring"
+msgstr "Uzaktan İzleme"
+
+msgid "24/7 system monitoring and alert system based on GSM"
+msgstr "GSM tabanlı 7/24 sistem takibi ve uyarı sistemi"
+
+msgid "Fuel Efficiency"
+msgstr "Yakıt Verimliliği"
+
+msgid "Economic operation with 30% less fuel consumption"
+msgstr "%30 daha az yakıt tüketimi ile ekonomik çalışma"
+
+msgid "Technical Details"
+msgstr "Teknik Detaylar"
+
+msgid "For Your Project"
+msgstr "Projeniz İçin"
+
+msgid "Immediate Energy Solution"
+msgstr "Anında Enerji Çözümü"
+
+msgid "Contact us now for your mobile generator needs"
+msgstr "Mobil jeneratör ihtiyaçlarınız için hemen iletişime geçin"
