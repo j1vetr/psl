@@ -16,15 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         feather.replace();
     }
     
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100,
-            disable: window.innerWidth < 768 ? true : false // Disable on mobile for performance
-        });
-    }
+    // AOS removed - immediate content display
 });
 
 // Mobile Menu Toggle
@@ -235,26 +227,7 @@ function initFormEnhancements() {
 
 // Performance Optimizations
 function initPerformanceOptimizations() {
-    // Intersection Observer for animations
-    if ('IntersectionObserver' in window) {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        // Observe elements that need animation
-        const animatedElements = document.querySelectorAll('[data-aos]');
-        animatedElements.forEach(el => observer.observe(el));
-    }
+    // Intersection Observer removed - immediate content display
     
     // Lazy load images
     if ('loading' in HTMLImageElement.prototype) {
@@ -415,10 +388,7 @@ document.addEventListener('submit', function(e) {
 
 // Handle window resize for responsive adjustments
 window.addEventListener('resize', debounce(function() {
-    // Refresh AOS on resize
-    if (typeof AOS !== 'undefined') {
-        AOS.refresh();
-    }
+    // AOS removed - no refresh needed
     
     // Mobile menu is handled by initMobileMenu function
 }, 250));
@@ -432,38 +402,14 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// GSAP Advanced Electric Animations
+// GSAP Basic Animations - No Scroll Triggers
 function initGSAPAnimations() {
-    // Register GSAP plugins
+    // Register GSAP plugins (no ScrollTrigger)
     if (typeof gsap !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+        gsap.registerPlugin(TextPlugin);
         
-        // Electric Loading Animation - Only on first visit
-        if (!localStorage.getItem('visited_before')) {
-            createElectricLoadingAnimation();
-            localStorage.setItem('visited_before', 'true');
-        }
-        
-        // Hero Electric Text Animation
-        animateHeroText();
-        
-        // Electric Border Animations
-        animateElectricBorders();
-        
-        // Floating Electric Orbs
+        // Basic floating orbs only
         createFloatingOrbs();
-        
-        // Electric Card Reveals
-        animateCardReveals();
-        
-        // Electric Counter Animations
-        animateCounters();
-        
-        // Electric Button Hover Effects
-        enhanceButtonHovers();
-        
-        // Electric Page Transitions
-        setupPageTransitions();
         
         // Electric Particle System
         initializeElectricParticleSystem();
@@ -718,47 +664,7 @@ function createElectricSpark(element) {
     );
 }
 
-// Electric Border Animations
-function animateElectricBorders() {
-    const cards = document.querySelectorAll('.electric-card');
-    
-    cards.forEach((card, index) => {
-        // Create electric border elements
-        const borderTop = document.createElement('div');
-        const borderRight = document.createElement('div');
-        const borderBottom = document.createElement('div');
-        const borderLeft = document.createElement('div');
-        
-        [borderTop, borderRight, borderBottom, borderLeft].forEach(border => {
-            border.className = 'electric-border-line';
-            border.style.cssText = `
-                position: absolute;
-                background: linear-gradient(90deg, transparent, #FFD700, transparent);
-                z-index: 1;
-            `;
-            card.appendChild(border);
-        });
-        
-        // Position borders
-        borderTop.style.cssText += 'top: 0; left: 0; width: 100%; height: 2px;';
-        borderRight.style.cssText += 'top: 0; right: 0; width: 2px; height: 100%; background: linear-gradient(0deg, transparent, #FFD700, transparent);';
-        borderBottom.style.cssText += 'bottom: 0; left: 0; width: 100%; height: 2px;';
-        borderLeft.style.cssText += 'top: 0; left: 0; width: 2px; height: 100%; background: linear-gradient(0deg, transparent, #FFD700, transparent);';
-        
-        // Animate on scroll
-        ScrollTrigger.create({
-            trigger: card,
-            start: "top 80%",
-            onEnter: () => {
-                const tl = gsap.timeline();
-                tl.fromTo([borderTop, borderRight, borderBottom, borderLeft],
-                    { opacity: 0, scale: 0 },
-                    { opacity: 1, scale: 1, duration: 0.6, stagger: 0.1 }
-                );
-            }
-        });
-    });
-}
+// Electric Border Animations - Removed scroll triggers
 
 // Floating Electric Orbs
 function createFloatingOrbs() {
@@ -816,124 +722,11 @@ function createFloatingOrbs() {
     document.body.appendChild(orbContainer);
 }
 
-// Electric Card Reveals
-function animateCardReveals() {
-    const cards = document.querySelectorAll('.glass-panel');
-    
-    cards.forEach((card, index) => {
-        ScrollTrigger.create({
-            trigger: card,
-            start: "top 85%",
-            onEnter: () => {
-                gsap.fromTo(card,
-                    { 
-                        opacity: 0, 
-                        y: 60, 
-                        rotationY: -15,
-                        transformOrigin: "center center"
-                    },
-                    { 
-                        opacity: 1, 
-                        y: 0, 
-                        rotationY: 0,
-                        duration: 0.8, 
-                        delay: index * 0.1,
-                        ease: "power3.out"
-                    }
-                );
-                
-                // Electric spark effect
-                const spark = document.createElement('div');
-                spark.style.cssText = `
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    width: 2px;
-                    height: 2px;
-                    background: #FFD700;
-                    transform: translate(-50%, -50%);
-                    pointer-events: none;
-                `;
-                card.appendChild(spark);
-                
-                gsap.to(spark, {
-                    scale: 20,
-                    opacity: 0,
-                    duration: 0.5,
-                    onComplete: () => card.removeChild(spark)
-                });
-            }
-        });
-    });
-}
+// Card reveals - Removed scroll triggers
 
-// Electric Counter Animations
-function animateCounters() {
-    const counters = document.querySelectorAll('[class*="text-4xl"]');
-    
-    counters.forEach(counter => {
-        const text = counter.innerText;
-        const numbers = text.match(/\d+/);
-        
-        if (numbers) {
-            const targetNumber = parseInt(numbers[0]);
-            const unit = text.replace(numbers[0], '');
-            
-            ScrollTrigger.create({
-                trigger: counter,
-                start: "top 90%",
-                onEnter: () => {
-                    gsap.fromTo(counter, 
-                        { innerText: 0 },
-                        {
-                            innerText: targetNumber,
-                            duration: 2,
-                            snap: { innerText: 1 },
-                            onUpdate: function() {
-                                counter.innerText = Math.ceil(this.targets()[0].innerText) + unit;
-                            }
-                        }
-                    );
-                    
-                    // Electric pulse on complete
-                    gsap.to(counter, {
-                        textShadow: '0 0 20px #FFD700',
-                        duration: 0.3,
-                        repeat: 3,
-                        yoyo: true,
-                        delay: 2
-                    });
-                }
-            });
-        }
-    });
-}
+// Counter animations - Removed scroll triggers
 
-// Enhanced Button Hover Effects
-function enhanceButtonHovers() {
-    const buttons = document.querySelectorAll('a[class*="bg-electric"], button[class*="bg-electric"]');
-    
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-            gsap.to(button, {
-                scale: 1.05,
-                boxShadow: '0 0 30px rgba(255, 215, 0, 0.5)',
-                duration: 0.3
-            });
-            
-            // Electric spark trail
-            createSparkTrail(button);
-        });
-        
-        button.addEventListener('mouseleave', () => {
-            gsap.to(button, {
-                scale: 1,
-                boxShadow: '0 0 0px rgba(255, 215, 0, 0)',
-                duration: 0.3
-            });
-        });
-    });
-}
+// Button hover effects - Kept basic hover only
 
 // Create Spark Trail Effect
 function createSparkTrail(element) {
@@ -965,41 +758,7 @@ function createSparkTrail(element) {
     }
 }
 
-// Page Transition Effects
-function setupPageTransitions() {
-    const links = document.querySelectorAll('a[href^="/"], a[href^="./"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', (e) => {
-            if (!e.ctrlKey && !e.metaKey) {
-                e.preventDefault();
-                
-                // Electric page transition
-                const overlay = document.createElement('div');
-                overlay.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: -100%;
-                    width: 100vw;
-                    height: 100vh;
-                    background: linear-gradient(45deg, #FFD700, #FFA500);
-                    z-index: 9999;
-                `;
-                
-                document.body.appendChild(overlay);
-                
-                gsap.to(overlay, {
-                    left: '0%',
-                    duration: 0.5,
-                    ease: "power2.inOut",
-                    onComplete: () => {
-                        window.location.href = link.href;
-                    }
-                });
-            }
-        });
-    });
-}
+// Page transitions - Removed
 
 // ================================
 // MINIMALIST ELECTRIC PARTICLE SYSTEM

@@ -268,14 +268,13 @@
             document.querySelectorAll('.gallery-item').forEach(item => {
                 if (filter === 'all' || item.dataset.category === filter) {
                     item.style.display = 'block';
-                    item.setAttribute('data-aos', 'fade-up');
+                    // data-aos removed for immediate display
                 } else {
                     item.style.display = 'none';
                 }
             });
             
-            // Reinitialize AOS for filtered items
-            AOS.refresh();
+            // AOS removed - no refresh needed
         });
     });
     
