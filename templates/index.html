@@ -6,19 +6,49 @@
     <!-- Hero Section -->
     {% include 'partials/hero.html' %}
     
-    <!-- Modern Separator -->
-    <div class="relative h-24 bg-gradient-to-b from-black via-electric-dark/30 to-electric-dark overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-electric-blue/5 to-transparent"></div>
-        <svg class="absolute bottom-0 w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,60 Q300,0 600,60 T1200,60 L1200,120 L0,120 Z" fill="url(#goldGradient)"/>
-            <defs>
-                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:rgba(255,215,0,0.1);stop-opacity:1" />
-                    <stop offset="50%" style="stop-color:rgba(255,165,0,0.2);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(255,215,0,0.1);stop-opacity:1" />
-                </linearGradient>
-            </defs>
-        </svg>
+    <!-- Dynamic Electric Transition -->
+    <div class="hero-to-section-transition">
+        <!-- Electric Wave Separator -->
+        <div class="electric-wave-container">
+            <svg class="electric-wave-svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgba(255,215,0,0.8);stop-opacity:1" />
+                        <stop offset="25%" style="stop-color:rgba(255,165,0,0.9);stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:rgba(255,215,0,1);stop-opacity:1" />
+                        <stop offset="75%" style="stop-color:rgba(255,165,0,0.9);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:rgba(255,215,0,0.8);stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="electricGlow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge> 
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                <path class="electric-wave-path" d="M0,70 Q150,20 300,70 T600,70 Q750,20 900,70 T1200,70 L1200,120 L0,120 Z" fill="url(#waveGradient)" filter="url(#electricGlow)"/>
+                <path class="electric-wave-line" d="M0,70 Q150,20 300,70 T600,70 Q750,20 900,70 T1200,70" stroke="rgba(255,215,0,0.6)" stroke-width="2" fill="none"/>
+            </svg>
+        </div>
+        
+        <!-- Electric Particles Bridge -->
+        <div class="electric-particles-bridge">
+            <div class="particle-stream stream-1"></div>
+            <div class="particle-stream stream-2"></div>
+            <div class="particle-stream stream-3"></div>
+        </div>
+        
+        <!-- Energy Grid Transition -->
+        <div class="energy-grid-transition">
+            <div class="grid-line horizontal line-1"></div>
+            <div class="grid-line horizontal line-2"></div>
+            <div class="grid-line vertical line-3"></div>
+            <div class="grid-line vertical line-4"></div>
+            <div class="grid-node node-1"></div>
+            <div class="grid-node node-2"></div>
+            <div class="grid-node node-3"></div>
+        </div>
     </div>
 
     <!-- Enhanced Stats Section -->
@@ -68,6 +98,22 @@
             </div>
         </div>
     </section>
+    
+    <!-- Electric Circuit Transition -->
+    <div class="circuit-transition-container">
+        <div class="circuit-pattern">
+            <div class="circuit-line c-line-1"></div>
+            <div class="circuit-line c-line-2"></div>
+            <div class="circuit-line c-line-3"></div>
+            <div class="circuit-node c-node-1"></div>
+            <div class="circuit-node c-node-2"></div>
+        </div>
+        <div class="electric-sparks">
+            <div class="spark spark-1"></div>
+            <div class="spark spark-2"></div>
+            <div class="spark spark-3"></div>
+        </div>
+    </div>
     
     <!-- Services Preview -->
     <section class="py-20 bg-gradient-to-b from-electric-dark via-electric-dark to-black electric-circuit relative">
@@ -169,6 +215,18 @@
         </div>
     </section>
     
+    <!-- Plasma Wave Transition -->
+    <div class="plasma-wave-transition">
+        <div class="plasma-layer layer-1"></div>
+        <div class="plasma-layer layer-2"></div>
+        <div class="plasma-layer layer-3"></div>
+        <div class="energy-ripples">
+            <div class="ripple ripple-1"></div>
+            <div class="ripple ripple-2"></div>
+            <div class="ripple ripple-3"></div>
+        </div>
+    </div>
+    
     <!-- Technology Preview -->
     <section class="py-20 bg-gradient-to-b from-black via-electric-dark/50 to-black relative">
         <!-- Seamless transition -->
@@ -241,6 +299,21 @@
             </div>
         </div>
     </section>
+    
+    <!-- Digital Matrix Transition -->
+    <div class="matrix-transition-container">
+        <div class="matrix-rain">
+            <div class="matrix-column col-1"></div>
+            <div class="matrix-column col-2"></div>
+            <div class="matrix-column col-3"></div>
+            <div class="matrix-column col-4"></div>
+            <div class="matrix-column col-5"></div>
+        </div>
+        <div class="data-stream">
+            <div class="data-line d-line-1"></div>
+            <div class="data-line d-line-2"></div>
+        </div>
+    </div>
     
     <!-- CTA Section -->
     <section class="py-20 bg-gradient-to-r from-electric-blue/10 to-electric-cyan/10 border-y border-electric-blue/20 relative">
