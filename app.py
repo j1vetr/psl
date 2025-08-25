@@ -175,24 +175,31 @@ def galeri():
     gallery_items = [
         {
             'id': 1,
-            'title': 'Mobil Jeneratör Sistemi',
+            'title': 'Mobil Jeneratör Van',
             'category': 'equipment',
-            'thumbnail': '/static/img/placeholder-van-hero.svg',
-            'full': '/static/img/placeholder-van-hero.svg'
+            'thumbnail': '/static/img/gallery-1.jpeg',
+            'full': '/static/img/gallery-1.jpeg'
         },
         {
             'id': 2,
-            'title': 'Kurulum Süreci',
+            'title': 'Elektrik Sistemi',
             'category': 'setup',
-            'thumbnail': '/static/img/placeholder-setup.svg',
-            'full': '/static/img/placeholder-setup.svg'
+            'thumbnail': '/static/img/gallery-2.jpeg',
+            'full': '/static/img/gallery-2.jpeg'
         },
         {
             'id': 3,
-            'title': 'Yan Görünüş',
+            'title': 'Araç Üstü Jeneratör',
             'category': 'equipment',
-            'thumbnail': '/static/img/placeholder-van-side.svg',
-            'full': '/static/img/placeholder-van-side.svg'
+            'thumbnail': '/static/img/gallery-3.jpeg',
+            'full': '/static/img/gallery-3.jpeg'
+        },
+        {
+            'id': 4,
+            'title': 'Kontrol Paneli',
+            'category': 'projects',
+            'thumbnail': '/static/img/gallery-4.jpeg',
+            'full': '/static/img/gallery-4.jpeg'
         }
     ]
     

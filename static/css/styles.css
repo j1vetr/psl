@@ -450,7 +450,7 @@ body {
   }
 }
 
-/* Electric Circuit Pattern Background */
+/* Subtle Electric Circuit Pattern Background - Futuristic but Calm */
 .electric-circuit {
   position: relative;
 }
@@ -463,25 +463,25 @@ body {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 20% 20%, var(--electric-blue) 1px, transparent 1px),
-    radial-gradient(circle at 80% 80%, var(--electric-cyan) 1px, transparent 1px),
-    radial-gradient(circle at 60% 30%, rgba(255, 215, 0, 0.3) 1px, transparent 1px);
-  background-size: 50px 50px, 80px 80px, 30px 30px;
-  opacity: 0.1;
-  animation: circuit-pulse 6s ease-in-out infinite;
+    radial-gradient(circle at 15% 25%, rgba(255, 215, 0, 0.15) 1px, transparent 1px),
+    radial-gradient(circle at 75% 65%, rgba(255, 165, 0, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 45% 85%, rgba(255, 215, 0, 0.08) 1px, transparent 1px);
+  background-size: 80px 80px, 120px 120px, 60px 60px;
+  opacity: 0.6;
+  animation: circuit-pulse 8s ease-in-out infinite;
   pointer-events: none;
 }
 
 @keyframes circuit-pulse {
   0%, 100% {
-    opacity: 0.05;
+    opacity: 0.4;
   }
   50% {
-    opacity: 0.15;
+    opacity: 0.8;
   }
 }
 
-/* Electric Particles */
+/* Subtle Electric Particles - More Professional */
 .electric-particles {
   position: absolute;
   top: 0;
@@ -490,28 +490,29 @@ body {
   height: 100%;
   pointer-events: none;
   overflow: hidden;
+  opacity: 0.6;
 }
 
 .electric-particle {
   position: absolute;
-  width: 2px;
-  height: 2px;
+  width: 1px;
+  height: 1px;
   background: var(--electric-blue);
   border-radius: 50%;
-  animation: particle-float 4s linear infinite;
+  animation: particle-float 8s linear infinite;
 }
 
 .electric-particle:nth-child(2n) {
   background: var(--electric-cyan);
-  animation-duration: 5s;
-  animation-delay: -1s;
+  animation-duration: 10s;
+  animation-delay: -2s;
 }
 
 .electric-particle:nth-child(3n) {
-  width: 1px;
-  height: 1px;
-  animation-duration: 6s;
-  animation-delay: -2s;
+  width: 1.5px;
+  height: 1.5px;
+  animation-duration: 12s;
+  animation-delay: -4s;
 }
 
 @keyframes particle-float {
@@ -519,51 +520,27 @@ body {
     transform: translateY(100vh) translateX(0);
     opacity: 0;
   }
-  10% {
-    opacity: 1;
+  20% {
+    opacity: 0.8;
   }
-  90% {
-    opacity: 1;
+  80% {
+    opacity: 0.8;
   }
   100% {
-    transform: translateY(-100vh) translateX(50px);
+    transform: translateY(-100vh) translateX(30px);
     opacity: 0;
   }
 }
 
-/* Premium Glow Effects */
+/* Subtle Premium Glow - Less Aggressive */
 .premium-glow {
   position: relative;
+  transition: all 0.3s ease;
 }
 
-.premium-glow::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, var(--electric-blue), var(--electric-cyan), var(--electric-blue));
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.premium-glow:hover::before {
-  opacity: 0.6;
-  animation: premium-glow-pulse 2s ease-in-out infinite;
-}
-
-@keyframes premium-glow-pulse {
-  0%, 100% {
-    transform: scale(1);
-    filter: blur(4px);
-  }
-  50% {
-    transform: scale(1.02);
-    filter: blur(6px);
-  }
+.premium-glow:hover {
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  transform: translateY(-1px);
 }
 
 /* Electric Lightning Effect */
@@ -599,10 +576,10 @@ body {
   pointer-events: none;
 }
 
-/* Enhanced Card Hover with Electric Effect */
+/* Subtle Electric Card Effect - Futuristic but Professional */
 .electric-card {
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -614,26 +591,13 @@ body {
   right: 0;
   bottom: 0;
   border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(45deg, transparent, var(--electric-blue), transparent, var(--electric-cyan), transparent);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: subtract;
+  background: linear-gradient(135deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
 .electric-card:hover::before {
-  opacity: 0.8;
-  animation: electric-border-rotate 3s linear infinite;
-}
-
-@keyframes electric-border-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  opacity: 1;
 }
 
 /* Performance optimizations */
