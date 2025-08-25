@@ -48,7 +48,7 @@ SMTP_CONFIG = {
     'to_email': os.environ.get('TO_EMAIL', 'info@pslmobilenerji.com')
 }
 
-WHATSAPP_PHONE = os.environ.get('WHATSAPP_PHONE', '905551234567')
+WHATSAPP_PHONE = os.environ.get('WHATSAPP_PHONE', '905335295399')
 
 def send_email(name, phone, email, message):
     """
