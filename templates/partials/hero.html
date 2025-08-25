@@ -1,105 +1,173 @@
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Background Image with Dark Overlay -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden futuristic-hero">
+    <!-- Futuristic Background Setup -->
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('{{ url_for('static', filename='img/hero-van.jpeg') }}')">
-        <!-- Dark Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
+        <!-- Advanced Dark Overlay with Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-black/90 via-black/70 to-electric-dark/60"></div>
         
-        <!-- Electric Background Effects -->
-        <div class="hero-electric-overlay"></div>
-        
-        <!-- Enhanced Electric Animation -->
+        <!-- Futuristic Grid Overlay -->
         <div class="absolute inset-0 opacity-20">
-            <svg class="w-full h-full" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+            <div class="futuristic-grid"></div>
+        </div>
+        
+        <!-- Advanced Electric Field Animation -->
+        <div class="absolute inset-0 electric-field-container">
+            <svg class="w-full h-full" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="powerElectric" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <linearGradient id="goldElectric" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" style="stop-color:#FFD700;stop-opacity:0" />
-                        <stop offset="30%" style="stop-color:#FFD700;stop-opacity:0.8" />
+                        <stop offset="25%" style="stop-color:#FFD700;stop-opacity:0.6" />
                         <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
-                        <stop offset="70%" style="stop-color:#FFD700;stop-opacity:0.8" />
+                        <stop offset="75%" style="stop-color:#FFD700;stop-opacity:0.6" />
                         <stop offset="100%" style="stop-color:#FFA500;stop-opacity:0" />
                     </linearGradient>
-                    <filter id="electricGlow">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <filter id="futuristicGlow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
                         <feMerge> 
                             <feMergeNode in="coloredBlur"/>
                             <feMergeNode in="SourceGraphic"/>
                         </feMerge>
                     </filter>
                 </defs>
-                <!-- Main power lines -->
-                <path d="M0,300 Q300,280 600,300 T1200,300" stroke="url(#powerElectric)" stroke-width="2" fill="none" 
-                      stroke-dasharray="40,20" filter="url(#electricGlow)" style="animation: electric-flow 4s linear infinite;"/>
-                <path d="M0,500 Q300,520 600,500 T1200,500" stroke="url(#powerElectric)" stroke-width="2" fill="none" 
-                      stroke-dasharray="30,15" filter="url(#electricGlow)" style="animation: electric-flow 5s linear infinite reverse;"/>
-                <!-- Electric nodes -->
-                <circle cx="200" cy="300" r="3" fill="#FFD700" opacity="0.8">
-                    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="600" cy="300" r="4" fill="#FFA500" opacity="0.9">
-                    <animate attributeName="opacity" values="0.9;1;0.9" dur="1.5s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="1000" cy="300" r="3" fill="#FFD700" opacity="0.7">
-                    <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
-                </circle>
+                <!-- Dynamic Power Circuit Lines -->
+                <g class="power-circuit">
+                    <!-- Main horizontal circuit -->
+                    <path d="M0,400 L300,400 L350,350 L400,400 L600,400 L650,450 L700,400 L1200,400 L1300,350 L1500,400 L1920,400" 
+                          stroke="url(#goldElectric)" stroke-width="3" fill="none" 
+                          stroke-dasharray="50,30" filter="url(#futuristicGlow)" 
+                          class="circuit-line-1"/>
+                    <!-- Secondary circuit -->
+                    <path d="M0,600 L200,600 L250,550 L300,600 L800,600 L850,650 L900,600 L1400,600 L1450,550 L1920,600" 
+                          stroke="url(#goldElectric)" stroke-width="2" fill="none" 
+                          stroke-dasharray="40,25" filter="url(#futuristicGlow)" 
+                          class="circuit-line-2"/>
+                    <!-- Vertical connectors -->
+                    <path d="M400,400 L400,450 L450,500 L400,550 L400,600" 
+                          stroke="#FFD700" stroke-width="2" fill="none" 
+                          stroke-dasharray="20,15" opacity="0.8" class="circuit-connector"/>
+                    <path d="M900,400 L900,450 L950,500 L900,550 L900,600" 
+                          stroke="#FFA500" stroke-width="2" fill="none" 
+                          stroke-dasharray="20,15" opacity="0.8" class="circuit-connector"/>
+                </g>
+                
+                <!-- Power Nodes -->
+                <g class="power-nodes">
+                    <circle cx="400" cy="400" r="6" fill="#FFD700" class="power-node">
+                        <animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="900" cy="400" r="8" fill="#FFA500" class="power-node">
+                        <animate attributeName="r" values="8;12;8" dur="1.5s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="400" cy="600" r="5" fill="#FFD700" class="power-node">
+                        <animate attributeName="r" values="5;8;5" dur="2.5s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="900" cy="600" r="7" fill="#FFA500" class="power-node">
+                        <animate attributeName="r" values="7;11;7" dur="1.8s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.9;1;0.9" dur="1.8s" repeatCount="indefinite"/>
+                    </circle>
+                </g>
             </svg>
         </div>
+        
+        <!-- Floating Energy Orbs -->
+        <div class="energy-orbs">
+            <div class="energy-orb orb-1"></div>
+            <div class="energy-orb orb-2"></div>
+            <div class="energy-orb orb-3"></div>
+            <div class="energy-orb orb-4"></div>
+            <div class="energy-orb orb-5"></div>
+        </div>
     </div>
     
-    <!-- Electric Particles -->
-    <div class="electric-particles">
-        <div class="electric-particle" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="electric-particle" style="left: 25%; animation-delay: -1s;"></div>
-        <div class="electric-particle" style="left: 40%; animation-delay: -2s;"></div>
-        <div class="electric-particle" style="left: 60%; animation-delay: -3s;"></div>
-        <div class="electric-particle" style="left: 80%; animation-delay: -1.5s;"></div>
-        <div class="electric-particle" style="left: 95%; animation-delay: -0.5s;"></div>
-    </div>
-    
-    <!-- Hero Content -->
-    <div class="relative z-10 text-center space-y-8 px-4 max-w-4xl mx-auto">
-        <!-- Main Headline -->
-        <div class="space-y-6" data-aos="fade-up">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
-                Sahada Kesintisiz 
-                <span class="electric-power-word bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
-                    Güç
-                </span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-300 font-medium">
-                Araç Üstü Mobil Jeneratör ile Her Yerde Enerji
-            </p>
-        </div>
-        
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4" data-aos="fade-up" data-aos-delay="300">
-            <a href="{{ url_for('iletisim') }}" 
-               class="bg-electric-blue hover:bg-electric-cyan text-electric-dark font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-electric-blue/25 flex items-center space-x-2 w-full sm:w-auto">
-                <i data-feather="zap" class="w-5 h-5"></i>
-                <span>Teklif Al</span>
-            </a>
-            <a href="tel:+905551234567" 
-               class="border-2 border-electric-blue hover:bg-electric-blue text-electric-blue hover:text-electric-dark font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 flex items-center space-x-2 w-full sm:w-auto">
-                <i data-feather="phone" class="w-5 h-5"></i>
-                <span>Hemen Ara</span>
-            </a>
-        </div>
-        
-        <!-- Info Pills -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8" data-aos="fade-up" data-aos-delay="500">
-            <div class="glass-panel px-4 py-2 rounded-full text-center">
-                <span class="text-electric-blue font-semibold text-sm">&lt;10 dk Kurulum</span>
-            </div>
-            <div class="glass-panel px-4 py-2 rounded-full text-center">
-                <span class="text-electric-cyan font-semibold text-sm">&lt;60 dB Sessiz</span>
-            </div>
-            <div class="glass-panel px-4 py-2 rounded-full text-center">
-                <span class="text-electric-blue font-semibold text-sm">7/24 Hizmet</span>
+    <!-- Main Hero Content Container -->
+    <div class="relative z-20 w-full">
+        <!-- Top Status Bar -->
+        <div class="absolute top-8 left-0 right-0 z-30">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <!-- Left Status -->
+                    <div class="futuristic-panel px-4 py-2">
+                        <span class="text-electric-gold text-xs font-mono">SYSTEM: ONLINE</span>
+                    </div>
+                    <!-- Right Status -->
+                    <div class="futuristic-panel px-4 py-2">
+                        <span class="text-electric-gold text-xs font-mono">POWER: 250kVA</span>
+                    </div>
+                </div>
             </div>
         </div>
         
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce" data-aos="fade-in" data-aos-delay="800">
-            <i data-feather="chevron-down" class="w-6 h-6"></i>
+        <!-- Central Content -->
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="text-center space-y-12 max-w-6xl mx-auto">
+                <!-- Main Title with Futuristic Design -->
+                <div class="space-y-8" data-aos="fade-up">
+                    <!-- Company Identifier -->
+                    <div class="futuristic-badge mx-auto">
+                        <span class="text-electric-gold font-mono text-sm tracking-wider">PSL MOBİL ENERJİ</span>
+                    </div>
+                    
+                    <!-- Main Headline -->
+                    <h1 class="futuristic-title">
+                        <span class="title-line-1">SAHADA</span>
+                        <span class="title-line-2">KESİNTİSİZ</span>
+                        <span class="title-line-3 electric-power-word-v2">GÜÇ</span>
+                    </h1>
+                    
+                    <!-- Subtitle -->
+                    <p class="futuristic-subtitle">
+                        <span class="subtitle-accent">&gt;</span> 
+                        ARAÇ ÜSTÜ MOBİL JENERATÖR İLE HER YERDE ENERJİ
+                        <span class="subtitle-accent">&lt;</span>
+                    </p>
+                </div>
+                
+                <!-- Action Interface -->
+                <div class="space-y-8" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Primary Actions -->
+                    <div class="flex flex-col lg:flex-row items-center justify-center gap-6">
+                        <a href="{{ url_for('iletisim') }}" class="futuristic-btn primary-action">
+                            <span class="btn-icon">⚡</span>
+                            <span class="btn-text">TEKLİF AL</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                        <a href="tel:+905551234567" class="futuristic-btn secondary-action">
+                            <span class="btn-icon">📞</span>
+                            <span class="btn-text">HEMEN ARA</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                    </div>
+                    
+                    <!-- System Stats -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                        <div class="futuristic-stat-card" data-aos="zoom-in" data-aos-delay="500">
+                            <div class="stat-value">&lt; 10 DK</div>
+                            <div class="stat-label">KURULUM SÜRESİ</div>
+                            <div class="stat-indicator"></div>
+                        </div>
+                        <div class="futuristic-stat-card" data-aos="zoom-in" data-aos-delay="600">
+                            <div class="stat-value">&lt; 60 DB</div>
+                            <div class="stat-label">SES SEVİYESİ</div>
+                            <div class="stat-indicator"></div>
+                        </div>
+                        <div class="futuristic-stat-card" data-aos="zoom-in" data-aos-delay="700">
+                            <div class="stat-value">7/24</div>
+                            <div class="stat-label">TEKNİK DESTEK</div>
+                            <div class="stat-indicator"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Navigation Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+            <div class="futuristic-scroll-indicator">
+                <div class="scroll-arrow"></div>
+                <span class="scroll-text">SCROLL</span>
+            </div>
         </div>
     </div>
 </section>
