@@ -6,31 +6,86 @@
     <!-- Hero Section -->
     {% include 'partials/hero.html' %}
     
-    <!-- Stats Section -->
-    <section class="py-20 bg-gradient-to-r from-black/90 to-electric-dark/80 relative">
-        <!-- Smooth transition overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-transparent"></div>
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-                <div class="space-y-2" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-4xl font-bold text-electric-blue">< 10 dk</div>
-                    <div class="text-lg font-semibold">Kurulum Süresi</div>
-                    <div class="text-sm text-gray-400">Hızlı ve pratik kurulum</div>
+    <!-- Modern Separator -->
+    <div class="relative h-24 bg-gradient-to-b from-black via-electric-dark/30 to-electric-dark overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-electric-blue/5 to-transparent"></div>
+        <svg class="absolute bottom-0 w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,60 Q300,0 600,60 T1200,60 L1200,120 L0,120 Z" fill="url(#goldGradient)"/>
+            <defs>
+                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgba(255,215,0,0.1);stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:rgba(255,165,0,0.2);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgba(255,215,0,0.1);stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- Enhanced Stats Section -->
+    <section class="py-20 bg-gradient-to-b from-electric-dark to-black relative">
+        <div class="absolute inset-0 opacity-5">
+            <div class="futuristic-grid"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
+                        Mobil Enerji Avantajları
+                    </span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    PSL Mobil Enerji ile sahada kesintisiz güç deneyiminin rakamları
+                </p>
+            </div>
+            
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="futuristic-stat-card text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-value">250kVA</div>
+                    <div class="stat-label">MAKSİMUM GÜÇ</div>
+                    <div class="text-xs text-gray-500 mt-2">Ağır sanayi için yeterli</div>
+                    <div class="stat-indicator"></div>
                 </div>
-                <div class="space-y-2" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl font-bold text-electric-cyan">%30</div>
-                    <div class="text-lg font-semibold">Yakıt Verimliliği</div>
-                    <div class="text-sm text-gray-400">Tasarruflu çalışma</div>
+                <div class="futuristic-stat-card text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-value">24 SAAT</div>
+                    <div class="stat-label">KESİNTİSİZ ÇALIŞMA</div>
+                    <div class="text-xs text-gray-500 mt-2">Tek yakıt ile</div>
+                    <div class="stat-indicator"></div>
                 </div>
-                <div class="space-y-2" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-4xl font-bold text-electric-blue">< 60 dB</div>
-                    <div class="text-lg font-semibold">Ses Seviyesi</div>
-                    <div class="text-sm text-gray-400">Sessiz operasyon</div>
+                <div class="futuristic-stat-card text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-value">5 DAKİKA</div>
+                    <div class="stat-label">KURULUM SÜRESİ</div>
+                    <div class="text-xs text-gray-500 mt-2">Plug & play sistemi</div>
+                    <div class="stat-indicator"></div>
                 </div>
-                <div class="space-y-2" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-4xl font-bold text-electric-cyan">7/24</div>
-                    <div class="text-lg font-semibold">Teknik Destek</div>
-                    <div class="text-sm text-gray-400">Kesintisiz hizmet</div>
+                <div class="futuristic-stat-card text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">BAŞARILI PROJE</div>
+                    <div class="text-xs text-gray-500 mt-2">Farklı sektörlerde</div>
+                    <div class="stat-indicator"></div>
+                </div>
+            </div>
+            
+            <!-- Additional Stats Row -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="500">
+                    <div class="futuristic-panel p-6">
+                        <div class="text-2xl font-bold text-electric-blue mb-2">< 55 dB</div>
+                        <div class="text-sm text-gray-400">Sessiz operasyon garantisi</div>
+                    </div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="600">
+                    <div class="futuristic-panel p-6">
+                        <div class="text-2xl font-bold text-electric-cyan mb-2">7/24</div>
+                        <div class="text-sm text-gray-400">Teknik destek hizmeti</div>
+                    </div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="700">
+                    <div class="futuristic-panel p-6">
+                        <div class="text-2xl font-bold text-electric-blue mb-2">%99.9</div>
+                        <div class="text-sm text-gray-400">Çalışma güvenilirliği</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -190,10 +245,19 @@
                 </div>
                 
                 <div class="relative" data-aos="fade-left">
-                    <div class="glass-panel p-4 rounded-2xl">
-                        <img src="{{ url_for('static', filename='img/technology-photo.jpeg') }}" 
-                             alt="PSL Mobil Enerji Teknoloji" 
-                             class="w-full h-auto rounded-xl object-cover">
+                    <div class="tech-image-frame">
+                        <div class="tech-image-border">
+                            <img src="{{ url_for('static', filename='img/technology-photo.jpeg') }}" 
+                                 alt="PSL Mobil Enerji Teknoloji" 
+                                 class="tech-image">
+                        </div>
+                        <div class="tech-corner-effects">
+                            <div class="tech-corner top-left"></div>
+                            <div class="tech-corner top-right"></div>
+                            <div class="tech-corner bottom-left"></div>
+                            <div class="tech-corner bottom-right"></div>
+                        </div>
+                        <div class="tech-scanning-line"></div>
                     </div>
                 </div>
             </div>

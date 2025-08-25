@@ -994,39 +994,8 @@ function createParticleContainers() {
 }
 
 function createParticleControls() {
-    // Create toggle button
-    const toggleBtn = document.createElement('div');
-    toggleBtn.className = 'particle-toggle-btn';
-    toggleBtn.innerHTML = '⚡';
-    toggleBtn.onclick = toggleParticlePanel;
-    document.body.appendChild(toggleBtn);
-    
-    // Create control panel
-    const controlPanel = document.createElement('div');
-    controlPanel.className = 'particle-control-panel';
-    controlPanel.innerHTML = `
-        <div style="margin-bottom: 10px; font-weight: bold;">Electric Particles</div>
-        <div style="margin-bottom: 5px;">Intensity</div>
-        <input type="range" class="intensity-slider" min="0" max="4" value="2" step="1">
-        <div style="display: flex; justify-content: space-between; font-size: 10px; margin-top: 5px;">
-            <span>Off</span>
-            <span>Low</span>
-            <span>Med</span>
-            <span>High</span>
-            <span>Ultra</span>
-        </div>
-        <div style="margin-top: 15px;">
-            <button onclick="resetParticles()" style="background: rgba(255,215,0,0.2); border: 1px solid #FFD700; color: #FFD700; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 10px;">Reset</button>
-        </div>
-    `;
-    document.body.appendChild(controlPanel);
-    
-    // Setup intensity control
-    const slider = controlPanel.querySelector('.intensity-slider');
-    slider.addEventListener('input', function() {
-        particleSystem.intensity = parseInt(this.value);
-        updateParticleIntensity();
-    });
+    // Keep particles at medium level, no UI controls needed
+    particleSystem.intensity = 2; // Medium level
 }
 
 function toggleParticlePanel() {
