@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initFormEnhancements();
     initPerformanceOptimizations();
     initGSAPAnimations();
+    initPageTransitions();
     
     // Initialize external libraries if available
     if (typeof feather !== 'undefined') {
@@ -437,8 +438,11 @@ function initGSAPAnimations() {
     if (typeof gsap !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger, TextPlugin);
         
-        // Electric Loading Animation
-        createElectricLoadingAnimation();
+        // Electric Loading Animation - Only on first visit
+        if (!localStorage.getItem('visited_before')) {
+            createElectricLoadingAnimation();
+            localStorage.setItem('visited_before', 'true');
+        }
         
         // Hero Electric Text Animation
         animateHeroText();
@@ -464,6 +468,42 @@ function initGSAPAnimations() {
         // Electric Particle System
         initializeElectricParticleSystem();
     }
+}
+
+// Simple Page Transition for Navigation
+function createSimplePageTransition() {
+    // Create simple transition overlay
+    const transitionOverlay = document.createElement('div');
+    transitionOverlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(45deg, #FFD700, #FFA500);
+        z-index: 999999;
+        opacity: 0;
+        pointer-events: none;
+    `;
+    
+    document.body.appendChild(transitionOverlay);
+    
+    // Quick fade in and out
+    gsap.timeline()
+      .to(transitionOverlay, { 
+        opacity: 0.8, 
+        duration: 0.2,
+        ease: "power2.out"
+      })
+      .to(transitionOverlay, { 
+        opacity: 0, 
+        duration: 0.2, 
+        delay: 0.1,
+        ease: "power2.inOut",
+        onComplete: () => {
+          document.body.removeChild(transitionOverlay);
+        }
+      });
 }
 
 // Electric Loading Animation - Faster Preloading
@@ -1157,6 +1197,27 @@ function manageParticleLifecycle() {
             });
         }
     }, 5000); // Every 5 seconds
+}
+
+// Initialize Page Transitions
+function initPageTransitions() {
+    // Add transition effect to all navigation links
+    const navLinks = document.querySelectorAll('a[href^="/"], a[href^="./"], a[href^="{{ url_for"], .nav-link, .mobile-nav-link');
+    
+    navLinks.forEach(link => {
+        // Skip external links and same page anchors
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('tel:') || href.startsWith('mailto:')) {
+            return;
+        }
+        
+        link.addEventListener('click', function(e) {
+            // Only show transition if we're navigating to a different page
+            if (window.location.pathname !== href && typeof gsap !== 'undefined') {
+                createSimplePageTransition();
+            }
+        });
+    });
 }
 
 // Global functions for controls
