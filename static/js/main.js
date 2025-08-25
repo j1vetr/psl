@@ -447,6 +447,9 @@ function initGSAPAnimations() {
         
         // Electric Page Transitions
         setupPageTransitions();
+        
+        // Electric Particle System
+        initializeElectricParticleSystem();
     }
 }
 
@@ -932,6 +935,239 @@ function setupPageTransitions() {
         });
     });
 }
+
+// ================================
+// MINIMALIST ELECTRIC PARTICLE SYSTEM
+// ================================
+
+let particleSystem = {
+    container: null,
+    particles: [],
+    isActive: true,
+    intensity: 2, // 0: off, 1: low, 2: medium, 3: high, 4: ultra
+    maxParticles: {
+        0: 0,
+        1: 15,
+        2: 25,
+        3: 40,
+        4: 60
+    }
+};
+
+function initializeElectricParticleSystem() {
+    console.log('%c⚡ Electric Particle System Initialized ⚡', 'color: #FFD700; font-size: 12px; font-weight: bold;');
+    
+    // Create particle containers for different sections
+    createParticleContainers();
+    
+    // Create control UI
+    createParticleControls();
+    
+    // Start particle generation
+    generateParticles();
+    
+    // Setup particle management
+    manageParticleLifecycle();
+}
+
+function createParticleContainers() {
+    // Add particles to hero section
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+        const heroContainer = document.createElement('div');
+        heroContainer.className = 'electric-particle-container';
+        heroContainer.id = 'hero-particles';
+        heroSection.appendChild(heroContainer);
+    }
+    
+    // Add particles to main sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach((section, index) => {
+        if (index > 0) { // Skip hero section
+            const container = document.createElement('div');
+            container.className = 'electric-particle-container';
+            container.id = `section-particles-${index}`;
+            section.style.position = 'relative';
+            section.appendChild(container);
+        }
+    });
+}
+
+function createParticleControls() {
+    // Create toggle button
+    const toggleBtn = document.createElement('div');
+    toggleBtn.className = 'particle-toggle-btn';
+    toggleBtn.innerHTML = '⚡';
+    toggleBtn.onclick = toggleParticlePanel;
+    document.body.appendChild(toggleBtn);
+    
+    // Create control panel
+    const controlPanel = document.createElement('div');
+    controlPanel.className = 'particle-control-panel';
+    controlPanel.innerHTML = `
+        <div style="margin-bottom: 10px; font-weight: bold;">Electric Particles</div>
+        <div style="margin-bottom: 5px;">Intensity</div>
+        <input type="range" class="intensity-slider" min="0" max="4" value="2" step="1">
+        <div style="display: flex; justify-content: space-between; font-size: 10px; margin-top: 5px;">
+            <span>Off</span>
+            <span>Low</span>
+            <span>Med</span>
+            <span>High</span>
+            <span>Ultra</span>
+        </div>
+        <div style="margin-top: 15px;">
+            <button onclick="resetParticles()" style="background: rgba(255,215,0,0.2); border: 1px solid #FFD700; color: #FFD700; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 10px;">Reset</button>
+        </div>
+    `;
+    document.body.appendChild(controlPanel);
+    
+    // Setup intensity control
+    const slider = controlPanel.querySelector('.intensity-slider');
+    slider.addEventListener('input', function() {
+        particleSystem.intensity = parseInt(this.value);
+        updateParticleIntensity();
+    });
+}
+
+function toggleParticlePanel() {
+    const panel = document.querySelector('.particle-control-panel');
+    panel.classList.toggle('active');
+}
+
+function generateParticles() {
+    if (!particleSystem.isActive) return;
+    
+    const containers = document.querySelectorAll('.electric-particle-container');
+    const particleCount = particleSystem.maxParticles[particleSystem.intensity];
+    
+    containers.forEach(container => {
+        // Clear existing particles
+        container.innerHTML = '';
+        
+        if (particleCount === 0) return;
+        
+        // Generate new particles
+        for (let i = 0; i < particleCount; i++) {
+            createSingleParticle(container, i);
+        }
+    });
+}
+
+function createSingleParticle(container, index) {
+    const particle = document.createElement('div');
+    particle.className = 'electric-particle';
+    
+    // Random variant
+    const variant = Math.floor(Math.random() * 3) + 1;
+    particle.classList.add(`particle-variant-${variant}`);
+    
+    // Random position and properties
+    const startX = Math.random() * 100;
+    const drift = (Math.random() - 0.5) * 200;
+    const angle = Math.random() * 360;
+    const delay = Math.random() * 3;
+    
+    // Set CSS custom properties
+    particle.style.setProperty('--particle-index', index);
+    particle.style.setProperty('--particle-drift', `${drift}px`);
+    particle.style.setProperty('--particle-angle', `${angle}deg`);
+    particle.style.setProperty('--particle-opacity', getOpacityForIntensity());
+    
+    // Position particle
+    particle.style.left = `${startX}%`;
+    particle.style.animationDelay = `${delay}s`;
+    particle.style.animationDuration = getSpeedForIntensity();
+    
+    container.appendChild(particle);
+    
+    // Create occasional connection lines
+    if (Math.random() < 0.1) {
+        createConnectionLine(container, startX);
+    }
+}
+
+function createConnectionLine(container, x) {
+    const line = document.createElement('div');
+    line.className = 'electric-connection';
+    line.style.left = `${x}%`;
+    line.style.height = `${Math.random() * 150 + 50}px`;
+    line.style.top = `${Math.random() * 50}%`;
+    line.style.animationDelay = `${Math.random() * 2}s`;
+    container.appendChild(line);
+}
+
+function getOpacityForIntensity() {
+    const opacities = {
+        0: 0,
+        1: 0.3,
+        2: 0.5,
+        3: 0.7,
+        4: 0.8
+    };
+    return opacities[particleSystem.intensity];
+}
+
+function getSpeedForIntensity() {
+    const speeds = {
+        0: '0s',
+        1: '12s',
+        2: '10s',
+        3: '8s',
+        4: '6s'
+    };
+    return speeds[particleSystem.intensity];
+}
+
+function updateParticleIntensity() {
+    // Update CSS custom properties on containers
+    const containers = document.querySelectorAll('.electric-particle-container');
+    containers.forEach(container => {
+        container.className = `electric-particle-container particles-${getIntensityName()}`;
+    });
+    
+    // Regenerate particles with new intensity
+    generateParticles();
+}
+
+function getIntensityName() {
+    const names = {
+        0: 'off',
+        1: 'low',
+        2: 'medium',
+        3: 'high',
+        4: 'ultra'
+    };
+    return names[particleSystem.intensity];
+}
+
+function resetParticles() {
+    generateParticles();
+}
+
+function manageParticleLifecycle() {
+    // Regenerate particles periodically to keep them fresh
+    setInterval(() => {
+        if (particleSystem.isActive && particleSystem.intensity > 0) {
+            // Randomly regenerate some particles for variation
+            const containers = document.querySelectorAll('.electric-particle-container');
+            containers.forEach(container => {
+                const particles = container.querySelectorAll('.electric-particle');
+                particles.forEach(particle => {
+                    if (Math.random() < 0.1) { // 10% chance to regenerate
+                        // Remove old particle
+                        particle.remove();
+                        // Create new one
+                        createSingleParticle(container, Math.floor(Math.random() * 100));
+                    }
+                });
+            });
+        }
+    }, 5000); // Every 5 seconds
+}
+
+// Global functions for controls
+window.resetParticles = resetParticles;
+window.toggleParticlePanel = toggleParticlePanel;
 
 // Console branding
 console.log('%c⚡ PSL Mobil Enerji ⚡', 'color: #FFD700; font-size: 20px; font-weight: bold;');
