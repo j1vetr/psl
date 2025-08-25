@@ -900,16 +900,17 @@ section {
 .futuristic-title-inline {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   gap: 12px;
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
-  line-height: 0.9;
+  line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: 4px;
   font-feature-settings: "kern" 1, "liga" 1;
   -webkit-font-feature-settings: "kern" 1, "liga" 1;
+  padding: 0.2em 0;
 }
 
 .title-text {
@@ -917,6 +918,11 @@ section {
   color: #FFFFFF;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
   opacity: 0.9;
+  line-height: 1.2;
+  display: inline-block;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .title-power.electric-power-word-v2 {
@@ -931,6 +937,12 @@ section {
   position: relative;
   font-feature-settings: "kern" 1, "liga" 1;
   -webkit-font-feature-settings: "kern" 1, "liga" 1;
+  line-height: 1.2;
+  padding: 0.1em 0;
+  display: inline-block;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .electric-power-word-v2::before {
