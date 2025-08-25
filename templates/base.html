@@ -119,6 +119,61 @@
     <!-- Navigation -->
     {% include 'partials/navbar.html' %}
     
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu-overlay">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-gradient-to-r from-electric-blue to-electric-cyan rounded-lg flex items-center justify-center">
+                        <i data-feather="zap" class="w-5 h-5 text-electric-dark"></i>
+                    </div>
+                    <span class="text-xl font-bold">PSL Mobil Enerji</span>
+                </div>
+                <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-white/10 transition-colors">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <nav class="mobile-menu-nav">
+                <a href="{{ url_for('index') }}" class="mobile-nav-link {% if request.endpoint == 'index' %}active{% endif %}">
+                    <i data-feather="home" class="w-5 h-5"></i>
+                    <span>Ana Sayfa</span>
+                </a>
+                <a href="{{ url_for('sektorler') }}" class="mobile-nav-link {% if request.endpoint == 'sektorler' %}active{% endif %}">
+                    <i data-feather="briefcase" class="w-5 h-5"></i>
+                    <span>Sektörler</span>
+                </a>
+                <a href="{{ url_for('teknoloji') }}" class="mobile-nav-link {% if request.endpoint == 'teknoloji' %}active{% endif %}">
+                    <i data-feather="cpu" class="w-5 h-5"></i>
+                    <span>Teknoloji</span>
+                </a>
+                <a href="{{ url_for('galeri') }}" class="mobile-nav-link {% if request.endpoint == 'galeri' %}active{% endif %}">
+                    <i data-feather="image" class="w-5 h-5"></i>
+                    <span>Galeri</span>
+                </a>
+                <a href="{{ url_for('monitoring') }}" class="mobile-nav-link {% if request.endpoint == 'monitoring' %}active{% endif %}">
+                    <i data-feather="activity" class="w-5 h-5"></i>
+                    <span>İzleme</span>
+                </a>
+                <a href="{{ url_for('iletisim') }}" class="mobile-nav-link {% if request.endpoint == 'iletisim' %}active{% endif %}">
+                    <i data-feather="mail" class="w-5 h-5"></i>
+                    <span>İletişim</span>
+                </a>
+            </nav>
+            
+            <div class="mobile-menu-cta">
+                <a href="{{ url_for('iletisim') }}" class="mobile-cta-btn">
+                    <i data-feather="zap" class="w-5 h-5"></i>
+                    <span>Teklif Al</span>
+                </a>
+                <a href="tel:+905551234567" class="mobile-call-btn">
+                    <i data-feather="phone" class="w-5 h-5"></i>
+                    <span>Hemen Ara</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
     <!-- Main Content -->
     <main class="min-h-screen">
         <!-- Flash Messages -->

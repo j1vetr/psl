@@ -30,47 +30,74 @@ document.addEventListener('DOMContentLoaded', function() {
 function initMobileMenu() {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
     const menuIcon = mobileMenuButton?.querySelector('[data-feather="menu"]');
     
     if (!mobileMenuButton || !mobileMenu) return;
     
-    mobileMenuButton.addEventListener('click', function() {
-        const isOpen = !mobileMenu.classList.contains('hidden');
-        
-        if (isOpen) {
-            mobileMenu.classList.add('hidden');
-            if (menuIcon) {
-                menuIcon.setAttribute('data-feather', 'menu');
-                feather.replace();
-            }
-        } else {
-            mobileMenu.classList.remove('hidden');
-            if (menuIcon) {
-                menuIcon.setAttribute('data-feather', 'x');
-                feather.replace();
-            }
+    function openMobileMenu() {
+        mobileMenu.classList.add('active');
+        document.body.classList.add('mobile-menu-open');
+        if (menuIcon) {
+            menuIcon.setAttribute('data-feather', 'x');
+            feather.replace();
         }
+    }
+    
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+        if (menuIcon) {
+            menuIcon.setAttribute('data-feather', 'menu');
+            feather.replace();
+        }
+    }
+    
+    // Open mobile menu
+    mobileMenuButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    });
+    
+    // Close mobile menu button
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+    }
+    
+    // Close mobile menu when clicking on nav links
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link, .mobile-cta-btn, .mobile-call-btn');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMobileMenu();
+        });
     });
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
-            mobileMenu.classList.add('hidden');
-            if (menuIcon) {
-                menuIcon.setAttribute('data-feather', 'menu');
-                feather.replace();
-            }
+        if (mobileMenu.classList.contains('active') && 
+            !mobileMenu.contains(e.target) && 
+            !mobileMenuButton.contains(e.target)) {
+            closeMobileMenu();
         }
     });
     
     // Close mobile menu on window resize
     window.addEventListener('resize', function() {
         if (window.innerWidth >= 768) {
-            mobileMenu.classList.add('hidden');
-            if (menuIcon) {
-                menuIcon.setAttribute('data-feather', 'menu');
-                feather.replace();
-            }
+            closeMobileMenu();
+        }
+    });
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
         }
     });
 }
@@ -392,25 +419,11 @@ window.addEventListener('resize', debounce(function() {
         AOS.refresh();
     }
     
-    // Update mobile menu state
-    if (window.innerWidth >= 768) {
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenu) {
-            mobileMenu.classList.add('hidden');
-        }
-    }
+    // Mobile menu is handled by initMobileMenu function
 }, 250));
 
 // Keyboard navigation enhancements
 document.addEventListener('keydown', function(e) {
-    // ESC key closes mobile menu
-    if (e.key === 'Escape') {
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
-        }
-    }
-    
     // Space or Enter activates buttons
     if ((e.key === ' ' || e.key === 'Enter') && e.target.matches('button, .btn, [role="button"]')) {
         e.preventDefault();
