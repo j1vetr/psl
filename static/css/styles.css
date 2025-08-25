@@ -868,6 +868,18 @@ body.mobile-menu-open {
   .futuristic-hero {
     padding-top: 64px; /* Navbar yüksekliği */
   }
+  
+  /* Mobile hero background */
+  .hero-background {
+    background-image: url('/static/img/hero-van-mobile.jpeg');
+  }
+}
+
+@media (min-width: 769px) {
+  /* Desktop hero background */
+  .hero-background {
+    background-image: url('/static/img/hero-van.jpeg') !important;
+  }
 }
 
 @media (max-width: 480px) {
