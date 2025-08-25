@@ -450,20 +450,27 @@ function initGSAPAnimations() {
     }
 }
 
-// Electric Loading Animation
+// Electric Loading Animation - Faster Preloading
 function createElectricLoadingAnimation() {
+    // Preload critical resources
+    const preloadResources = [
+        { type: 'font', url: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap' },
+        { type: 'script', url: 'https://unpkg.com/feather-icons' },
+        { type: 'style', url: 'https://unpkg.com/aos@2.3.1/dist/aos.css' }
+    ];
+    
     // Create electric loading overlay
     const loadingOverlay = document.createElement('div');
     loadingOverlay.id = 'electric-loader';
     loadingOverlay.innerHTML = `
         <div class="electric-loader-content">
             <div class="electric-bolt">
-                <svg width="100" height="100" viewBox="0 0 100 100">
+                <svg width="80" height="80" viewBox="0 0 100 100">
                     <path id="bolt-path" d="M30,10 L70,10 L45,45 L65,45 L35,90 L55,55 L35,55 Z" 
                           fill="none" stroke="#FFD700" stroke-width="3"/>
                 </svg>
             </div>
-            <div class="loader-text">GÜÇLENDIRILIYOR...</div>
+            <div class="loader-text">PSL MOBİL ENERJİ</div>
             <div class="electric-progress">
                 <div class="progress-bar"></div>
             </div>
@@ -486,32 +493,42 @@ function createElectricLoadingAnimation() {
     
     document.body.appendChild(loadingOverlay);
     
+    // Faster timeline with preloading logic
     const tl = gsap.timeline();
     
-    // Animate loading sequence
-    tl.set('.electric-loader-content', { opacity: 0, scale: 0.8 })
-      .to('.electric-loader-content', { opacity: 1, scale: 1, duration: 0.5 })
+    // Simulate preloading with faster animations
+    let loadProgress = 0;
+    const loadInterval = setInterval(() => {
+        loadProgress += Math.random() * 25 + 15; // Faster increment
+        if (loadProgress >= 100) {
+            loadProgress = 100;
+            clearInterval(loadInterval);
+        }
+        gsap.to('.progress-bar', { width: `${loadProgress}%`, duration: 0.1 });
+    }, 80); // Faster interval
+    
+    // Animate loading sequence - Much faster
+    tl.set('.electric-loader-content', { opacity: 0, scale: 0.9 })
+      .to('.electric-loader-content', { opacity: 1, scale: 1, duration: 0.3 })
       .fromTo('#bolt-path', 
         { strokeDasharray: 200, strokeDashoffset: 200 },
-        { strokeDashoffset: 0, duration: 1, ease: "power2.out" })
+        { strokeDashoffset: 0, duration: 0.6, ease: "power2.out" }, 0.1)
       .to('#bolt-path', { 
         fill: '#FFD700', 
         stroke: '#FFA500', 
-        duration: 0.3,
-        repeat: 3,
+        duration: 0.15,
+        repeat: 2,
         yoyo: true 
-      })
+      }, 0.4)
       .fromTo('.loader-text', 
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5 })
-      .fromTo('.progress-bar',
-        { width: '0%' },
-        { width: '100%', duration: 1.5, ease: "power2.out" })
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.3 }, 0.2)
       .to('#electric-loader', { 
         opacity: 0, 
-        duration: 0.5, 
-        delay: 0.5,
+        duration: 0.4, 
+        delay: 0.8, // Much shorter delay
         onComplete: () => {
+          clearInterval(loadInterval);
           document.body.removeChild(loadingOverlay);
         }
       });
@@ -520,44 +537,117 @@ function createElectricLoadingAnimation() {
 // Hero Electric Text Animation
 function animateHeroText() {
     const heroTitle = document.querySelector('h1');
-    const heroSubtitle = document.querySelector('.hero-subtitle');
+    const powerWord = document.querySelector('.electric-power-word');
     
     if (heroTitle) {
-        // Split text into characters for electric effect
-        const chars = heroTitle.innerText.split('');
-        heroTitle.innerHTML = chars.map(char => 
-            char === ' ' ? ' ' : `<span class="char">${char}</span>`
-        ).join('');
-        
-        // Electric reveal animation
-        gsap.fromTo('.char', 
+        // Animate the main title first
+        gsap.fromTo(heroTitle, 
             { 
                 opacity: 0, 
-                y: 50, 
-                rotationX: -90,
-                transformOrigin: '50% 50% -50px'
+                y: 30,
+                scale: 0.95
             },
             { 
                 opacity: 1, 
                 y: 0, 
-                rotationX: 0,
-                duration: 0.8, 
-                stagger: 0.05,
-                ease: "back.out(1.7)",
-                delay: 1
+                scale: 1,
+                duration: 1, 
+                ease: "power3.out",
+                delay: 1.2
             }
         );
         
-        // Electric glow effect
-        gsap.to('.char', {
-            textShadow: '0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700',
-            duration: 0.3,
-            stagger: 0.1,
-            repeat: -1,
-            yoyo: true,
-            delay: 2
-        });
+        // Special electric animation for "Güç" word
+        if (powerWord) {
+            // Split "Güç" into characters for individual animation
+            const powerChars = powerWord.innerText.split('');
+            powerWord.innerHTML = powerChars.map(char => 
+                `<span class="power-char">${char}</span>`
+            ).join('');
+            
+            // Enhanced electric reveal for "Güç"
+            gsap.fromTo('.power-char', 
+                { 
+                    opacity: 0, 
+                    y: 80, 
+                    rotationY: -180,
+                    scale: 0.5,
+                    transformOrigin: '50% 50%'
+                },
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    rotationY: 0,
+                    scale: 1,
+                    duration: 1.2, 
+                    stagger: 0.15,
+                    ease: "elastic.out(1, 0.5)",
+                    delay: 2
+                }
+            );
+            
+            // Continuous electric pulse for "Güç"
+            gsap.to('.power-char', {
+                textShadow: '0 0 15px #FFD700, 0 0 30px #FFD700, 0 0 45px #FFD700, 0 0 60px #FFA500',
+                scale: 1.1,
+                duration: 0.8,
+                stagger: 0.1,
+                repeat: -1,
+                yoyo: true,
+                delay: 3.5,
+                ease: "sine.inOut"
+            });
+            
+            // Electric lightning strikes on "Güç"
+            gsap.to(powerWord, {
+                filter: 'brightness(1.5) saturate(1.5)',
+                duration: 0.1,
+                repeat: -1,
+                repeatDelay: 3,
+                delay: 4,
+                onRepeat: function() {
+                    // Add random electric spark
+                    createElectricSpark(powerWord);
+                }
+            });
+        }
     }
+}
+
+// Create Electric Spark for Power Word
+function createElectricSpark(element) {
+    const rect = element.getBoundingClientRect();
+    const spark = document.createElement('div');
+    
+    spark.style.cssText = `
+        position: fixed;
+        width: 3px;
+        height: 20px;
+        background: linear-gradient(180deg, #FFD700, #FFA500, transparent);
+        pointer-events: none;
+        z-index: 1000;
+        left: ${rect.left + Math.random() * rect.width}px;
+        top: ${rect.top - 10}px;
+        transform-origin: bottom center;
+    `;
+    
+    document.body.appendChild(spark);
+    
+    gsap.fromTo(spark, 
+        { 
+            scaleY: 0, 
+            opacity: 1, 
+            rotation: Math.random() * 30 - 15 
+        },
+        { 
+            scaleY: 1, 
+            opacity: 0,
+            y: -30,
+            duration: 0.3,
+            ease: "power2.out",
+            onComplete: () => document.body.removeChild(spark)
+        }
+    );
 }
 
 // Electric Border Animations

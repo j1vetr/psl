@@ -648,9 +648,44 @@ body {
   100% { left: 100%; }
 }
 
-.char {
+.char, .power-char {
   display: inline-block;
   transform-style: preserve-3d;
+}
+
+.electric-power-word {
+  position: relative;
+  display: inline-block;
+}
+
+.power-char {
+  position: relative;
+  z-index: 2;
+}
+
+.electric-power-word::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+  border-radius: 10px;
+  z-index: 1;
+  opacity: 0;
+  animation: power-aura 3s ease-in-out infinite;
+}
+
+@keyframes power-aura {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(0.9); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.1); 
+  }
 }
 
 .electric-border-line {
