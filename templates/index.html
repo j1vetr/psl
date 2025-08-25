@@ -11,7 +11,7 @@
         <!-- Smooth transition overlay -->
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-transparent"></div>
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center fade-up-on-scroll">
                 <div class="space-y-2" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-4xl font-bold text-electric-blue">< 10 dk</div>
                     <div class="text-lg font-semibold">Kurulum Süresi</div>
@@ -52,7 +52,7 @@
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-up-on-scroll">
                 <div class="electric-card glass-panel p-6 rounded-xl hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
                     <div class="bg-electric-blue/20 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-electric-blue/30 transition-colors">
                         <i data-feather="calendar" class="w-8 h-8 text-electric-blue"></i>
@@ -142,7 +142,7 @@
         <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-electric-dark to-transparent"></div>
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8" data-aos="fade-right">
+                <div class="space-y-8 slide-in-left" data-aos="fade-right">
                     <h2 class="text-3xl md:text-5xl font-bold">
                         <span class="text-white">Gelişmiş</span><br>
                         <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
@@ -189,7 +189,7 @@
                     </a>
                 </div>
                 
-                <div class="relative" data-aos="fade-left">
+                <div class="relative slide-in-right" data-aos="fade-left">
                     <div class="glass-panel p-4 rounded-2xl">
                         <img src="{{ url_for('static', filename='img/technology-photo.jpeg') }}" 
                              alt="PSL Mobil Enerji Teknoloji" 
