@@ -296,33 +296,6 @@
         </button>
     </div>
     
-    <!-- Mobile Bottom Navigation -->
-    <div class="mobile-bottom-nav fixed bottom-0 left-0 right-0 z-40 md:hidden">
-        <div class="bg-electric-dark/95 backdrop-blur-lg border-t border-electric-blue/20">
-            <div class="grid grid-cols-5 py-2">
-                <a href="{{ url_for('index') }}" class="mobile-nav-item {% if request.endpoint == 'index' %}active{% endif %}">
-                    <i data-feather="home" class="w-5 h-5"></i>
-                    <span>Ana Sayfa</span>
-                </a>
-                <a href="{{ url_for('sektorler') }}" class="mobile-nav-item {% if request.endpoint == 'sektorler' %}active{% endif %}">
-                    <i data-feather="briefcase" class="w-5 h-5"></i>
-                    <span>Sektörler</span>
-                </a>
-                <a href="{{ url_for('teknoloji') }}" class="mobile-nav-item {% if request.endpoint == 'teknoloji' %}active{% endif %}">
-                    <i data-feather="cpu" class="w-5 h-5"></i>
-                    <span>Teknoloji</span>
-                </a>
-                <a href="{{ url_for('galeri') }}" class="mobile-nav-item {% if request.endpoint == 'galeri' %}active{% endif %}">
-                    <i data-feather="image" class="w-5 h-5"></i>
-                    <span>Galeri</span>
-                </a>
-                <a href="{{ url_for('iletisim') }}" class="mobile-nav-item {% if request.endpoint == 'iletisim' %}active{% endif %}">
-                    <i data-feather="mail" class="w-5 h-5"></i>
-                    <span>İletişim</span>
-                </a>
-            </div>
-        </div>
-    </div>
     
     <!-- Back to Top Button -->
     <button id="backToTop" class="fixed bottom-6 left-6 z-40 bg-electric-blue hover:bg-electric-cyan text-electric-dark p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible hover:scale-110">

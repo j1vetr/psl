@@ -2109,70 +2109,9 @@ section {
   }
 }
 
-/* ================================
-   MOBILE BOTTOM NAVIGATION STYLES
-   ================================ */
-
-.mobile-bottom-nav {
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.mobile-nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 4px;
-  text-decoration: none;
-  color: #9CA3AF;
-  font-size: 10px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  min-height: 60px;
-  position: relative;
-}
-
-.mobile-nav-item:hover {
-  color: #FFD700;
-  background: rgba(255, 215, 0, 0.1);
-}
-
-.mobile-nav-item.active {
-  color: #FFD700;
-  background: rgba(255, 215, 0, 0.15);
-}
-
-.mobile-nav-item.active::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 3px;
-  background: linear-gradient(90deg, #FFD700, #FFA500);
-  border-radius: 0 0 4px 4px;
-}
-
-.mobile-nav-item i {
-  margin-bottom: 4px;
-  transition: transform 0.3s ease;
-}
-
-.mobile-nav-item:active i {
-  transform: scale(0.9);
-}
-
-/* Adjust main content padding for mobile navbar */
-@media (max-width: 768px) {
-  body {
-    padding-bottom: 70px;
-  }
-  
-  /* Hide floating contact panel on very small screens to avoid overlap */
-  @media (max-width: 480px) {
-    #contactPanel {
-      bottom: 80px;
-    }
+/* Adjust floating contact panel on very small screens */
+@media (max-width: 480px) {
+  #contactPanel {
+    bottom: 20px;
   }
 }
