@@ -21,81 +21,47 @@
     <!-- Sectors Grid -->
     <section class="py-20 bg-electric-dark electric-circuit relative">
         <div class="container mx-auto px-4">
-            <div class="space-y-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {% for sector in sectors %}
                 <div id="{{ sector.id }}" class="group">
-                    <div class="electric-card glass-panel p-8 rounded-2xl hover:scale-105 transition-all duration-500 border border-white/10 hover:border-electric-blue/30">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                            <!-- Content -->
-                            <div class="space-y-6 {% if loop.index is even %}lg:order-2{% endif %}">
-                                <div class="flex items-center space-x-4">
-                                    <div class="bg-electric-blue/20 w-16 h-16 rounded-xl flex items-center justify-center group-hover:bg-electric-blue/30 transition-colors">
-                                        <i data-feather="{{ sector.icon }}" class="w-8 h-8 text-electric-blue"></i>
-                                    </div>
+                    <div class="electric-card glass-panel p-8 rounded-2xl hover:scale-105 transition-all duration-500 border border-white/10 hover:border-electric-blue/30 h-full">
+                        <div class="space-y-6 h-full flex flex-col">
+                            <!-- Header -->
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-electric-blue/20 w-16 h-16 rounded-xl flex items-center justify-center group-hover:bg-electric-blue/30 transition-colors flex-shrink-0">
+                                    <i data-feather="{{ sector.icon }}" class="w-8 h-8 text-electric-blue"></i>
+                                </div>
+                                <div class="flex-1">
                                     <h2 class="text-2xl md:text-3xl font-bold">{{ sector.title }}</h2>
-                                </div>
-                                
-                                <p class="text-lg text-gray-400 leading-relaxed">
-                                    {{ sector.description }}
-                                </p>
-                                
-                                <div class="space-y-3">
-                                    <h3 class="text-lg font-semibold text-electric-blue">Özellikler:</h3>
-                                    <ul class="space-y-2">
-                                        {% for feature in sector.features %}
-                                        <li class="flex items-center space-x-3">
-                                            <div class="w-2 h-2 bg-electric-cyan rounded-full"></div>
-                                            <span class="text-gray-300">{{ feature }}</span>
-                                        </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                
-                                <div class="pt-4">
-                                    <a href="{{ url_for('iletisim') }}?sector={{ sector.id }}" 
-                                       class="premium-glow bg-electric-blue hover:bg-electric-cyan text-electric-dark font-semibold px-6 py-3 rounded-full transition-all duration-300 inline-flex items-center space-x-2">
-                                        <i data-feather="send" class="w-5 h-5"></i>
-                                        <span>Teklif İste</span>
-                                    </a>
+                                    <div class="w-16 h-1 bg-gradient-to-r from-electric-blue to-electric-cyan rounded-full mt-2"></div>
                                 </div>
                             </div>
                             
-                            <!-- Visual -->
-                            <div class="{% if loop.index is even %}lg:order-1{% endif %}">
-                                <div class="relative">
-                                    <div class="glass-panel p-6 rounded-xl">
-                                        {% if sector.id == 'etkinlik' %}
-                                            <img src="{{ url_for('static', filename='img/sector-etkinlik.png') }}" 
-                                                 alt="{{ sector.title }}" 
-                                                 class="w-full h-64 object-cover rounded-lg">
-                                        {% elif sector.id == 'film' %}
-                                            <img src="{{ url_for('static', filename='img/sector-film.png') }}" 
-                                                 alt="{{ sector.title }}" 
-                                                 class="w-full h-64 object-cover rounded-lg">
-                                        {% elif sector.id == 'insaat' %}
-                                            <img src="{{ url_for('static', filename='img/sector-insaat.png') }}" 
-                                                 alt="{{ sector.title }}" 
-                                                 class="w-full h-64 object-cover rounded-lg">
-                                        {% elif sector.id == 'acil' %}
-                                            <img src="{{ url_for('static', filename='img/sector-acil.png') }}" 
-                                                 alt="{{ sector.title }}" 
-                                                 class="w-full h-64 object-cover rounded-lg">
-                                        {% elif sector.id == 'tarim' %}
-                                            <img src="{{ url_for('static', filename='img/sector-tarim.png') }}" 
-                                                 alt="{{ sector.title }}" 
-                                                 class="w-full h-64 object-cover rounded-lg">
-                                        {% else %}
-                                            <img src="{{ url_for('static', filename='img/mobile-generator-van.png') }}" 
-                                                 alt="{{ sector.title }}" 
-                                                 class="w-full h-64 object-cover rounded-lg">
-                                        {% endif %}
-                                    </div>
-                                    
-                                    <!-- Floating badge -->
-                                    <div class="absolute -top-4 -right-4 bg-electric-blue text-electric-dark px-4 py-2 rounded-full font-semibold text-sm">
-                                        {{ sector.id|title }}
-                                    </div>
-                                </div>
+                            <!-- Description -->
+                            <p class="text-lg text-gray-400 leading-relaxed flex-1">
+                                {{ sector.description }}
+                            </p>
+                            
+                            <!-- Features -->
+                            <div class="space-y-3">
+                                <h3 class="text-lg font-semibold text-electric-blue">Özellikler:</h3>
+                                <ul class="space-y-2">
+                                    {% for feature in sector.features %}
+                                    <li class="flex items-center space-x-3">
+                                        <div class="w-2 h-2 bg-electric-cyan rounded-full flex-shrink-0"></div>
+                                        <span class="text-gray-300">{{ feature }}</span>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            
+                            <!-- CTA Button -->
+                            <div class="pt-4 mt-auto">
+                                <a href="{{ url_for('iletisim') }}?sector={{ sector.id }}" 
+                                   class="premium-glow bg-electric-blue hover:bg-electric-cyan text-electric-dark font-semibold px-6 py-3 rounded-full transition-all duration-300 inline-flex items-center space-x-2 w-full justify-center">
+                                    <i data-feather="send" class="w-5 h-5"></i>
+                                    <span>Teklif İste</span>
+                                </a>
                             </div>
                         </div>
                     </div>
