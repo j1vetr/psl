@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <!-- SEO Meta Tags -->
-    <title>{% block title %}PSL Mobil Enerji - Araç Üstü Mobil Jeneratör Hizmetleri{% endblock %}</title>
-    <meta name="description" content="{% block description %}PSL Mobil Enerji ile sahada kesintisiz güç. Araç üstü mobil jeneratör servisleri ile her yerde enerji çözümleri.{% endblock %}">
-    <meta name="keywords" content="mobil jeneratör, araç üstü jeneratör, etkinlik enerji, şantiye güç, acil durum elektrik">
+    <title>{% block title %}İstanbul Jeneratör Kiralama | PSL Mobil Enerji - Araç Üstü Mobil Jeneratör{% endblock %}</title>
+    <meta name="description" content="{% block description %}İstanbul'da jeneratör kiralama hizmeti. PSL Mobil Enerji ile Şişli, Kadıköy, Beşiktaş, Üsküdar ve tüm ilçelerde araç üstü mobil jeneratör kiralama.{% endblock %}">
+    <meta name="keywords" content="istanbul jeneratör kiralama, istanbul mobil jeneratör, şişli jeneratör kiralama, kadıköy mobil jeneratör, beşiktaş jeneratör, üsküdar mobil enerji, fatih jeneratör kiralama, bakırköy mobil güç, maltepe jeneratör, araç üstü jeneratör istanbul, mobil elektrik ünitesi, etkinlik jeneratörü, şantiye jeneratörü istanbul, acil durum elektrik istanbul">
     <meta name="author" content="PSL Mobil Enerji">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{{ request.url }}">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{% block og_title %}PSL Mobil Enerji - Sahada Kesintisiz Güç{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}Araç üstü mobil jeneratör ile etkinlik, şantiye, acil durum ve her türlü enerji ihtiyacınız için profesyonel çözümler.{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}İstanbul Jeneratör Kiralama - PSL Mobil Enerji{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}İstanbul'un tüm ilçelerinde jeneratör kiralama hizmeti. Etkinlik, şantiye, acil durum için araç üstü mobil jeneratör çözümleri.{% endblock %}">
     <meta property="og:url" content="{{ request.url }}">
     <meta property="og:site_name" content="PSL Mobil Enerji">
     <meta property="og:locale" content="tr_TR">
@@ -96,20 +96,84 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "PSL Mobil Enerji",
-        "description": "Araç üstü mobil jeneratör hizmetleri",
+        "alternateName": "İstanbul Jeneratör Kiralama",
+        "description": "İstanbul'da jeneratör kiralama hizmeti. Araç üstü mobil jeneratör kiralama, etkinlik jeneratörü, şantiye elektrik ünitesi ve acil durum güç çözümleri.",
         "url": "{{ request.url_root }}",
         "telephone": "+90-533-529-5399",
+        "email": "info@pslmobilenerji.com",
         "address": {
             "@type": "PostalAddress",
             "addressCountry": "TR",
+            "addressRegion": "İstanbul",
             "addressLocality": "İstanbul"
         },
-        "serviceArea": {
-            "@type": "Country",
-            "name": "Türkiye"
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "İstanbul",
+                "containedInPlace": {
+                    "@type": "Country",
+                    "name": "Türkiye"
+                }
+            }
+        ],
+        "serviceArea": [
+            {
+                "@type": "AdministrativeArea",
+                "name": "Şişli"
+            },
+            {
+                "@type": "AdministrativeArea", 
+                "name": "Kadıköy"
+            },
+            {
+                "@type": "AdministrativeArea",
+                "name": "Beşiktaş"
+            },
+            {
+                "@type": "AdministrativeArea",
+                "name": "Üsküdar"
+            },
+            {
+                "@type": "AdministrativeArea",
+                "name": "Fatih"
+            },
+            {
+                "@type": "AdministrativeArea",
+                "name": "Bakırköy"
+            },
+            {
+                "@type": "AdministrativeArea",
+                "name": "Maltepe"
+            }
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Jeneratör Kiralama Hizmetleri",
+            "itemListElement": [
+                {
+                    "@type": "Service",
+                    "name": "Araç Üstü Mobil Jeneratör Kiralama",
+                    "description": "İstanbul genelinde araç üstü mobil jeneratör kiralama hizmeti"
+                },
+                {
+                    "@type": "Service", 
+                    "name": "Etkinlik Jeneratörü Kiralama",
+                    "description": "Düğün, konser, festival için jeneratör kiralama"
+                },
+                {
+                    "@type": "Service",
+                    "name": "Şantiye Jeneratörü Kiralama", 
+                    "description": "İnşaat şantiyesi için güç ünitesi kiralama"
+                }
+            ]
         },
         "priceRange": "$$",
-        "openingHours": "Mo-Su 00:00-23:59"
+        "openingHours": "Mo-Su 00:00-23:59",
+        "availableLanguage": "Turkish",
+        "currenciesAccepted": "TRY",
+        "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+        "keywords": "istanbul jeneratör kiralama, mobil jeneratör, araç üstü jeneratör, etkinlik jeneratörü, şantiye elektrik"
     }
     </script>
     

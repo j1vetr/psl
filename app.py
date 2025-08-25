@@ -2,7 +2,7 @@ import os
 import json
 import logging
 from datetime import datetime
-from flask import Flask, render_template, request, flash, redirect, url_for, jsonify
+from flask import Flask, render_template, request, flash, redirect, url_for, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO, emit
 from sqlalchemy.orm import DeclarativeBase
@@ -410,6 +410,16 @@ def handle_request_initial_data():
 def not_found(error):
     """Custom 404 page"""
     return render_template('404.html'), 404
+
+@app.route('/robots.txt')
+def robots_txt():
+    """Serve robots.txt file"""
+    return send_from_directory(app.static_folder, 'robots.txt')
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    """Serve sitemap.xml file"""
+    return send_from_directory(app.static_folder, 'sitemap.xml')
 
 @app.context_processor
 def utility_processor():
