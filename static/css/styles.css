@@ -600,10 +600,179 @@ body {
   opacity: 1;
 }
 
+/* GSAP Electric Animations Styles */
+.electric-loader-content {
+  text-align: center;
+}
+
+.electric-bolt svg {
+  filter: drop-shadow(0 0 10px #FFD700);
+}
+
+.loader-text {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 20px 0;
+  letter-spacing: 2px;
+}
+
+.electric-progress {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 215, 0, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  border-radius: 2px;
+  position: relative;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: progress-shine 1.5s ease-in-out infinite;
+}
+
+@keyframes progress-shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.char {
+  display: inline-block;
+  transform-style: preserve-3d;
+}
+
+.electric-border-line {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.electric-orb {
+  filter: blur(0.5px);
+}
+
+.floating-orbs {
+  mix-blend-mode: screen;
+}
+
+/* Electric Card Enhancements */
+.glass-panel {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Electric Button Enhancements */
+.btn-electric,
+.premium-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-electric::after,
+.premium-glow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.5) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: width 0.6s ease, height 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-electric:hover::after,
+.premium-glow:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Advanced Electric Pulse */
+@keyframes electric-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 5px rgba(255, 215, 0, 0.5),
+      0 0 10px rgba(255, 215, 0, 0.3),
+      0 0 15px rgba(255, 215, 0, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 10px rgba(255, 215, 0, 0.8),
+      0 0 20px rgba(255, 215, 0, 0.6),
+      0 0 30px rgba(255, 215, 0, 0.4);
+  }
+}
+
+.electric-pulse-animation {
+  animation: electric-pulse 2s ease-in-out infinite;
+}
+
+/* Electric Text Effects */
+.electric-text {
+  background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: electric-text-flow 3s ease-in-out infinite;
+}
+
+@keyframes electric-text-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Electric Loading States */
+.electric-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.electric-loading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 215, 0, 0.2), 
+    rgba(255, 215, 0, 0.4), 
+    rgba(255, 215, 0, 0.2), 
+    transparent
+  );
+  animation: electric-scan 2s ease-in-out infinite;
+}
+
+@keyframes electric-scan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
 /* Performance optimizations */
 .gpu-accelerated {
   transform: translateZ(0);
   will-change: transform;
+}
+
+/* GSAP Performance Optimizations */
+.gsap-element {
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 /* Dark mode optimizations */

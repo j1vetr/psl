@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initElectricEffects();
     initFormEnhancements();
     initPerformanceOptimizations();
+    initGSAPAnimations();
     
     // Initialize external libraries if available
     if (typeof feather !== 'undefined') {
@@ -417,7 +418,433 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+// GSAP Advanced Electric Animations
+function initGSAPAnimations() {
+    // Register GSAP plugins
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+        
+        // Electric Loading Animation
+        createElectricLoadingAnimation();
+        
+        // Hero Electric Text Animation
+        animateHeroText();
+        
+        // Electric Border Animations
+        animateElectricBorders();
+        
+        // Floating Electric Orbs
+        createFloatingOrbs();
+        
+        // Electric Card Reveals
+        animateCardReveals();
+        
+        // Electric Counter Animations
+        animateCounters();
+        
+        // Electric Button Hover Effects
+        enhanceButtonHovers();
+        
+        // Electric Page Transitions
+        setupPageTransitions();
+    }
+}
+
+// Electric Loading Animation
+function createElectricLoadingAnimation() {
+    // Create electric loading overlay
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.id = 'electric-loader';
+    loadingOverlay.innerHTML = `
+        <div class="electric-loader-content">
+            <div class="electric-bolt">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <path id="bolt-path" d="M30,10 L70,10 L45,45 L65,45 L35,90 L55,55 L35,55 Z" 
+                          fill="none" stroke="#FFD700" stroke-width="3"/>
+                </svg>
+            </div>
+            <div class="loader-text">GÜÇLENDIRILIYOR...</div>
+            <div class="electric-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    `;
+    loadingOverlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, #0A0A0A, #1A1A1A);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFD700;
+        font-family: 'Inter', sans-serif;
+    `;
+    
+    document.body.appendChild(loadingOverlay);
+    
+    const tl = gsap.timeline();
+    
+    // Animate loading sequence
+    tl.set('.electric-loader-content', { opacity: 0, scale: 0.8 })
+      .to('.electric-loader-content', { opacity: 1, scale: 1, duration: 0.5 })
+      .fromTo('#bolt-path', 
+        { strokeDasharray: 200, strokeDashoffset: 200 },
+        { strokeDashoffset: 0, duration: 1, ease: "power2.out" })
+      .to('#bolt-path', { 
+        fill: '#FFD700', 
+        stroke: '#FFA500', 
+        duration: 0.3,
+        repeat: 3,
+        yoyo: true 
+      })
+      .fromTo('.loader-text', 
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5 })
+      .fromTo('.progress-bar',
+        { width: '0%' },
+        { width: '100%', duration: 1.5, ease: "power2.out" })
+      .to('#electric-loader', { 
+        opacity: 0, 
+        duration: 0.5, 
+        delay: 0.5,
+        onComplete: () => {
+          document.body.removeChild(loadingOverlay);
+        }
+      });
+}
+
+// Hero Electric Text Animation
+function animateHeroText() {
+    const heroTitle = document.querySelector('h1');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    
+    if (heroTitle) {
+        // Split text into characters for electric effect
+        const chars = heroTitle.innerText.split('');
+        heroTitle.innerHTML = chars.map(char => 
+            char === ' ' ? ' ' : `<span class="char">${char}</span>`
+        ).join('');
+        
+        // Electric reveal animation
+        gsap.fromTo('.char', 
+            { 
+                opacity: 0, 
+                y: 50, 
+                rotationX: -90,
+                transformOrigin: '50% 50% -50px'
+            },
+            { 
+                opacity: 1, 
+                y: 0, 
+                rotationX: 0,
+                duration: 0.8, 
+                stagger: 0.05,
+                ease: "back.out(1.7)",
+                delay: 1
+            }
+        );
+        
+        // Electric glow effect
+        gsap.to('.char', {
+            textShadow: '0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700',
+            duration: 0.3,
+            stagger: 0.1,
+            repeat: -1,
+            yoyo: true,
+            delay: 2
+        });
+    }
+}
+
+// Electric Border Animations
+function animateElectricBorders() {
+    const cards = document.querySelectorAll('.electric-card');
+    
+    cards.forEach((card, index) => {
+        // Create electric border elements
+        const borderTop = document.createElement('div');
+        const borderRight = document.createElement('div');
+        const borderBottom = document.createElement('div');
+        const borderLeft = document.createElement('div');
+        
+        [borderTop, borderRight, borderBottom, borderLeft].forEach(border => {
+            border.className = 'electric-border-line';
+            border.style.cssText = `
+                position: absolute;
+                background: linear-gradient(90deg, transparent, #FFD700, transparent);
+                z-index: 1;
+            `;
+            card.appendChild(border);
+        });
+        
+        // Position borders
+        borderTop.style.cssText += 'top: 0; left: 0; width: 100%; height: 2px;';
+        borderRight.style.cssText += 'top: 0; right: 0; width: 2px; height: 100%; background: linear-gradient(0deg, transparent, #FFD700, transparent);';
+        borderBottom.style.cssText += 'bottom: 0; left: 0; width: 100%; height: 2px;';
+        borderLeft.style.cssText += 'top: 0; left: 0; width: 2px; height: 100%; background: linear-gradient(0deg, transparent, #FFD700, transparent);';
+        
+        // Animate on scroll
+        ScrollTrigger.create({
+            trigger: card,
+            start: "top 80%",
+            onEnter: () => {
+                const tl = gsap.timeline();
+                tl.fromTo([borderTop, borderRight, borderBottom, borderLeft],
+                    { opacity: 0, scale: 0 },
+                    { opacity: 1, scale: 1, duration: 0.6, stagger: 0.1 }
+                );
+            }
+        });
+    });
+}
+
+// Floating Electric Orbs
+function createFloatingOrbs() {
+    const orbContainer = document.createElement('div');
+    orbContainer.className = 'floating-orbs';
+    orbContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: -1;
+    `;
+    
+    // Create multiple orbs
+    for (let i = 0; i < 6; i++) {
+        const orb = document.createElement('div');
+        orb.className = 'electric-orb';
+        orb.style.cssText = `
+            position: absolute;
+            width: ${Math.random() * 4 + 2}px;
+            height: ${Math.random() * 4 + 2}px;
+            background: ${Math.random() > 0.5 ? '#FFD700' : '#FFA500'};
+            border-radius: 50%;
+            box-shadow: 0 0 10px currentColor;
+        `;
+        
+        orbContainer.appendChild(orb);
+        
+        // Animate orb movement
+        gsap.set(orb, {
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight
+        });
+        
+        gsap.to(orb, {
+            x: `+=${Math.random() * 200 - 100}`,
+            y: `+=${Math.random() * 200 - 100}`,
+            duration: Math.random() * 3 + 2,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+        
+        // Pulse effect
+        gsap.to(orb, {
+            opacity: Math.random() * 0.5 + 0.3,
+            duration: Math.random() * 2 + 1,
+            repeat: -1,
+            yoyo: true
+        });
+    }
+    
+    document.body.appendChild(orbContainer);
+}
+
+// Electric Card Reveals
+function animateCardReveals() {
+    const cards = document.querySelectorAll('.glass-panel');
+    
+    cards.forEach((card, index) => {
+        ScrollTrigger.create({
+            trigger: card,
+            start: "top 85%",
+            onEnter: () => {
+                gsap.fromTo(card,
+                    { 
+                        opacity: 0, 
+                        y: 60, 
+                        rotationY: -15,
+                        transformOrigin: "center center"
+                    },
+                    { 
+                        opacity: 1, 
+                        y: 0, 
+                        rotationY: 0,
+                        duration: 0.8, 
+                        delay: index * 0.1,
+                        ease: "power3.out"
+                    }
+                );
+                
+                // Electric spark effect
+                const spark = document.createElement('div');
+                spark.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 2px;
+                    height: 2px;
+                    background: #FFD700;
+                    transform: translate(-50%, -50%);
+                    pointer-events: none;
+                `;
+                card.appendChild(spark);
+                
+                gsap.to(spark, {
+                    scale: 20,
+                    opacity: 0,
+                    duration: 0.5,
+                    onComplete: () => card.removeChild(spark)
+                });
+            }
+        });
+    });
+}
+
+// Electric Counter Animations
+function animateCounters() {
+    const counters = document.querySelectorAll('[class*="text-4xl"]');
+    
+    counters.forEach(counter => {
+        const text = counter.innerText;
+        const numbers = text.match(/\d+/);
+        
+        if (numbers) {
+            const targetNumber = parseInt(numbers[0]);
+            const unit = text.replace(numbers[0], '');
+            
+            ScrollTrigger.create({
+                trigger: counter,
+                start: "top 90%",
+                onEnter: () => {
+                    gsap.fromTo(counter, 
+                        { innerText: 0 },
+                        {
+                            innerText: targetNumber,
+                            duration: 2,
+                            snap: { innerText: 1 },
+                            onUpdate: function() {
+                                counter.innerText = Math.ceil(this.targets()[0].innerText) + unit;
+                            }
+                        }
+                    );
+                    
+                    // Electric pulse on complete
+                    gsap.to(counter, {
+                        textShadow: '0 0 20px #FFD700',
+                        duration: 0.3,
+                        repeat: 3,
+                        yoyo: true,
+                        delay: 2
+                    });
+                }
+            });
+        }
+    });
+}
+
+// Enhanced Button Hover Effects
+function enhanceButtonHovers() {
+    const buttons = document.querySelectorAll('a[class*="bg-electric"], button[class*="bg-electric"]');
+    
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            gsap.to(button, {
+                scale: 1.05,
+                boxShadow: '0 0 30px rgba(255, 215, 0, 0.5)',
+                duration: 0.3
+            });
+            
+            // Electric spark trail
+            createSparkTrail(button);
+        });
+        
+        button.addEventListener('mouseleave', () => {
+            gsap.to(button, {
+                scale: 1,
+                boxShadow: '0 0 0px rgba(255, 215, 0, 0)',
+                duration: 0.3
+            });
+        });
+    });
+}
+
+// Create Spark Trail Effect
+function createSparkTrail(element) {
+    const rect = element.getBoundingClientRect();
+    
+    for (let i = 0; i < 5; i++) {
+        const spark = document.createElement('div');
+        spark.style.cssText = `
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: #FFD700;
+            pointer-events: none;
+            z-index: 1000;
+            left: ${rect.left + Math.random() * rect.width}px;
+            top: ${rect.top + Math.random() * rect.height}px;
+        `;
+        
+        document.body.appendChild(spark);
+        
+        gsap.to(spark, {
+            x: Math.random() * 100 - 50,
+            y: Math.random() * 100 - 50,
+            opacity: 0,
+            scale: 0,
+            duration: 0.8,
+            onComplete: () => document.body.removeChild(spark)
+        });
+    }
+}
+
+// Page Transition Effects
+function setupPageTransitions() {
+    const links = document.querySelectorAll('a[href^="/"], a[href^="./"]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            if (!e.ctrlKey && !e.metaKey) {
+                e.preventDefault();
+                
+                // Electric page transition
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: -100%;
+                    width: 100vw;
+                    height: 100vh;
+                    background: linear-gradient(45deg, #FFD700, #FFA500);
+                    z-index: 9999;
+                `;
+                
+                document.body.appendChild(overlay);
+                
+                gsap.to(overlay, {
+                    left: '0%',
+                    duration: 0.5,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        window.location.href = link.href;
+                    }
+                });
+            }
+        });
+    });
+}
+
 // Console branding
 console.log('%c⚡ PSL Mobil Enerji ⚡', 'color: #FFD700; font-size: 20px; font-weight: bold;');
 console.log('%cSahada Kesintisiz Güç', 'color: #FFA500; font-size: 14px;');
 console.log('%c🚐 Araç Üstü Mobil Jeneratör Hizmetleri', 'color: #ffffff; font-size: 12px;');
+console.log('%c⚡ GSAP Electric Animations Loaded ⚡', 'color: #FFD700; font-size: 14px; font-weight: bold;');
