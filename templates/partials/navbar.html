@@ -15,9 +15,6 @@
                 <a href="{{ url_for('sektorler') }}" class="nav-link {% if request.endpoint == 'sektorler' %}active{% endif %}">Sektörler</a>
                 <a href="{{ url_for('teknoloji') }}" class="nav-link {% if request.endpoint == 'teknoloji' %}active{% endif %}">Teknoloji</a>
                 <a href="{{ url_for('galeri') }}" class="nav-link {% if request.endpoint == 'galeri' %}active{% endif %}">Galeri</a>
-                <a href="{{ url_for('monitoring') }}" class="nav-link {% if request.endpoint == 'monitoring' %}active{% endif %}">
-                    <i data-feather="activity" class="w-4 h-4 inline mr-2"></i>İzleme
-                </a>
                 <a href="{{ url_for('iletisim') }}" class="nav-link {% if request.endpoint == 'iletisim' %}active{% endif %}">İletişim</a>
                 
                 <!-- CTA Button -->

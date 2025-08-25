@@ -302,10 +302,6 @@ def iletisim():
     
     return render_template('iletisim.html', whatsapp_phone=WHATSAPP_PHONE)
 
-@app.route('/monitoring')
-def monitoring():
-    """Real-time generator monitoring dashboard"""
-    return render_template('monitoring.html')
 
 # API Endpoints for Generator Management
 @app.route('/api/generators', methods=['GET'])

@@ -64,9 +64,31 @@
                             <div class="{% if loop.index is even %}lg:order-1{% endif %}">
                                 <div class="relative">
                                     <div class="glass-panel p-6 rounded-xl">
-                                        <img src="{{ url_for('static', filename='img/placeholder-van-hero.svg') }}" 
-                                             alt="{{ sector.title }}" 
-                                             class="w-full h-64 object-cover rounded-lg">
+                                        {% if sector.id == 'etkinlik' %}
+                                            <img src="{{ url_for('static', filename='img/gallery-1.jpeg') }}" 
+                                                 alt="{{ sector.title }}" 
+                                                 class="w-full h-64 object-cover rounded-lg">
+                                        {% elif sector.id == 'film' %}
+                                            <img src="{{ url_for('static', filename='img/gallery-2.jpeg') }}" 
+                                                 alt="{{ sector.title }}" 
+                                                 class="w-full h-64 object-cover rounded-lg">
+                                        {% elif sector.id == 'insaat' %}
+                                            <img src="{{ url_for('static', filename='img/gallery-3.jpeg') }}" 
+                                                 alt="{{ sector.title }}" 
+                                                 class="w-full h-64 object-cover rounded-lg">
+                                        {% elif sector.id == 'acil' %}
+                                            <img src="{{ url_for('static', filename='img/gallery-4.jpeg') }}" 
+                                                 alt="{{ sector.title }}" 
+                                                 class="w-full h-64 object-cover rounded-lg">
+                                        {% elif sector.id == 'tarim' %}
+                                            <img src="{{ url_for('static', filename='img/technology-photo.jpeg') }}" 
+                                                 alt="{{ sector.title }}" 
+                                                 class="w-full h-64 object-cover rounded-lg">
+                                        {% else %}
+                                            <img src="{{ url_for('static', filename='img/mobile-generator-van.png') }}" 
+                                                 alt="{{ sector.title }}" 
+                                                 class="w-full h-64 object-cover rounded-lg">
+                                        {% endif %}
                                     </div>
                                     
                                     <!-- Floating badge -->
@@ -162,7 +184,7 @@
                 <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
                     <a href="{{ url_for('iletisim') }}" 
                        class="bg-electric-blue hover:bg-electric-cyan text-electric-dark font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 flex items-center space-x-2">
-                        <i data-feather="calculator" class="w-5 h-5"></i>
+                        <i data-feather="zap" class="w-5 h-5"></i>
                         <span>Güç Hesaplama</span>
                     </a>
                     <a href="{{ url_for('teknoloji') }}" 
