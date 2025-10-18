@@ -2,11 +2,8 @@
     <div class="container mx-auto px-4">
         <div class="flex items-center justify-between h-16">
             <!-- Logo -->
-            <a href="{{ url_for('index') }}" class="flex items-center space-x-3 text-xl font-bold hover:text-electric-blue transition-colors">
-                <div class="w-8 h-8 bg-gradient-to-r from-electric-blue to-electric-cyan rounded-lg flex items-center justify-center">
-                    <i data-feather="zap" class="w-5 h-5 text-electric-dark"></i>
-                </div>
-                <span>PSL Mobil Enerji</span>
+            <a href="{{ url_for('index') }}" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <img src="{{ url_for('static', filename='img/psl-logo.png') }}" alt="PSL Mobil Enerji" class="h-10 md:h-12 w-auto">
             </a>
             
             <!-- Desktop Navigation -->
@@ -35,11 +32,8 @@
             <div class="mobile-menu-content">
                 <!-- Mobile Menu Header -->
                 <div class="mobile-menu-header">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 bg-gradient-to-r from-electric-blue to-electric-cyan rounded-lg flex items-center justify-center">
-                            <i data-feather="zap" class="w-5 h-5 text-electric-dark"></i>
-                        </div>
-                        <span class="text-lg font-bold text-white">PSL Mobil Enerji</span>
+                    <div class="flex items-center">
+                        <img src="{{ url_for('static', filename='img/psl-logo.png') }}" alt="PSL Mobil Enerji" class="h-10 w-auto">
                     </div>
                     <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-white/10 transition-colors">
                         <i data-feather="x" class="w-6 h-6 text-white"></i>
