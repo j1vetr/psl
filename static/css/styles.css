@@ -232,7 +232,7 @@ body {
 .mm-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.35);
 }
 
 .mobile-menu-panel {
@@ -240,8 +240,8 @@ body {
   top: 0; right: 0;
   width: min(360px, 88vw);
   height: 100%;
-  background: #111;
-  border-left: 1px solid rgba(255,215,0,0.12);
+  background: #1c1c1c;
+  border-left: 2px solid rgba(255,215,0,0.25);
   display: flex;
   flex-direction: column;
   transform: translateX(100%);
