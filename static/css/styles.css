@@ -156,10 +156,10 @@ body {
 .hero-background {
   position: absolute;
   inset: 0;
-  background-image: url('/static/img/hero-van.jpeg');
+  background-image: url('/static/img/hero-van.png');
   background-size: cover;
-  background-position: center;
-  opacity: 0.15;
+  background-position: 65% center;
+  opacity: 1;
 }
 
 /* Hide all complex hero decorations */
@@ -175,7 +175,7 @@ body {
 .circuit-connector { display: none !important; }
 
 .futuristic-title-inline {
-  font-size: clamp(3.25rem, 7.5vw, 6.5rem);
+  font-size: clamp(2.8rem, 5vw, 5rem);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -449,11 +449,6 @@ body.mobile-menu-open { overflow: hidden; }
 
 /* ─── Mobile overrides ─── */
 @media (max-width: 768px) {
-  .hero-background { background-image: url('/static/img/hero-van-mobile.jpeg'); }
   .mobile-menu-content { max-width: 100%; border-right: none; }
   .futuristic-hero { padding-top: 64px; }
-}
-
-@media (min-width: 769px) {
-  .hero-background { background-image: url('/static/img/hero-van.jpeg'); }
 }
