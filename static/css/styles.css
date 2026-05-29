@@ -482,6 +482,34 @@ body.mobile-menu-open { overflow: hidden; }
   opacity: 1;
 }
 
+/* Mobile: flex column so content fills space and stats stick to bottom */
+.hero-content-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.hero-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Desktop: revert to simple block, original layout */
+@media (min-width: 768px) {
+  .hero-content-wrapper {
+    display: block;
+    min-height: 0;
+  }
+  .hero-main-content {
+    flex: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
 /* Hide all complex hero decorations */
 .futuristic-grid,
 .electric-field-container,
