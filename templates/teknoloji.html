@@ -5,70 +5,58 @@
 
 {% block content %}
     <!-- Page Header -->
-    <section class="pt-24 pb-12 bg-gradient-to-r from-electric-dark to-black">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
-                    Gelişmiş Teknoloji
-                </span>
-            </h1>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                Modern teknoloji ile donatılmış mobil jeneratörlerimiz, yüksek performans ve çevre dostu çalışma sunar.
-            </p>
+    <section class="pt-28 pb-14 bg-[#0A0A0A] border-b border-white/8">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-2xl">
+                <div class="text-xs font-semibold text-[#FFD700] tracking-widest uppercase mb-4">Sistem Altyapısı</div>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Gelişmiş <span class="text-[#FFD700]">Teknoloji</span>
+                </h1>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    Modern teknoloji ile donatılmış mobil jeneratörlerimiz, yüksek performans ve çevre dostu çalışma sunar.
+                </p>
+            </div>
         </div>
     </section>
     
     <!-- Technology Features -->
-    <section class="py-20 bg-electric-dark electric-circuit relative">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <section class="py-20 bg-[#0A0A0A]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {% for tech in tech_features %}
-                <div class="group">
-                    <div class="electric-card glass-panel p-8 rounded-2xl hover:scale-105 transition-all duration-500 border border-white/10 hover:border-electric-blue/30 h-full">
-                        <div class="space-y-6 h-full flex flex-col">
-                            <!-- Header with Icon -->
-                            <div class="flex items-start space-x-4">
-                                <div class="bg-electric-blue/20 w-16 h-16 rounded-xl flex items-center justify-center group-hover:bg-electric-blue/30 transition-colors flex-shrink-0">
-                                    {% if loop.index == 1 %}
-                                        <i data-feather="volume-x" class="w-8 h-8 text-electric-blue"></i>
-                                    {% elif loop.index == 2 %}
-                                        <i data-feather="smartphone" class="w-8 h-8 text-electric-cyan"></i>
-                                    {% else %}
-                                        <i data-feather="battery" class="w-8 h-8 text-electric-blue"></i>
-                                    {% endif %}
-                                </div>
-                                <div class="flex-1">
-                                    <h2 class="text-2xl md:text-3xl font-bold text-white">{{ tech.title }}</h2>
-                                    <div class="w-16 h-1 bg-gradient-to-r from-electric-blue to-electric-cyan rounded-full mt-2"></div>
-                                </div>
+                <div class="glass-panel p-8 rounded-lg flex flex-col h-full">
+                    <!-- Header -->
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-11 h-11 bg-[#FFD700]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            {% if loop.index == 1 %}
+                                <i data-feather="volume-x" class="w-5 h-5 text-[#FFD700]"></i>
+                            {% elif loop.index == 2 %}
+                                <i data-feather="smartphone" class="w-5 h-5 text-[#FFD700]"></i>
+                            {% else %}
+                                <i data-feather="battery" class="w-5 h-5 text-[#FFD700]"></i>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">{{ tech.title }}</h2>
+                            <div class="w-6 h-0.5 bg-[#FFD700] mt-1.5"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        {{ tech.description }}
+                    </p>
+                    
+                    <!-- Specs -->
+                    <div>
+                        <h3 class="text-xs font-semibold text-[#FFD700] uppercase tracking-wider mb-3">Teknik Özellikler</h3>
+                        <div class="space-y-2">
+                            {% for spec in tech.specs %}
+                            <div class="flex justify-between items-center py-2 border-b border-white/6">
+                                <span class="text-gray-500 text-sm">{{ spec.label }}</span>
+                                <span class="text-[#FFD700] font-semibold text-sm">{{ spec.value }}</span>
                             </div>
-                            
-                            <!-- Description -->
-                            <p class="text-lg text-gray-400 leading-relaxed flex-1">
-                                {{ tech.description }}
-                            </p>
-                            
-                            <!-- Specifications -->
-                            <div class="space-y-4 mt-auto">
-                                <h3 class="text-lg font-semibold text-electric-blue">Teknik Özellikler:</h3>
-                                <div class="space-y-3">
-                                    {% for spec in tech.specs %}
-                                    <div class="glass-panel p-4 rounded-lg">
-                                        <div class="flex justify-between items-center">
-                                            <span class="text-gray-400 text-sm">{{ spec.label }}</span>
-                                            <span class="text-electric-cyan font-bold">{{ spec.value }}</span>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            
-                            <!-- Progress indicator -->
-                            <div class="flex justify-center pt-4">
-                                <div class="bg-electric-blue/20 px-4 py-2 rounded-full">
-                                    <span class="text-electric-blue font-semibold text-sm">{{ loop.index }}/{{ tech_features|length }}</span>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -76,194 +64,189 @@
             </div>
         </div>
     </section>
+
+    <div class="simple-section-divider"></div>
     
     <!-- Power Ranges -->
-    <section class="py-20 bg-gradient-to-b from-electric-dark to-black">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6">
-                    <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
-                        Güç Aralıkları
-                    </span>
+    <section class="py-20 bg-[#0f0f0f]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">
+                    Güç <span class="text-[#FFD700]">Aralıkları</span>
                 </h2>
-                <p class="text-xl text-gray-400">İhtiyacınıza uygun güç kapasitesi seçenekleri</p>
+                <p class="text-gray-400">İhtiyacınıza uygun güç kapasitesi seçenekleri</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 {% for range in power_ranges %}
-                <div class="glass-panel p-6 rounded-xl text-center hover:scale-105 transition-all duration-300 group">
-                    <div class="bg-electric-blue/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-electric-blue/30 transition-colors">
-                        <i data-feather="zap" class="w-8 h-8 text-electric-blue"></i>
+                <div class="glass-panel p-6 rounded-lg text-center">
+                    <div class="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="zap" class="w-5 h-5 text-[#FFD700]"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-electric-cyan mb-2">{{ range.range }}</h3>
+                    <h3 class="text-xl font-bold text-[#FFD700] mb-2">{{ range.range }}</h3>
                     <p class="text-gray-400 text-sm">{{ range.usage }}</p>
                 </div>
                 {% endfor %}
             </div>
         </div>
     </section>
+
+    <div class="simple-section-divider"></div>
     
     <!-- Technical Specifications -->
-    <section class="py-20 bg-electric-dark">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6">
-                    <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
-                        Teknik Özellikler
-                    </span>
+    <section class="py-20 bg-[#0A0A0A]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">
+                    Teknik <span class="text-[#FFD700]">Özellikler</span>
                 </h2>
-                <p class="text-xl text-gray-400">Detaylı sistem özellikleri ve performans değerleri</p>
+                <p class="text-gray-400">Detaylı sistem özellikleri ve performans değerleri</p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <!-- Engine Specs -->
-                <div class="glass-panel p-8 rounded-xl">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center space-x-3">
-                        <i data-feather="settings" class="w-6 h-6 text-electric-blue"></i>
-                        <span>Motor Özellikleri</span>
+                <div class="glass-panel p-8 rounded-lg">
+                    <h3 class="text-lg font-bold mb-6 flex items-center gap-2.5">
+                        <i data-feather="settings" class="w-5 h-5 text-[#FFD700]"></i>
+                        Motor Özellikleri
                     </h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Motor Tipi</span>
-                            <span class="font-semibold">4 Zamanlı Dizel</span>
+                    <div class="space-y-1">
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Motor Tipi</span>
+                            <span class="font-semibold text-sm">4 Zamanlı Dizel</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Soğutma Sistemi</span>
-                            <span class="font-semibold">Su Soğutmalı</span>
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Soğutma Sistemi</span>
+                            <span class="font-semibold text-sm">Su Soğutmalı</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Emisyon Standardı</span>
-                            <span class="font-semibold text-green-400">Euro 5</span>
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Emisyon Standardı</span>
+                            <span class="font-semibold text-sm text-green-400">Euro 5</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Yakıt Tüketimi</span>
-                            <span class="font-semibold text-electric-cyan">4-25 L/h</span>
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Yakıt Tüketimi</span>
+                            <span class="font-semibold text-sm text-[#FFD700]">4–25 L/h</span>
                         </div>
-                        <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-400">Çalışma Sıcaklığı</span>
-                            <span class="font-semibold">-20°C / +50°C</span>
+                        <div class="flex justify-between items-center py-3">
+                            <span class="text-gray-400 text-sm">Çalışma Sıcaklığı</span>
+                            <span class="font-semibold text-sm">-20°C / +50°C</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Electrical Specs -->
-                <div class="glass-panel p-8 rounded-xl">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center space-x-3">
-                        <i data-feather="zap" class="w-6 h-6 text-electric-cyan"></i>
-                        <span>Elektrik Özellikleri</span>
+                <div class="glass-panel p-8 rounded-lg">
+                    <h3 class="text-lg font-bold mb-6 flex items-center gap-2.5">
+                        <i data-feather="zap" class="w-5 h-5 text-[#FFD700]"></i>
+                        Elektrik Özellikleri
                     </h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Voltaj</span>
-                            <span class="font-semibold">230/400V</span>
+                    <div class="space-y-1">
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Voltaj</span>
+                            <span class="font-semibold text-sm">230/400V</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Frekans</span>
-                            <span class="font-semibold">50 Hz</span>
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Frekans</span>
+                            <span class="font-semibold text-sm">50 Hz</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Güç Faktörü</span>
-                            <span class="font-semibold">0.8</span>
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Güç Faktörü</span>
+                            <span class="font-semibold text-sm">0.8</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Voltaj Regülasyonu</span>
-                            <span class="font-semibold text-green-400">±1%</span>
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Voltaj Regülasyonu</span>
+                            <span class="font-semibold text-sm text-green-400">±1%</span>
                         </div>
-                        <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-400">Frekans Regülasyonu</span>
-                            <span class="font-semibold text-green-400">±0.5%</span>
+                        <div class="flex justify-between items-center py-3">
+                            <span class="text-gray-400 text-sm">Frekans Regülasyonu</span>
+                            <span class="font-semibold text-sm text-green-400">±0.5%</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Control System -->
-                <div class="glass-panel p-8 rounded-xl">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center space-x-3">
-                        <i data-feather="monitor" class="w-6 h-6 text-electric-blue"></i>
-                        <span>Kontrol Sistemi</span>
+                <div class="glass-panel p-8 rounded-lg">
+                    <h3 class="text-lg font-bold mb-6 flex items-center gap-2.5">
+                        <i data-feather="monitor" class="w-5 h-5 text-[#FFD700]"></i>
+                        Kontrol Sistemi
                     </h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Otomatik Başlatma</span>
-                            <span class="font-semibold text-green-400">✓</span>
+                    <div class="space-y-1">
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Otomatik Başlatma</span>
+                            <span class="font-semibold text-sm text-green-400">✓</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">GSM İzleme</span>
-                            <span class="font-semibold text-green-400">✓</span>
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">GSM İzleme</span>
+                            <span class="font-semibold text-sm text-green-400">✓</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">LCD Ekran</span>
-                            <span class="font-semibold text-green-400">✓</span>
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">LCD Ekran</span>
+                            <span class="font-semibold text-sm text-green-400">✓</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Uyarı Sistemi</span>
-                            <span class="font-semibold text-green-400">SMS/E-posta</span>
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Uyarı Sistemi</span>
+                            <span class="font-semibold text-sm text-green-400">SMS / E-posta</span>
                         </div>
-                        <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-400">Uzaktan Kontrol</span>
-                            <span class="font-semibold text-electric-cyan">Web/Mobil</span>
+                        <div class="flex justify-between items-center py-3">
+                            <span class="text-gray-400 text-sm">Uzaktan Kontrol</span>
+                            <span class="font-semibold text-sm text-[#FFD700]">Web / Mobil</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Safety Features -->
-                <div class="glass-panel p-8 rounded-xl">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center space-x-3">
-                        <i data-feather="shield" class="w-6 h-6 text-electric-cyan"></i>
-                        <span>Güvenlik Özellikleri</span>
+                <div class="glass-panel p-8 rounded-lg">
+                    <h3 class="text-lg font-bold mb-6 flex items-center gap-2.5">
+                        <i data-feather="shield" class="w-5 h-5 text-[#FFD700]"></i>
+                        Güvenlik Özellikleri
                     </h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Aşırı Yük Koruması</span>
-                            <span class="font-semibold text-green-400">✓</span>
+                    <div class="space-y-1">
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Aşırı Yük Koruması</span>
+                            <span class="font-semibold text-sm text-green-400">✓</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Kısa Devre Koruması</span>
-                            <span class="font-semibold text-green-400">✓</span>
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Kısa Devre Koruması</span>
+                            <span class="font-semibold text-sm text-green-400">✓</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Düşük Yağ Koruması</span>
-                            <span class="font-semibold text-green-400">✓</span>
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Düşük Yağ Koruması</span>
+                            <span class="font-semibold text-sm text-green-400">✓</span>
                         </div>
-                        <div class="flex justify-between items-center py-2 border-b border-white/10">
-                            <span class="text-gray-400">Aşırı Sıcaklık Koruması</span>
-                            <span class="font-semibold text-green-400">✓</span>
+                        <div class="flex justify-between items-center py-3 border-b border-white/6">
+                            <span class="text-gray-400 text-sm">Aşırı Sıcaklık Koruması</span>
+                            <span class="font-semibold text-sm text-green-400">✓</span>
                         </div>
-                        <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-400">Acil Durdurma</span>
-                            <span class="font-semibold text-red-400">Büyük Kırmızı</span>
+                        <div class="flex justify-between items-center py-3">
+                            <span class="text-gray-400 text-sm">Acil Durdurma</span>
+                            <span class="font-semibold text-sm text-red-400">Büyük Kırmızı</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="simple-section-divider"></div>
     
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-electric-blue/10 to-electric-cyan/10 border-y border-electric-blue/20">
-        <div class="container mx-auto px-4 text-center">
-            <div class="max-w-4xl mx-auto space-y-8">
-                <h2 class="text-3xl md:text-5xl font-bold">
-                    Teknik Detaylar İçin<br>
-                    <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
-                        Uzmanlarımızla Görüşün
-                    </span>
+    <section class="py-20 bg-[#0A0A0A] border-y border-[#FFD700]/12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Teknik Detaylar İçin <span class="text-[#FFD700]">Uzmanlarımızla Görüşün</span>
                 </h2>
-                
-                <p class="text-xl text-gray-400 leading-relaxed">
+                <p class="text-gray-400 text-base leading-relaxed mb-10">
                     Projeniz için en uygun teknik çözümü belirlemek üzere uzman ekibimizle iletişime geçin.
                 </p>
-                
-                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a href="{{ url_for('iletisim') }}" 
-                       class="bg-electric-blue hover:bg-electric-cyan text-electric-dark font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 flex items-center space-x-2">
-                        <i data-feather="phone" class="w-5 h-5"></i>
-                        <span>Teknik Danışmanlık</span>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="{{ url_for('iletisim') }}" class="btn-electric">
+                        <i data-feather="phone" class="w-4 h-4"></i>
+                        Teknik Danışmanlık
                     </a>
-                    <a href="{{ url_for('galeri') }}" 
-                       class="border-2 border-electric-blue hover:bg-electric-blue text-electric-blue hover:text-electric-dark font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 flex items-center space-x-2">
-                        <i data-feather="eye" class="w-5 h-5"></i>
-                        <span>Sistem Galerisi</span>
+                    <a href="{{ url_for('galeri') }}" class="btn-outline-electric">
+                        <i data-feather="eye" class="w-4 h-4"></i>
+                        Sistem Galerisi
                     </a>
                 </div>
             </div>

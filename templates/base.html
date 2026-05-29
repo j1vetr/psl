@@ -52,25 +52,6 @@
                             dark: '#0A0A0A',
                             gray: '#1A1A1A'
                         }
-                    },
-                    animation: {
-                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-                        'electric-flow': 'electric-flow 3s linear infinite',
-                        'float': 'float 6s ease-in-out infinite'
-                    },
-                    keyframes: {
-                        'pulse-glow': {
-                            '0%, 100%': { boxShadow: '0 0 5px #FFD700' },
-                            '50%': { boxShadow: '0 0 20px #FFD700, 0 0 30px #FFD700' }
-                        },
-                        'electric-flow': {
-                            '0%': { strokeDashoffset: '1000' },
-                            '100%': { strokeDashoffset: '0' }
-                        },
-                        'float': {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' }
-                        }
                     }
                 }
             }
@@ -79,14 +60,6 @@
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- GSAP Animation Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
     
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
@@ -108,73 +81,8 @@
             "addressRegion": "İstanbul",
             "addressLocality": "İstanbul"
         },
-        "areaServed": [
-            {
-                "@type": "City",
-                "name": "İstanbul",
-                "containedInPlace": {
-                    "@type": "Country",
-                    "name": "Türkiye"
-                }
-            }
-        ],
-        "serviceArea": [
-            {
-                "@type": "AdministrativeArea",
-                "name": "Şişli"
-            },
-            {
-                "@type": "AdministrativeArea", 
-                "name": "Kadıköy"
-            },
-            {
-                "@type": "AdministrativeArea",
-                "name": "Beşiktaş"
-            },
-            {
-                "@type": "AdministrativeArea",
-                "name": "Üsküdar"
-            },
-            {
-                "@type": "AdministrativeArea",
-                "name": "Fatih"
-            },
-            {
-                "@type": "AdministrativeArea",
-                "name": "Bakırköy"
-            },
-            {
-                "@type": "AdministrativeArea",
-                "name": "Maltepe"
-            }
-        ],
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Jeneratör Kiralama Hizmetleri",
-            "itemListElement": [
-                {
-                    "@type": "Service",
-                    "name": "Araç Üstü Mobil Jeneratör Kiralama",
-                    "description": "İstanbul genelinde araç üstü mobil jeneratör kiralama hizmeti"
-                },
-                {
-                    "@type": "Service", 
-                    "name": "Etkinlik Jeneratörü Kiralama",
-                    "description": "Düğün, konser, festival için jeneratör kiralama"
-                },
-                {
-                    "@type": "Service",
-                    "name": "Şantiye Jeneratörü Kiralama", 
-                    "description": "İnşaat şantiyesi için güç ünitesi kiralama"
-                }
-            ]
-        },
-        "priceRange": "$$",
         "openingHours": "Mo-Su 00:00-23:59",
-        "availableLanguage": "Turkish",
-        "currenciesAccepted": "TRY",
-        "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
-        "keywords": "istanbul jeneratör kiralama, mobil jeneratör, araç üstü jeneratör, etkinlik jeneratörü, şantiye elektrik"
+        "priceRange": "$$"
     }
     </script>
     
@@ -184,57 +92,6 @@
     <!-- Navigation -->
     {% include 'partials/navbar.html' %}
     
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="mobile-menu-overlay">
-        <div class="mobile-menu-content">
-            <div class="mobile-menu-header">
-                <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 bg-gradient-to-r from-electric-blue to-electric-cyan rounded-lg flex items-center justify-center">
-                        <i data-feather="zap" class="w-5 h-5 text-electric-dark"></i>
-                    </div>
-                    <span class="text-xl font-bold">PSL Mobil Enerji</span>
-                </div>
-                <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-white/10 transition-colors">
-                    <i data-feather="x" class="w-6 h-6"></i>
-                </button>
-            </div>
-            
-            <nav class="mobile-menu-nav">
-                <a href="{{ url_for('index') }}" class="mobile-nav-link {% if request.endpoint == 'index' %}active{% endif %}">
-                    <i data-feather="home" class="w-5 h-5"></i>
-                    <span>Ana Sayfa</span>
-                </a>
-                <a href="{{ url_for('sektorler') }}" class="mobile-nav-link {% if request.endpoint == 'sektorler' %}active{% endif %}">
-                    <i data-feather="briefcase" class="w-5 h-5"></i>
-                    <span>Sektörler</span>
-                </a>
-                <a href="{{ url_for('teknoloji') }}" class="mobile-nav-link {% if request.endpoint == 'teknoloji' %}active{% endif %}">
-                    <i data-feather="cpu" class="w-5 h-5"></i>
-                    <span>Teknoloji</span>
-                </a>
-                <a href="{{ url_for('galeri') }}" class="mobile-nav-link {% if request.endpoint == 'galeri' %}active{% endif %}">
-                    <i data-feather="image" class="w-5 h-5"></i>
-                    <span>Galeri</span>
-                </a>
-                <a href="{{ url_for('iletisim') }}" class="mobile-nav-link {% if request.endpoint == 'iletisim' %}active{% endif %}">
-                    <i data-feather="mail" class="w-5 h-5"></i>
-                    <span>İletişim</span>
-                </a>
-            </nav>
-            
-            <div class="mobile-menu-cta">
-                <a href="{{ url_for('iletisim') }}" class="mobile-cta-btn">
-                    <i data-feather="zap" class="w-5 h-5"></i>
-                    <span>Teklif Al</span>
-                </a>
-                <a href="tel:+905335295399" class="mobile-call-btn">
-                    <i data-feather="phone" class="w-5 h-5"></i>
-                    <span>Hemen Ara</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    
     <!-- Main Content -->
     <main class="min-h-screen">
         <!-- Flash Messages -->
@@ -242,11 +99,10 @@
             {% if messages %}
                 <div class="fixed top-20 right-4 z-50 space-y-2">
                     {% for category, message in messages %}
-                        <div class="flash-message glass-panel px-4 py-3 rounded-lg shadow-lg max-w-sm 
-                                    {% if category == 'error' %}border-l-4 border-red-500 bg-red-500/10{% else %}border-l-4 border-electric-blue bg-electric-blue/10{% endif %}"
-                             >
-                            <p class="text-sm font-medium">{{ message }}</p>
-                            <button onclick="this.parentElement.remove()" class="absolute top-1 right-2 text-gray-400 hover:text-white">
+                        <div class="flash-message glass-panel px-4 py-3 rounded-lg shadow-lg max-w-sm relative
+                                    {% if category == 'error' %}border-l-4 border-red-500{% else %}border-l-4 border-yellow-400{% endif %}">
+                            <p class="text-sm font-medium pr-6">{{ message }}</p>
+                            <button onclick="this.parentElement.remove()" class="absolute top-2 right-2 text-gray-400 hover:text-white">
                                 <i data-feather="x" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -262,27 +118,22 @@
     {% include 'partials/footer.html' %}
     
     <!-- Floating Contact Panel -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-3" id="contactPanel">
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3" id="contactPanel">
         <!-- Contact Options (Initially Hidden) -->
-        <div class="contact-options hidden space-y-3">
-            <!-- Phone -->
-            <a href="tel:+905335295399" 
-               class="contact-option-btn bg-electric-blue hover:bg-electric-cyan text-electric-dark p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 group">
+        <div class="contact-options hidden flex-col items-end gap-3">
+            <a href="tel:+905335295399"
+               class="contact-option-btn bg-[#FFD700] text-black p-3 rounded-lg shadow-lg transition-all hover:bg-[#E6C200]">
                 <i data-feather="phone" class="w-5 h-5"></i>
                 <span class="contact-tooltip">Hemen Ara</span>
             </a>
-            
-            <!-- Email -->
-            <a href="mailto:info@pslmobilenerji.com" 
-               class="contact-option-btn bg-gray-600 hover:bg-gray-500 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 group">
+            <a href="mailto:info@pslmobilenerji.com"
+               class="contact-option-btn bg-[#374151] hover:bg-[#4B5563] text-white p-3 rounded-lg shadow-lg transition-colors">
                 <i data-feather="mail" class="w-5 h-5"></i>
                 <span class="contact-tooltip">E-posta Gönder</span>
             </a>
-            
-            <!-- WhatsApp -->
-            <a href="https://wa.me/{{ whatsapp_phone }}?text=Merhaba, mobil jeneratör hizmeti için bilgi almak istiyorum." 
+            <a href="https://wa.me/{{ whatsapp_phone }}?text=Merhaba, mobil jeneratör hizmeti için bilgi almak istiyorum."
                target="_blank"
-               class="contact-option-btn bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 group">
+               class="contact-option-btn bg-[#25D366] hover:bg-[#22BF5C] text-white p-3 rounded-lg shadow-lg transition-colors">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
                 </svg>
@@ -291,36 +142,22 @@
         </div>
         
         <!-- Main Toggle Button -->
-        <button id="contactToggle" 
-                class="bg-electric-blue hover:bg-electric-cyan text-electric-dark p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 contact-main-btn">
+        <button id="contactToggle"
+                class="contact-main-btn bg-[#FFD700] hover:bg-[#E6C200] text-black p-4 rounded-lg shadow-lg transition-colors">
             <i data-feather="message-circle" class="w-6 h-6" id="contactIcon"></i>
         </button>
     </div>
     
-    
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-6 left-6 z-40 bg-electric-blue hover:bg-electric-cyan text-electric-dark p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible hover:scale-110">
+    <button id="backToTop" class="fixed bottom-6 left-6 z-40 bg-[#1C1C1C] hover:bg-[#FFD700] hover:text-black text-white p-3 rounded-lg shadow-lg transition-all opacity-0 invisible border border-white/10">
         <i data-feather="arrow-up" class="w-5 h-5"></i>
     </button>
     
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     
-    <!-- Initialize Icons -->
     <script>
         feather.replace();
-        
-        // AOS removed - immediate content display
-        
-        // Auto-hide flash messages
-        setTimeout(() => {
-            const flashMessages = document.querySelectorAll('.flash-message');
-            flashMessages.forEach(msg => {
-                msg.style.animation = 'slide-out-right 0.5s ease-in forwards';
-                setTimeout(() => msg.remove(), 500);
-            });
-        }, 5000);
     </script>
     
     {% block extra_scripts %}{% endblock %}

@@ -5,26 +5,27 @@
 
 {% block content %}
     <!-- Page Header -->
-    <section class="pt-24 pb-12 bg-gradient-to-r from-electric-dark to-black">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
-                    Galeri
-                </span>
-            </h1>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                Mobil jeneratör sistemlerimiz, kurulum süreçleri ve başarılı projelerimizden görüntüler.
-            </p>
+    <section class="pt-28 pb-14 bg-[#0A0A0A] border-b border-white/8">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-2xl">
+                <div class="text-xs font-semibold text-[#FFD700] tracking-widest uppercase mb-4">Fotoğraflar</div>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Proje <span class="text-[#FFD700]">Galerisi</span>
+                </h1>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    Mobil jeneratör sistemlerimiz, kurulum süreçleri ve başarılı projelerimizden görüntüler.
+                </p>
+            </div>
         </div>
     </section>
     
     <!-- Filter Buttons -->
-    <section class="py-12 bg-electric-dark">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-4">
+    <section class="py-8 bg-[#0A0A0A] border-b border-white/6">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-wrap gap-3">
                 {% for category in categories %}
-                <button class="gallery-filter px-6 py-2 rounded-full font-semibold transition-all duration-300 
-                             {% if category == 'all' %}bg-electric-blue text-electric-dark{% else %}border border-white/20 text-gray-400 hover:border-electric-blue hover:text-electric-blue{% endif %}"
+                <button class="gallery-filter px-5 py-2 rounded text-sm font-medium transition-all duration-200
+                             {% if category == 'all' %}bg-[#FFD700] text-black{% else %}border border-white/15 text-gray-400 hover:border-[#FFD700]/50 hover:text-[#FFD700]{% endif %}"
                         data-filter="{{ category }}">
                     {% if category == 'all' %}Tümü
                     {% elif category == 'equipment' %}Ekipmanlar
@@ -38,28 +39,26 @@
     </section>
     
     <!-- Gallery Grid -->
-    <section class="py-20 bg-electric-dark">
-        <div class="container mx-auto px-4">
-            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section class="py-16 bg-[#0A0A0A]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {% for item in gallery_items %}
                 <div class="gallery-item {{ item.category }}" data-category="{{ item.category }}">
-                    <div class="glass-panel rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 group cursor-pointer"
+                    <div class="glass-panel rounded-lg overflow-hidden group cursor-pointer"
                          onclick="openLightbox({{ item.id }})">
                         <div class="relative">
-                            <img src="{{ item.thumbnail }}" 
-                                 alt="{{ item.title }}" 
-                                 class="w-full h-64 object-cover">
+                            <img src="{{ item.thumbnail }}"
+                                 alt="{{ item.title }}"
+                                 class="w-full h-56 object-cover">
                             
-                            <!-- Overlay -->
-                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <div class="text-center space-y-2">
-                                    <i data-feather="zoom-in" class="w-8 h-8 text-electric-blue mx-auto"></i>
-                                    <p class="text-white font-semibold">{{ item.title }}</p>
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i data-feather="zoom-in" class="w-7 h-7 text-[#FFD700] mx-auto mb-2"></i>
+                                    <p class="text-white text-sm font-medium">{{ item.title }}</p>
                                 </div>
                             </div>
                             
-                            <!-- Category badge -->
-                            <div class="absolute top-4 left-4 bg-electric-blue text-electric-dark px-3 py-1 rounded-full text-xs font-semibold capitalize">
+                            <div class="absolute top-3 left-3 bg-[#FFD700] text-black px-2.5 py-1 rounded text-xs font-semibold">
                                 {% if item.category == 'equipment' %}Ekipman
                                 {% elif item.category == 'setup' %}Kurulum
                                 {% elif item.category == 'projects' %}Proje
@@ -67,16 +66,12 @@
                             </div>
                         </div>
                         
-                        <!-- Content -->
                         <div class="p-4">
-                            <h3 class="font-semibold text-white">{{ item.title }}</h3>
-                            <p class="text-sm text-gray-400 mt-1">
-                                {% if item.category == 'equipment' %}
-                                    Mobil jeneratör sistemimiz
-                                {% elif item.category == 'setup' %}
-                                    Profesyonel kurulum süreci
-                                {% elif item.category == 'projects' %}
-                                    Başarılı proje örneği
+                            <h3 class="font-semibold text-sm text-white">{{ item.title }}</h3>
+                            <p class="text-xs text-gray-500 mt-1">
+                                {% if item.category == 'equipment' %}Mobil jeneratör sistemi
+                                {% elif item.category == 'setup' %}Profesyonel kurulum
+                                {% elif item.category == 'projects' %}Başarılı proje
                                 {% endif %}
                             </p>
                         </div>
@@ -84,72 +79,57 @@
                 </div>
                 {% endfor %}
                 
-                <!-- Placeholder items for a full gallery look -->
+                <!-- Placeholder items -->
                 <div class="gallery-item equipment" data-category="equipment">
-                    <div class="glass-panel rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 group cursor-pointer"
-                         onclick="openLightbox(4)">
+                    <div class="glass-panel rounded-lg overflow-hidden group cursor-pointer" onclick="openLightbox(4)">
                         <div class="relative">
-                            <div class="w-full h-64 bg-gradient-to-br from-electric-blue/20 to-electric-cyan/20 flex items-center justify-center">
-                                <div class="text-center space-y-4 text-gray-400">
-                                    <i data-feather="image" class="w-12 h-12 mx-auto"></i>
-                                    <p class="text-sm">Daha fazla fotoğraf<br>yakında eklenecek</p>
+                            <div class="w-full h-56 bg-[#111]/80 flex items-center justify-center">
+                                <div class="text-center text-gray-600">
+                                    <i data-feather="image" class="w-10 h-10 mx-auto mb-3"></i>
+                                    <p class="text-xs">Yakında eklenecek</p>
                                 </div>
                             </div>
-                            
-                            <div class="absolute top-4 left-4 bg-electric-cyan text-electric-dark px-3 py-1 rounded-full text-xs font-semibold">
-                                Yakında
-                            </div>
+                            <div class="absolute top-3 left-3 bg-[#1C1C1C] border border-white/10 text-gray-400 px-2.5 py-1 rounded text-xs font-medium">Yakında</div>
                         </div>
-                        
                         <div class="p-4">
-                            <h3 class="font-semibold text-white">Kontrol Paneli Detayı</h3>
-                            <p class="text-sm text-gray-400 mt-1">Sistem kontrol özellikleri</p>
+                            <h3 class="font-semibold text-sm text-white">Kontrol Paneli Detayı</h3>
+                            <p class="text-xs text-gray-500 mt-1">Sistem kontrol özellikleri</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="gallery-item projects" data-category="projects">
-                    <div class="glass-panel rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 group cursor-pointer"
-                         onclick="openLightbox(5)">
+                    <div class="glass-panel rounded-lg overflow-hidden group cursor-pointer" onclick="openLightbox(5)">
                         <div class="relative">
-                            <div class="w-full h-64 bg-gradient-to-br from-electric-cyan/20 to-electric-blue/20 flex items-center justify-center">
-                                <div class="text-center space-y-4 text-gray-400">
-                                    <i data-feather="camera" class="w-12 h-12 mx-auto"></i>
-                                    <p class="text-sm">Proje fotoğrafları<br>güncelleniyor</p>
+                            <div class="w-full h-56 bg-[#111]/80 flex items-center justify-center">
+                                <div class="text-center text-gray-600">
+                                    <i data-feather="camera" class="w-10 h-10 mx-auto mb-3"></i>
+                                    <p class="text-xs">Güncelleniyor</p>
                                 </div>
                             </div>
-                            
-                            <div class="absolute top-4 left-4 bg-electric-blue text-electric-dark px-3 py-1 rounded-full text-xs font-semibold">
-                                Proje
-                            </div>
+                            <div class="absolute top-3 left-3 bg-[#FFD700] text-black px-2.5 py-1 rounded text-xs font-semibold">Proje</div>
                         </div>
-                        
                         <div class="p-4">
-                            <h3 class="font-semibold text-white">Etkinlik Enerjisi</h3>
-                            <p class="text-sm text-gray-400 mt-1">Açık hava konseri projesi</p>
+                            <h3 class="font-semibold text-sm text-white">Etkinlik Enerjisi</h3>
+                            <p class="text-xs text-gray-500 mt-1">Açık hava konseri projesi</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="gallery-item setup" data-category="setup">
-                    <div class="glass-panel rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 group cursor-pointer"
-                         onclick="openLightbox(6)">
+                    <div class="glass-panel rounded-lg overflow-hidden group cursor-pointer" onclick="openLightbox(6)">
                         <div class="relative">
-                            <div class="w-full h-64 bg-gradient-to-br from-electric-blue/20 to-electric-cyan/20 flex items-center justify-center">
-                                <div class="text-center space-y-4 text-gray-400">
-                                    <i data-feather="settings" class="w-12 h-12 mx-auto"></i>
-                                    <p class="text-sm">Kurulum detayları<br>hazırlanıyor</p>
+                            <div class="w-full h-56 bg-[#111]/80 flex items-center justify-center">
+                                <div class="text-center text-gray-600">
+                                    <i data-feather="settings" class="w-10 h-10 mx-auto mb-3"></i>
+                                    <p class="text-xs">Hazırlanıyor</p>
                                 </div>
                             </div>
-                            
-                            <div class="absolute top-4 left-4 bg-electric-cyan text-electric-dark px-3 py-1 rounded-full text-xs font-semibold">
-                                Kurulum
-                            </div>
+                            <div class="absolute top-3 left-3 bg-[#FFD700] text-black px-2.5 py-1 rounded text-xs font-semibold">Kurulum</div>
                         </div>
-                        
                         <div class="p-4">
-                            <h3 class="font-semibold text-white">Kablo Bağlantıları</h3>
-                            <p class="text-sm text-gray-400 mt-1">Güvenli elektrik bağlantısı</p>
+                            <h3 class="font-semibold text-sm text-white">Kablo Bağlantıları</h3>
+                            <p class="text-xs text-gray-500 mt-1">Güvenli elektrik bağlantısı</p>
                         </div>
                     </div>
                 </div>
@@ -158,106 +138,67 @@
     </section>
     
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4">
+    <div id="lightbox" class="fixed inset-0 bg-black/92 z-50 hidden items-center justify-center p-4">
         <div class="relative max-w-4xl w-full">
-            <!-- Close Button -->
-            <button onclick="closeLightbox()" 
-                    class="absolute -top-12 right-0 text-white hover:text-electric-blue transition-colors z-10">
-                <i data-feather="x" class="w-8 h-8"></i>
+            <button onclick="closeLightbox()"
+                    class="absolute -top-12 right-0 text-white/60 hover:text-white transition-colors z-10">
+                <i data-feather="x" class="w-7 h-7"></i>
             </button>
             
-            <!-- Image Container -->
             <div class="relative">
                 <img id="lightbox-image" src="" alt="" class="w-full h-auto rounded-lg">
                 
-                <!-- Navigation Arrows -->
-                <button onclick="previousImage()" 
-                        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-electric-blue/80 text-white p-3 rounded-full transition-all duration-300">
-                    <i data-feather="chevron-left" class="w-6 h-6"></i>
+                <button onclick="previousImage()"
+                        class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-[#FFD700]/80 hover:text-black text-white p-2.5 rounded transition-all">
+                    <i data-feather="chevron-left" class="w-5 h-5"></i>
                 </button>
                 
-                <button onclick="nextImage()" 
-                        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-electric-blue/80 text-white p-3 rounded-full transition-all duration-300">
-                    <i data-feather="chevron-right" class="w-6 h-6"></i>
+                <button onclick="nextImage()"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-[#FFD700]/80 hover:text-black text-white p-2.5 rounded transition-all">
+                    <i data-feather="chevron-right" class="w-5 h-5"></i>
                 </button>
             </div>
             
-            <!-- Image Info -->
             <div class="mt-4 text-center">
-                <h3 id="lightbox-title" class="text-xl font-semibold text-white"></h3>
-                <p id="lightbox-counter" class="text-sm text-gray-400 mt-1"></p>
+                <h3 id="lightbox-title" class="text-lg font-semibold text-white"></h3>
+                <p id="lightbox-counter" class="text-sm text-gray-500 mt-1"></p>
             </div>
         </div>
     </div>
-    
-
 {% endblock %}
 
 {% block extra_scripts %}
 <script>
     let currentImageIndex = 0;
     const galleryImages = [
-        {
-            id: 1,
-            title: 'Mobil Jeneratör Van',
-            src: '{{ url_for("static", filename="img/gallery-1.jpeg") }}'
-        },
-        {
-            id: 2,
-            title: 'Elektrik Sistemi',
-            src: '{{ url_for("static", filename="img/gallery-2.jpeg") }}'
-        },
-        {
-            id: 3,
-            title: 'Araç Üstü Jeneratör',
-            src: '{{ url_for("static", filename="img/gallery-3.jpeg") }}'
-        },
-        {
-            id: 4,
-            title: 'Kontrol Paneli',
-            src: '{{ url_for("static", filename="img/gallery-4.jpeg") }}'
-        }
+        { id: 1, title: 'Mobil Jeneratör Van', src: '{{ url_for("static", filename="img/gallery-1.jpeg") }}' },
+        { id: 2, title: 'Elektrik Sistemi', src: '{{ url_for("static", filename="img/gallery-2.jpeg") }}' },
+        { id: 3, title: 'Araç Üstü Jeneratör', src: '{{ url_for("static", filename="img/gallery-3.jpeg") }}' },
+        { id: 4, title: 'Kontrol Paneli', src: '{{ url_for("static", filename="img/gallery-4.jpeg") }}' }
     ];
     
-    // Gallery Filter
     document.querySelectorAll('.gallery-filter').forEach(button => {
         button.addEventListener('click', () => {
             const filter = button.dataset.filter;
-            
-            // Update active button
             document.querySelectorAll('.gallery-filter').forEach(btn => {
-                btn.classList.remove('bg-electric-blue', 'text-electric-dark');
-                btn.classList.add('border', 'border-white/20', 'text-gray-400');
+                btn.classList.remove('bg-[#FFD700]', 'text-black');
+                btn.classList.add('border', 'border-white/15', 'text-gray-400');
             });
-            
-            button.classList.remove('border', 'border-white/20', 'text-gray-400');
-            button.classList.add('bg-electric-blue', 'text-electric-dark');
-            
-            // Filter gallery items
+            button.classList.remove('border', 'border-white/15', 'text-gray-400');
+            button.classList.add('bg-[#FFD700]', 'text-black');
             document.querySelectorAll('.gallery-item').forEach(item => {
-                if (filter === 'all' || item.dataset.category === filter) {
-                    item.style.display = 'block';
-                    // data-aos removed for immediate display
-                } else {
-                    item.style.display = 'none';
-                }
+                item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'block' : 'none';
             });
-            
-            // AOS removed - no refresh needed
         });
     });
     
-    // Lightbox Functions
     function openLightbox(imageId) {
         const image = galleryImages.find(img => img.id === imageId);
         if (!image) return;
-        
         currentImageIndex = galleryImages.findIndex(img => img.id === imageId);
-        
         document.getElementById('lightbox-image').src = image.src;
         document.getElementById('lightbox-title').textContent = image.title;
         document.getElementById('lightbox-counter').textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
-        
         document.getElementById('lightbox').classList.remove('hidden');
         document.getElementById('lightbox').classList.add('flex');
         document.body.style.overflow = 'hidden';
@@ -286,28 +227,15 @@
         document.getElementById('lightbox-counter').textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
     }
     
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (document.getElementById('lightbox').classList.contains('flex')) {
-            switch(e.key) {
-                case 'Escape':
-                    closeLightbox();
-                    break;
-                case 'ArrowLeft':
-                    previousImage();
-                    break;
-                case 'ArrowRight':
-                    nextImage();
-                    break;
-            }
-        }
+        if (!document.getElementById('lightbox').classList.contains('flex')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') previousImage();
+        if (e.key === 'ArrowRight') nextImage();
     });
     
-    // Close lightbox when clicking outside image
     document.getElementById('lightbox').addEventListener('click', (e) => {
-        if (e.target === e.currentTarget) {
-            closeLightbox();
-        }
+        if (e.target === e.currentTarget) closeLightbox();
     });
 </script>
 {% endblock %}

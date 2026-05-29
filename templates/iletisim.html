@@ -5,195 +5,172 @@
 
 {% block content %}
     <!-- Page Header -->
-    <section class="pt-24 pb-12 bg-gradient-to-r from-electric-dark to-black">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
-                    İletişim
-                </span>
-            </h1>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                Mobil jeneratör ihtiyaçlarınız için bizimle iletişime geçin. Uzman ekibimiz size en uygun çözümü sunar.
-            </p>
+    <section class="pt-28 pb-14 bg-[#0A0A0A] border-b border-white/8">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-2xl">
+                <div class="text-xs font-semibold text-[#FFD700] tracking-widest uppercase mb-4">Bize Ulaşın</div>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    <span class="text-[#FFD700]">İletişim</span>
+                </h1>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    Mobil jeneratör ihtiyaçlarınız için bizimle iletişime geçin. Uzman ekibimiz en uygun çözümü sunar.
+                </p>
+            </div>
         </div>
     </section>
     
     <!-- Contact Form & Info -->
-    <section class="py-20 bg-electric-dark">
-        <div class="container mx-auto px-4">
+    <section class="py-20 bg-[#0A0A0A]">
+        <div class="max-w-6xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <!-- Contact Form -->
-                <div class="space-y-8">
-                    <div class="space-y-4">
-                        <h2 class="text-3xl font-bold">Teklif Talep Formu</h2>
-                        <p class="text-gray-400">Projeniz için özel teklif almak üzere aşağıdaki formu doldurun.</p>
-                    </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white mb-2">Teklif Talep Formu</h2>
+                    <p class="text-gray-400 text-sm mb-8">Projeniz için özel teklif almak üzere formu doldurun.</p>
                     
-                    <form method="POST" class="glass-panel p-8 rounded-xl space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label for="name" class="block text-sm font-semibold text-electric-blue">Ad Soyad *</label>
-                                <input type="text" 
-                                       id="name" 
-                                       name="name" 
-                                       required
+                    <form method="POST" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label for="name" class="block text-xs font-semibold text-[#FFD700] uppercase tracking-wider mb-2">Ad Soyad *</label>
+                                <input type="text" id="name" name="name" required
                                        value="{{ request.form.get('name', '') }}"
-                                       class="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-lg focus:border-electric-blue focus:outline-none transition-colors text-white placeholder-gray-500"
+                                       class="w-full px-4 py-3 bg-[#111] border border-white/10 rounded focus:border-[#FFD700] focus:outline-none transition-colors text-white text-sm placeholder-gray-600"
                                        placeholder="Adınız ve soyadınız">
                             </div>
-                            
-                            <div class="space-y-2">
-                                <label for="phone" class="block text-sm font-semibold text-electric-blue">Telefon *</label>
-                                <input type="tel" 
-                                       id="phone" 
-                                       name="phone" 
-                                       required
+                            <div>
+                                <label for="phone" class="block text-xs font-semibold text-[#FFD700] uppercase tracking-wider mb-2">Telefon *</label>
+                                <input type="tel" id="phone" name="phone" required
                                        value="{{ request.form.get('phone', '') }}"
-                                       class="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-lg focus:border-electric-blue focus:outline-none transition-colors text-white placeholder-gray-500"
+                                       class="w-full px-4 py-3 bg-[#111] border border-white/10 rounded focus:border-[#FFD700] focus:outline-none transition-colors text-white text-sm placeholder-gray-600"
                                        placeholder="+90 533 529 53 99">
                             </div>
                         </div>
                         
-                        <div class="space-y-2">
-                            <label for="email" class="block text-sm font-semibold text-electric-blue">E-posta *</label>
-                            <input type="email" 
-                                   id="email" 
-                                   name="email" 
-                                   required
+                        <div>
+                            <label for="email" class="block text-xs font-semibold text-[#FFD700] uppercase tracking-wider mb-2">E-posta *</label>
+                            <input type="email" id="email" name="email" required
                                    value="{{ request.form.get('email', '') }}"
-                                   class="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-lg focus:border-electric-blue focus:outline-none transition-colors text-white placeholder-gray-500"
+                                   class="w-full px-4 py-3 bg-[#111] border border-white/10 rounded focus:border-[#FFD700] focus:outline-none transition-colors text-white text-sm placeholder-gray-600"
                                    placeholder="ornek@email.com">
                         </div>
                         
-                        <div class="space-y-2">
-                            <label for="sector" class="block text-sm font-semibold text-electric-blue">Sektör</label>
-                            <select id="sector" 
-                                    name="sector"
-                                    class="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-lg focus:border-electric-blue focus:outline-none transition-colors text-white">
+                        <div>
+                            <label for="sector" class="block text-xs font-semibold text-[#FFD700] uppercase tracking-wider mb-2">Sektör</label>
+                            <select id="sector" name="sector"
+                                    class="w-full px-4 py-3 bg-[#111] border border-white/10 rounded focus:border-[#FFD700] focus:outline-none transition-colors text-white text-sm">
                                 <option value="">Sektör seçiniz (opsiyonel)</option>
                                 <option value="etkinlik" {% if request.form.get('sector') == 'etkinlik' %}selected{% endif %}>Etkinlik & Organizasyon</option>
-                                <option value="film" {% if request.form.get('sector') == 'film' %}selected{% endif %}>Film/Dizi Seti</option>
-                                <option value="insaat" {% if request.form.get('sector') == 'insaat' %}selected{% endif %}>İnşaat/Şantiye</option>
+                                <option value="film" {% if request.form.get('sector') == 'film' %}selected{% endif %}>Film / Dizi Seti</option>
+                                <option value="insaat" {% if request.form.get('sector') == 'insaat' %}selected{% endif %}>İnşaat / Şantiye</option>
                                 <option value="acil" {% if request.form.get('sector') == 'acil' %}selected{% endif %}>Acil Durum & Afet</option>
                                 <option value="tarim" {% if request.form.get('sector') == 'tarim' %}selected{% endif %}>Tarım & Kırsal Alan</option>
                                 <option value="diger" {% if request.form.get('sector') == 'diger' %}selected{% endif %}>Diğer</option>
                             </select>
                         </div>
                         
-                        <div class="space-y-2">
-                            <label for="message" class="block text-sm font-semibold text-electric-blue">Mesaj *</label>
-                            <textarea id="message" 
-                                      name="message" 
-                                      required
-                                      rows="5"
-                                      class="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-lg focus:border-electric-blue focus:outline-none transition-colors text-white placeholder-gray-500 resize-none"
+                        <div>
+                            <label for="message" class="block text-xs font-semibold text-[#FFD700] uppercase tracking-wider mb-2">Mesaj *</label>
+                            <textarea id="message" name="message" required rows="5"
+                                      class="w-full px-4 py-3 bg-[#111] border border-white/10 rounded focus:border-[#FFD700] focus:outline-none transition-colors text-white text-sm placeholder-gray-600 resize-none"
                                       placeholder="Projeniz hakkında detayları, ihtiyacınız olan güç kapasitesi ve süre bilgilerini belirtiniz...">{{ request.form.get('message', '') }}</textarea>
                         </div>
                         
-                        <div class="flex items-center space-x-3">
-                            <input type="checkbox" 
-                                   id="consent" 
-                                   name="consent" 
-                                   required
-                                   class="w-4 h-4 bg-black/50 border border-white/20 rounded focus:ring-electric-blue focus:ring-2">
-                            <label for="consent" class="text-sm text-gray-400">
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" id="consent" name="consent" required
+                                   class="w-4 h-4 mt-0.5 bg-[#111] border border-white/15 rounded flex-shrink-0">
+                            <label for="consent" class="text-sm text-gray-400 leading-relaxed">
                                 Kişisel verilerimin işlenmesini kabul ediyorum ve iletişim kurulmasını onaylıyorum.
                             </label>
                         </div>
                         
-                        <button type="submit" 
-                                class="w-full bg-electric-blue hover:bg-electric-cyan text-electric-dark font-bold py-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2">
-                            <i data-feather="send" class="w-5 h-5"></i>
-                            <span>Teklif Gönder</span>
+                        <button type="submit" class="w-full btn-electric justify-center py-3.5">
+                            <i data-feather="send" class="w-4 h-4"></i>
+                            Teklif Gönder
                         </button>
                     </form>
                 </div>
                 
                 <!-- Contact Information -->
-                <div class="space-y-8">
-                    <div class="space-y-4">
-                        <h2 class="text-3xl font-bold">İletişim Bilgileri</h2>
-                        <p class="text-gray-400">7/24 hizmet veren uzman ekibimizle iletişime geçin.</p>
-                    </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white mb-2">İletişim Bilgileri</h2>
+                    <p class="text-gray-400 text-sm mb-8">7/24 hizmet veren uzman ekibimizle iletişime geçin.</p>
                     
-                    <!-- Contact Cards -->
-                    <div class="space-y-6">
-                        <div class="glass-panel p-6 rounded-xl">
-                            <div class="flex items-start space-x-4">
-                                <div class="bg-electric-blue/20 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i data-feather="phone" class="w-6 h-6 text-electric-blue"></i>
+                    <div class="space-y-4 mb-8">
+                        <div class="glass-panel p-5 rounded-lg">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i data-feather="phone" class="w-5 h-5 text-[#FFD700]"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-lg font-semibold mb-2">Telefon</h3>
-                                    <a href="tel:+905335295399" class="text-gray-400 hover:text-electric-blue transition-colors">
+                                    <h3 class="font-semibold text-sm mb-1">Telefon</h3>
+                                    <a href="tel:+905335295399" class="text-gray-400 hover:text-[#FFD700] transition-colors text-sm">
                                         +90 533 529 53 99
                                     </a>
-                                    <p class="text-sm text-gray-500 mt-1">7/24 Acil Durum Hattı</p>
+                                    <p class="text-xs text-gray-600 mt-0.5">7/24 Acil Durum Hattı</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="glass-panel p-6 rounded-xl">
-                            <div class="flex items-start space-x-4">
-                                <div class="bg-electric-cyan/20 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i data-feather="mail" class="w-6 h-6 text-electric-cyan"></i>
+                        <div class="glass-panel p-5 rounded-lg">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i data-feather="mail" class="w-5 h-5 text-[#FFD700]"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-lg font-semibold mb-2">E-posta</h3>
-                                    <a href="mailto:info@pslmobilenerji.com" class="text-gray-400 hover:text-electric-cyan transition-colors">
+                                    <h3 class="font-semibold text-sm mb-1">E-posta</h3>
+                                    <a href="mailto:info@pslmobilenerji.com" class="text-gray-400 hover:text-[#FFD700] transition-colors text-sm">
                                         info@pslmobilenerji.com
                                     </a>
-                                    <p class="text-sm text-gray-500 mt-1">Teklif ve Bilgi</p>
+                                    <p class="text-xs text-gray-600 mt-0.5">Teklif ve Bilgi</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="glass-panel p-6 rounded-xl">
-                            <div class="flex items-start space-x-4">
-                                <div class="bg-electric-blue/20 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i data-feather="map-pin" class="w-6 h-6 text-electric-blue"></i>
+                        <div class="glass-panel p-5 rounded-lg">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i data-feather="map-pin" class="w-5 h-5 text-[#FFD700]"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-lg font-semibold mb-2">Lokasyon</h3>
-                                    <p class="text-gray-400">İstanbul, Türkiye</p>
-                                    <p class="text-sm text-gray-500 mt-1">Türkiye Geneli Hizmet</p>
+                                    <h3 class="font-semibold text-sm mb-1">Lokasyon</h3>
+                                    <p class="text-gray-400 text-sm">İstanbul, Türkiye</p>
+                                    <p class="text-xs text-gray-600 mt-0.5">Türkiye Geneli Hizmet</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="glass-panel p-6 rounded-xl">
-                            <div class="flex items-start space-x-4">
-                                <div class="bg-green-500/20 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                        <div class="glass-panel p-5 rounded-lg">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="text-lg font-semibold mb-2">WhatsApp</h3>
-                                    <a href="https://wa.me/{{ whatsapp_phone }}?text=Merhaba, mobil jeneratör hizmeti için bilgi almak istiyorum." 
+                                    <h3 class="font-semibold text-sm mb-1">WhatsApp</h3>
+                                    <a href="https://wa.me/{{ whatsapp_phone }}?text=Merhaba, mobil jeneratör hizmeti için bilgi almak istiyorum."
                                        target="_blank"
-                                       class="text-gray-400 hover:text-green-500 transition-colors">
+                                       class="text-gray-400 hover:text-green-500 transition-colors text-sm">
                                         +90 533 529 53 99
                                     </a>
-                                    <p class="text-sm text-gray-500 mt-1">Anında İletişim</p>
+                                    <p class="text-xs text-gray-600 mt-0.5">Anında İletişim</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Quick Actions -->
-                    <div class="space-y-4">
-                        <h3 class="text-xl font-semibold">Hızlı İşlemler</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <a href="https://wa.me/{{ whatsapp_phone }}?text=Merhaba, acil mobil jeneratör ihtiyacım var." 
+                    <div>
+                        <h3 class="text-xs font-semibold text-white uppercase tracking-wider mb-4">Hızlı İşlemler</h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <a href="https://wa.me/{{ whatsapp_phone }}?text=Merhaba, acil mobil jeneratör ihtiyacım var."
                                target="_blank"
-                               class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-3 rounded-lg transition-all duration-300 text-center">
-                                <i data-feather="alert-circle" class="w-4 h-4 inline mr-2"></i>
+                               class="flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-3 rounded transition-colors text-sm">
+                                <i data-feather="alert-circle" class="w-4 h-4"></i>
                                 Acil Durum
                             </a>
-                            <a href="tel:+905335295399" 
-                               class="border-2 border-electric-blue hover:bg-electric-blue text-electric-blue hover:text-electric-dark font-semibold px-4 py-3 rounded-lg transition-all duration-300 text-center">
-                                <i data-feather="phone-call" class="w-4 h-4 inline mr-2"></i>
+                            <a href="tel:+905335295399"
+                               class="flex items-center justify-center gap-2 border border-[#FFD700]/40 hover:bg-[#FFD700] hover:border-[#FFD700] text-[#FFD700] hover:text-black font-semibold px-4 py-3 rounded transition-all text-sm">
+                                <i data-feather="phone-call" class="w-4 h-4"></i>
                                 Hemen Ara
                             </a>
                         </div>
@@ -202,84 +179,80 @@
             </div>
         </div>
     </section>
+
+    <div class="simple-section-divider"></div>
     
     <!-- FAQ Section -->
-    <section class="py-20 bg-electric-dark">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6">
-                    <span class="bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
-                        Sık Sorulan Sorular
-                    </span>
+    <section class="py-20 bg-[#0f0f0f]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">
+                    Sık Sorulan <span class="text-[#FFD700]">Sorular</span>
                 </h2>
-                <p class="text-xl text-gray-400">Mobil jeneratör hizmetleri hakkında merak edilenler</p>
+                <p class="text-gray-400">Mobil jeneratör hizmetleri hakkında merak edilenler</p>
             </div>
             
-            <div class="max-w-4xl mx-auto space-y-4">
-                <div class="glass-panel rounded-xl overflow-hidden">
-                    <button class="faq-toggle w-full text-left p-6 flex items-center justify-between focus:outline-none">
-                        <h3 class="text-lg font-semibold">Kurulum süresi ne kadar?</h3>
-                        <i data-feather="chevron-down" class="w-5 h-5 text-electric-blue transition-transform"></i>
+            <div class="max-w-3xl mx-auto space-y-3">
+                <div class="glass-panel rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none">
+                        <h3 class="font-semibold text-sm">Kurulum süresi ne kadar?</h3>
+                        <i data-feather="chevron-down" class="w-4 h-4 text-[#FFD700] flex-shrink-0 ml-4"></i>
                     </button>
-                    <div class="faq-content px-6 pb-6 text-gray-400 hidden">
+                    <div class="faq-content hidden px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-white/6 pt-4">
                         Standart kurulum süresi 10 dakikadan az sürmektedir. Kompleks projeler için kurulum süresi projenin büyüklüğüne göre değişebilir.
                     </div>
                 </div>
                 
-                <div class="glass-panel rounded-xl overflow-hidden">
-                    <button class="faq-toggle w-full text-left p-6 flex items-center justify-between focus:outline-none">
-                        <h3 class="text-lg font-semibold">Hangi güç aralıklarında hizmet veriyorsunuz?</h3>
-                        <i data-feather="chevron-down" class="w-5 h-5 text-electric-blue transition-transform"></i>
+                <div class="glass-panel rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none">
+                        <h3 class="font-semibold text-sm">Hangi güç aralıklarında hizmet veriyorsunuz?</h3>
+                        <i data-feather="chevron-down" class="w-4 h-4 text-[#FFD700] flex-shrink-0 ml-4"></i>
                     </button>
-                    <div class="faq-content px-6 pb-6 text-gray-400 hidden">
+                    <div class="faq-content hidden px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-white/6 pt-4">
                         5 kVA'dan 250 kVA'ya kadar geniş bir güç aralığında hizmet vermekteyiz. İhtiyacınıza en uygun kapasiteyi belirlemek için uzmanlarımızla görüşün.
                     </div>
                 </div>
                 
-                <div class="glass-panel rounded-xl overflow-hidden">
-                    <button class="faq-toggle w-full text-left p-6 flex items-center justify-between focus:outline-none">
-                        <h3 class="text-lg font-semibold">Yakıt dahil mi?</h3>
-                        <i data-feather="chevron-down" class="w-5 h-5 text-electric-blue transition-transform"></i>
+                <div class="glass-panel rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none">
+                        <h3 class="font-semibold text-sm">Yakıt dahil mi?</h3>
+                        <i data-feather="chevron-down" class="w-4 h-4 text-[#FFD700] flex-shrink-0 ml-4"></i>
                     </button>
-                    <div class="faq-content px-6 pb-6 text-gray-400 hidden">
+                    <div class="faq-content hidden px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-white/6 pt-4">
                         Yakıt maliyeti ayrıca hesaplanmaktadır. Ancak fuel economy teknolojimiz sayesinde %30'a varan yakıt tasarrufu sağlayabilirsiniz.
                     </div>
                 </div>
                 
-                <div class="glass-panel rounded-xl overflow-hidden">
-                    <button class="faq-toggle w-full text-left p-6 flex items-center justify-between focus:outline-none">
-                        <h3 class="text-lg font-semibold">Acil durumlarda ne kadar sürede geliyorsunuz?</h3>
-                        <i data-feather="chevron-down" class="w-5 h-5 text-electric-blue transition-transform"></i>
+                <div class="glass-panel rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none">
+                        <h3 class="font-semibold text-sm">Acil durumlarda ne kadar sürede geliyorsunuz?</h3>
+                        <i data-feather="chevron-down" class="w-4 h-4 text-[#FFD700] flex-shrink-0 ml-4"></i>
                     </button>
-                    <div class="faq-content px-6 pb-6 text-gray-400 hidden">
-                        Acil durumlarda 2-4 saat içerisinde sahaya ulaşıyoruz. İstanbul ve çevre illerde daha hızlı müdahale edebiliyoruz.
+                    <div class="faq-content hidden px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-white/6 pt-4">
+                        Acil durumlarda 2–4 saat içerisinde sahaya ulaşıyoruz. İstanbul ve çevre illerde daha hızlı müdahale edebiliyoruz.
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 {% endblock %}
 
 {% block extra_scripts %}
 <script>
-    // FAQ Toggle functionality
     document.querySelectorAll('.faq-toggle').forEach(button => {
         button.addEventListener('click', () => {
             const content = button.nextElementSibling;
-            const icon = button.querySelector('[data-feather="chevron-down"]');
-            
+            const icon = button.querySelector('svg') || button.querySelector('i');
             content.classList.toggle('hidden');
-            icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+            if (icon) icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
         });
     });
     
-    // Auto-fill sector from URL parameter
     const urlParams = new URLSearchParams(window.location.search);
     const sector = urlParams.get('sector');
     if (sector) {
         const sectorSelect = document.getElementById('sector');
-        sectorSelect.value = sector;
+        if (sectorSelect) sectorSelect.value = sector;
     }
 </script>
 {% endblock %}
