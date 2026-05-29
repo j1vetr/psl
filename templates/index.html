@@ -46,151 +46,129 @@
 
     <div class="simple-section-divider"></div>
 
-    <!-- Services Preview -->
+    <!-- Sectors Section -->
     <section class="py-20 bg-[#0A0A0A]">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-14">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
-                    Sektör <span class="text-[#FFD700]">Çözümleri</span>
-                </h2>
-                <p class="text-gray-400 text-base max-w-2xl mx-auto">
-                    Etkinlikten şantiyeye, acil durumdan tarıma kadar her alanda mobil jeneratör kiralama
+
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <div class="text-xs font-semibold text-[#FFD700] tracking-widest uppercase mb-4">Sektörlerimiz</div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-5">Her Alanda Güç</h2>
+                <p class="text-gray-400 text-base max-w-xs mx-auto leading-relaxed">
+                    Etkinlikten şantiyeye, acil durumdan tarıma kadar<br>her alanda mobil jeneratör çözümleri.
                 </p>
             </div>
-            
-            <!-- Asimetrik grid: Satır 1 (3 eşit), Satır 2 (geniş featured + normal), Satır 3 (3 eşit) -->
-            <div class="grid grid-cols-12 gap-4">
 
-                <!-- ── ROW 1: 3 eşit kart ── -->
+            <!-- 4 × 2 Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
 
                 <!-- 01 Etkinlik -->
-                <a href="{{ url_for('sektorler') }}#etkinlik" class="sc-card group col-span-12 md:col-span-6 lg:col-span-4">
-                    <div class="sc-photo">
-                        <img src="{{ url_for('static', filename='img/sectors/etkinlik.png') }}" alt="Etkinlik">
-                        <span class="sc-num">01</span>
-                        <span class="sc-icon-pill"><i data-feather="calendar" class="w-3.5 h-3.5 text-[#FFD700]"></i></span>
-                    </div>
-                    <div class="sc-body">
-                        <div class="sc-title">Etkinlik & Organizasyon</div>
-                        <div class="sc-desc">Konser, festival ve düğün organizasyonları</div>
-                        <div class="sc-link">Detaylar <i data-feather="arrow-right" class="w-3 h-3 inline"></i></div>
+                <a href="{{ url_for('sektorler') }}#etkinlik" class="sector-photo-card group">
+                    <img src="{{ url_for('static', filename='img/sectors/etkinlik.png') }}" alt="Etkinlik & Organizasyon">
+                    <div class="sector-strip">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <i data-feather="calendar" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span>Etkinlik & Organizasyon</span>
+                        </div>
+                        <i data-feather="arrow-right" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
                     </div>
                 </a>
 
                 <!-- 02 Film -->
-                <a href="{{ url_for('sektorler') }}#film" class="sc-card group col-span-12 md:col-span-6 lg:col-span-4">
-                    <div class="sc-photo">
-                        <img src="{{ url_for('static', filename='img/sectors/film.png') }}" alt="Film">
-                        <span class="sc-num">02</span>
-                        <span class="sc-icon-pill"><i data-feather="video" class="w-3.5 h-3.5 text-[#FFD700]"></i></span>
-                    </div>
-                    <div class="sc-body">
-                        <div class="sc-title">Film / Dizi Seti</div>
-                        <div class="sc-desc">Profesyonel prodüksiyon güç desteği</div>
-                        <div class="sc-link">Detaylar <i data-feather="arrow-right" class="w-3 h-3 inline"></i></div>
+                <a href="{{ url_for('sektorler') }}#film" class="sector-photo-card group">
+                    <img src="{{ url_for('static', filename='img/sectors/film.png') }}" alt="Film / Dizi Seti">
+                    <div class="sector-strip">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <i data-feather="video" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span>Film / Dizi Seti</span>
+                        </div>
+                        <i data-feather="arrow-right" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
                     </div>
                 </a>
 
                 <!-- 03 İnşaat -->
-                <a href="{{ url_for('sektorler') }}#insaat" class="sc-card group col-span-12 md:col-span-6 lg:col-span-4">
-                    <div class="sc-photo">
-                        <img src="{{ url_for('static', filename='img/sectors/insaat.png') }}" alt="İnşaat">
-                        <span class="sc-num">03</span>
-                        <span class="sc-icon-pill"><i data-feather="tool" class="w-3.5 h-3.5 text-[#FFD700]"></i></span>
-                    </div>
-                    <div class="sc-body">
-                        <div class="sc-title">İnşaat / Şantiye</div>
-                        <div class="sc-desc">Şantiye ve ağır makine güç desteği</div>
-                        <div class="sc-link">Detaylar <i data-feather="arrow-right" class="w-3 h-3 inline"></i></div>
+                <a href="{{ url_for('sektorler') }}#insaat" class="sector-photo-card group">
+                    <img src="{{ url_for('static', filename='img/sectors/insaat.png') }}" alt="İnşaat / Şantiye">
+                    <div class="sector-strip">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <i data-feather="tool" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span>İnşaat / Şantiye</span>
+                        </div>
+                        <i data-feather="arrow-right" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
                     </div>
                 </a>
 
-                <!-- ── ROW 2: Geniş featured + normal ── -->
-
-                <!-- 04 Acil — FEATURED (geniş, yatay kart) -->
-                <a href="{{ url_for('sektorler') }}#acil" class="sc-card sc-featured group col-span-12 lg:col-span-8">
-                    <div class="sc-feat-inner">
-                        <div class="sc-feat-photo">
-                            <img src="{{ url_for('static', filename='img/sectors/acil.png') }}" alt="Acil Durum">
-                            <span class="sc-num">04</span>
+                <!-- 04 Acil -->
+                <a href="{{ url_for('sektorler') }}#acil" class="sector-photo-card group">
+                    <img src="{{ url_for('static', filename='img/sectors/acil.png') }}" alt="Acil Durum & Afet">
+                    <div class="sector-strip">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <i data-feather="zap" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span>Acil Durum & Afet</span>
                         </div>
-                        <div class="sc-feat-body">
-                            <div class="sc-icon-pill sc-feat-icon"><i data-feather="zap" class="w-3.5 h-3.5 text-[#FFD700]"></i></div>
-                            <div class="sc-title sc-feat-title">Acil Durum & Afet</div>
-                            <div class="w-8 h-0.5 mb-3" style="background:#FFD700;"></div>
-                            <div class="text-gray-400 text-sm leading-relaxed mb-5">İstanbul genelinde fırtına, sel, deprem ve şebeke arızası durumlarında anında sahaya inen mobil güç.</div>
-                            <div class="sc-link">Detaylar <i data-feather="arrow-right" class="w-3 h-3 inline"></i></div>
-                        </div>
+                        <i data-feather="arrow-right" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
                     </div>
                 </a>
 
                 <!-- 05 Tarım -->
-                <a href="{{ url_for('sektorler') }}#tarim" class="sc-card group col-span-12 md:col-span-6 lg:col-span-4">
-                    <div class="sc-photo">
-                        <img src="{{ url_for('static', filename='img/sectors/tarim.png') }}" alt="Tarım">
-                        <span class="sc-num">05</span>
-                        <span class="sc-icon-pill"><i data-feather="map" class="w-3.5 h-3.5 text-[#FFD700]"></i></span>
-                    </div>
-                    <div class="sc-body">
-                        <div class="sc-title">Tarım & Kırsal Alan</div>
-                        <div class="sc-desc">Sulama, hayvancılık ve kırsal tesisler</div>
-                        <div class="sc-link">Detaylar <i data-feather="arrow-right" class="w-3 h-3 inline"></i></div>
+                <a href="{{ url_for('sektorler') }}#tarim" class="sector-photo-card group">
+                    <img src="{{ url_for('static', filename='img/sectors/tarim.png') }}" alt="Tarım & Kırsal Alan">
+                    <div class="sector-strip">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <i data-feather="map" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span>Tarım & Kırsal Alan</span>
+                        </div>
+                        <i data-feather="arrow-right" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
                     </div>
                 </a>
 
-                <!-- ── ROW 3: 3 eşit kart ── -->
-
                 <!-- 06 Sağlık -->
-                <a href="{{ url_for('sektorler') }}#saglik" class="sc-card group col-span-12 md:col-span-6 lg:col-span-4">
-                    <div class="sc-photo">
-                        <img src="{{ url_for('static', filename='img/sectors/saglik.png') }}" alt="Sağlık">
-                        <span class="sc-num">06</span>
-                        <span class="sc-icon-pill"><i data-feather="heart" class="w-3.5 h-3.5 text-[#FFD700]"></i></span>
-                    </div>
-                    <div class="sc-body">
-                        <div class="sc-title">Sağlık & Hastane</div>
-                        <div class="sc-desc">Hastane ve sağlık tesisleri için kesintisiz güç</div>
-                        <div class="sc-link">Detaylar <i data-feather="arrow-right" class="w-3 h-3 inline"></i></div>
+                <a href="{{ url_for('sektorler') }}#saglik" class="sector-photo-card group">
+                    <img src="{{ url_for('static', filename='img/sectors/saglik.png') }}" alt="Sağlık & Hastane">
+                    <div class="sector-strip">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <i data-feather="heart" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span>Sağlık & Hastane</span>
+                        </div>
+                        <i data-feather="arrow-right" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
                     </div>
                 </a>
 
                 <!-- 07 Telekom -->
-                <a href="{{ url_for('sektorler') }}#telekom" class="sc-card group col-span-12 md:col-span-6 lg:col-span-4">
-                    <div class="sc-photo">
-                        <img src="{{ url_for('static', filename='img/sectors/telekom.png') }}" alt="Telekom">
-                        <span class="sc-num">07</span>
-                        <span class="sc-icon-pill"><i data-feather="radio" class="w-3.5 h-3.5 text-[#FFD700]"></i></span>
-                    </div>
-                    <div class="sc-body">
-                        <div class="sc-title">Telekomünikasyon</div>
-                        <div class="sc-desc">Baz istasyon ve telecom altyapısı</div>
-                        <div class="sc-link">Detaylar <i data-feather="arrow-right" class="w-3 h-3 inline"></i></div>
+                <a href="{{ url_for('sektorler') }}#telekom" class="sector-photo-card group">
+                    <img src="{{ url_for('static', filename='img/sectors/telekom.png') }}" alt="Telekomünikasyon">
+                    <div class="sector-strip">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <i data-feather="radio" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span>Telekomünikasyon</span>
+                        </div>
+                        <i data-feather="arrow-right" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
                     </div>
                 </a>
 
                 <!-- 08 Eğitim -->
-                <a href="{{ url_for('sektorler') }}#egitim" class="sc-card group col-span-12 md:col-span-6 lg:col-span-4">
-                    <div class="sc-photo">
-                        <img src="{{ url_for('static', filename='img/sectors/egitim.png') }}" alt="Eğitim">
-                        <span class="sc-num">08</span>
-                        <span class="sc-icon-pill"><i data-feather="book-open" class="w-3.5 h-3.5 text-[#FFD700]"></i></span>
-                    </div>
-                    <div class="sc-body">
-                        <div class="sc-title">Eğitim & Kampüs</div>
-                        <div class="sc-desc">Okul ve üniversite kampüslerine kesintisiz enerji</div>
-                        <div class="sc-link">Detaylar <i data-feather="arrow-right" class="w-3 h-3 inline"></i></div>
+                <a href="{{ url_for('sektorler') }}#egitim" class="sector-photo-card group">
+                    <img src="{{ url_for('static', filename='img/sectors/egitim.png') }}" alt="Eğitim & Kampüs">
+                    <div class="sector-strip">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <i data-feather="book-open" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span>Eğitim & Kampüs</span>
+                        </div>
+                        <i data-feather="arrow-right" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
                     </div>
                 </a>
 
             </div>
-            
+
+            <!-- CTA Button -->
             <div class="text-center mt-10">
                 <a href="{{ url_for('sektorler') }}"
-                   class="btn-electric">
+                   class="inline-flex items-center gap-2 px-8 py-3.5 border border-[#FFD700] text-[#FFD700] font-semibold text-sm rounded hover:bg-[#FFD700] hover:text-black transition-all duration-200">
                     Tüm Sektörler
                     <i data-feather="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
+
         </div>
     </section>
 
