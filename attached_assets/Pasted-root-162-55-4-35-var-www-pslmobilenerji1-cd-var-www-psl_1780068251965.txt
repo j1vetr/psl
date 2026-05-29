@@ -1,0 +1,61 @@
+root@162-55-4-35:/var/www/pslmobilenerji1# cd /var/www/pslmobilenerji1
+root@162-55-4-35:/var/www/pslmobilenerji1# python3 -m venv venv
+root@162-55-4-35:/var/www/pslmobilenerji1# python3 -m venv venv^C
+root@162-55-4-35:/var/www/pslmobilenerji1# venv/bin/pip install -r requirements.txt
+Collecting flask
+  Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.4/103.4 KB 6.2 MB/s eta 0:00:00
+Collecting gunicorn
+  Downloading gunicorn-26.0.0-py3-none-any.whl (212 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 212.0/212.0 KB 15.6 MB/s eta 0:00:00
+Collecting werkzeug
+  Downloading werkzeug-3.1.8-py3-none-any.whl (226 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.5/226.5 KB 19.4 MB/s eta 0:00:00
+Collecting Pillow
+  Downloading pillow-12.2.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 35.1 MB/s eta 0:00:00
+Collecting markupsafe>=2.1.1
+  Using cached markupsafe-3.0.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (20 kB)
+Collecting itsdangerous>=2.2.0
+  Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Collecting jinja2>=3.1.2
+  Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Collecting click>=8.1.3
+  Downloading click-8.4.1-py3-none-any.whl (116 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 116.6/116.6 KB 28.7 MB/s eta 0:00:00
+Collecting blinker>=1.9.0
+  Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Collecting packaging
+  Downloading packaging-26.2-py3-none-any.whl (100 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.2/100.2 KB 21.4 MB/s eta 0:00:00
+Installing collected packages: Pillow, packaging, markupsafe, itsdangerous, click, blinker, werkzeug, jinja2, gunicorn, flask
+Successfully installed Pillow-12.2.0 blinker-1.9.0 click-8.4.1 flask-3.1.3 gunicorn-26.0.0 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.3 packaging-26.2 werkzeug-3.1.8
+root@162-55-4-35:/var/www/pslmobilenerji1# sudo systemctl start pslmobilenerji1
+root@162-55-4-35:/var/www/pslmobilenerji1# sudo systemctl status pslmobilenerji1
+× pslmobilenerji1.service - pslmobilenerji1 Gunicorn Service
+     Loaded: loaded (/etc/systemd/system/pslmobilenerji1.service; enabled; vendor preset: enabled)
+     Active: failed (Result: exit-code) since Fri 2026-05-29 18:23:39 +03; 3s ago
+    Process: 2029911 ExecStart=/var/www/pslmobilenerji1/venv/bin/gunicorn -k eventlet -w 1 --bind 127.0.0.1:5011 main:app (code=exited, status=1/FAILURE)
+   Main PID: 2029911 (code=exited, status=1/FAILURE)
+        CPU: 118ms
+
+May 29 18:23:39 162-55-4-35.datahost.net.tr systemd[1]: pslmobilenerji1.service: Scheduled restart job, restart counter is at 5.
+May 29 18:23:39 162-55-4-35.datahost.net.tr systemd[1]: Stopped pslmobilenerji1 Gunicorn Service.
+May 29 18:23:39 162-55-4-35.datahost.net.tr systemd[1]: pslmobilenerji1.service: Start request repeated too quickly.
+May 29 18:23:39 162-55-4-35.datahost.net.tr systemd[1]: pslmobilenerji1.service: Failed with result 'exit-code'.
+May 29 18:23:39 162-55-4-35.datahost.net.tr systemd[1]: Failed to start pslmobilenerji1 Gunicorn Service.
+root@162-55-4-35:/var/www/pslmobilenerji1# sudo systemctl restart pslmobilenerji1
+root@162-55-4-35:/var/www/pslmobilenerji1# sudo systemctl status pslmobilenerji1
+× pslmobilenerji1.service - pslmobilenerji1 Gunicorn Service
+     Loaded: loaded (/etc/systemd/system/pslmobilenerji1.service; enabled; vendor preset: enabled)
+     Active: failed (Result: exit-code) since Fri 2026-05-29 18:23:57 +03; 730ms ago
+    Process: 2030254 ExecStart=/var/www/pslmobilenerji1/venv/bin/gunicorn -k eventlet -w 1 --bind 127.0.0.1:5011 main:app (code=exited, status=1/FAILURE)
+   Main PID: 2030254 (code=exited, status=1/FAILURE)
+        CPU: 129ms
+
+May 29 18:23:57 162-55-4-35.datahost.net.tr systemd[1]: pslmobilenerji1.service: Scheduled restart job, restart counter is at 5.
+May 29 18:23:57 162-55-4-35.datahost.net.tr systemd[1]: Stopped pslmobilenerji1 Gunicorn Service.
+May 29 18:23:57 162-55-4-35.datahost.net.tr systemd[1]: pslmobilenerji1.service: Start request repeated too quickly.
+May 29 18:23:57 162-55-4-35.datahost.net.tr systemd[1]: pslmobilenerji1.service: Failed with result 'exit-code'.
+May 29 18:23:57 162-55-4-35.datahost.net.tr systemd[1]: Failed to start pslmobilenerji1 Gunicorn Service.
+root@162-55-4-35:/var/www/pslmobilenerji1#
