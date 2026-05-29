@@ -447,18 +447,155 @@ body.mobile-menu-open { overflow: hidden; }
   }
 }
 
-/* ─── Sector image cards ─── */
+/* ─── Sector image cards (legacy overlay style — used on sektorler.html) ─── */
 .sector-img-card {
   border: 1px solid rgba(255,255,255,0.08);
   transition: border-color 0.3s, transform 0.3s;
 }
-.sector-img-card:hover {
-  border-color: rgba(255,215,0,0.35);
-}
+.sector-img-card:hover { border-color: rgba(255,215,0,0.35); }
 .sector-img-overlay {
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.10) 100%);
+}
+
+/* ─── Sector split cards (homepage) ─── */
+.sc-card {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0e0e0e;
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+.sc-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,215,0,0.45);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,215,0,0.12);
+}
+
+/* Photo section */
+.sc-photo {
+  position: relative;
+  overflow: hidden;
+  height: 170px;
+  background: #111;
+}
+.sc-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+.sc-card:hover .sc-photo img { transform: scale(1.07); }
+.sc-photo::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.04) 40%, rgba(0,0,0,0.22) 100%);
+}
+
+/* Sector number watermark */
+.sc-num {
+  position: absolute;
+  bottom: -14px; right: 8px;
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(255,255,255,0.07);
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.04em;
+}
+
+/* Icon pill */
+.sc-icon-pill {
+  position: absolute;
+  top: 10px; left: 10px;
+  z-index: 3;
+  background: rgba(0,0,0,0.70);
+  border: 1px solid rgba(255,215,0,0.40);
+  border-radius: 6px;
+  padding: 6px 8px;
+  display: inline-flex;
+  align-items: center;
+  backdrop-filter: blur(6px);
+}
+
+/* Content section */
+.sc-body {
+  padding: 14px 16px 16px;
+  border-top: 2px solid #FFD700;
+}
+.sc-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.sc-desc {
+  color: #9ca3af;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.sc-link {
+  color: #FFD700;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  transition: gap 0.2s;
+}
+.sc-card:hover .sc-link { gap: 6px; }
+
+/* ── Featured card (wide horizontal) ── */
+.sc-featured { background: #0e0e0e; }
+.sc-feat-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+@media (min-width: 1024px) {
+  .sc-feat-inner { flex-direction: row; }
+}
+.sc-feat-photo {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  flex-shrink: 0;
+  background: #111;
+}
+@media (min-width: 1024px) {
+  .sc-feat-photo { width: 52%; height: auto; min-height: 220px; }
+}
+.sc-feat-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+.sc-card:hover .sc-feat-photo img { transform: scale(1.07); }
+.sc-feat-photo .sc-num { font-size: 8rem; bottom: -20px; }
+.sc-feat-body {
+  padding: 20px 22px;
+  border-top: 2px solid #FFD700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+@media (min-width: 1024px) {
+  .sc-feat-body {
+    border-top: none;
+    border-left: 2px solid #FFD700;
+  }
+}
+.sc-feat-icon { position: relative; top: auto; left: auto; margin-bottom: 14px; width: fit-content; }
+.sc-feat-title {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
 }
 
 /* ─── Mobile overrides ─── */
