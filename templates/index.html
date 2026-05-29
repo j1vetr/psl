@@ -58,78 +58,136 @@
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="electric-card p-6">
-                    <div class="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="calendar" class="w-5 h-5 text-[#FFD700]"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+                <!-- Etkinlik & Organizasyon -->
+                <a href="{{ url_for('sektorler') }}#etkinlik"
+                   class="sector-img-card group relative overflow-hidden rounded-lg block" style="height:260px;">
+                    <img src="{{ url_for('static', filename='img/sectors/etkinlik.png') }}"
+                         alt="Etkinlik & Organizasyon"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="sector-img-overlay"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i data-feather="calendar" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span class="text-white font-bold text-sm leading-tight">Etkinlik & Organizasyon</span>
+                        </div>
+                        <p class="text-gray-300 text-xs leading-relaxed">Konser, festival ve düğün organizasyonları</p>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Etkinlik & Organizasyon</h3>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">İstanbul'da konser, festival ve düğün etkinlikleri için mobil jeneratör kiralama</p>
-                    <a href="{{ url_for('sektorler') }}#etkinlik" class="text-[#FFD700] hover:text-[#E6C200] font-medium text-sm flex items-center gap-1.5 transition-colors">
-                        Detaylar
-                        <i data-feather="arrow-right" class="w-3.5 h-3.5"></i>
-                    </a>
-                </div>
-                
-                <div class="electric-card p-6">
-                    <div class="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="tool" class="w-5 h-5 text-[#FFD700]"></i>
+                </a>
+
+                <!-- Film / Dizi Seti -->
+                <a href="{{ url_for('sektorler') }}#film"
+                   class="sector-img-card group relative overflow-hidden rounded-lg block" style="height:260px;">
+                    <img src="{{ url_for('static', filename='img/sectors/film.png') }}"
+                         alt="Film / Dizi Seti"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="sector-img-overlay"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i data-feather="video" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span class="text-white font-bold text-sm leading-tight">Film / Dizi Seti</span>
+                        </div>
+                        <p class="text-gray-300 text-xs leading-relaxed">Profesyonel prodüksiyon güç desteği</p>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">İnşaat / Şantiye</h3>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">Şişli, Kadıköy, Beşiktaş'ta şantiye jeneratör kiralama ve ağır makine güç desteği</p>
-                    <a href="{{ url_for('sektorler') }}#insaat" class="text-[#FFD700] hover:text-[#E6C200] font-medium text-sm flex items-center gap-1.5 transition-colors">
-                        Detaylar
-                        <i data-feather="arrow-right" class="w-3.5 h-3.5"></i>
-                    </a>
-                </div>
-                
-                <div class="electric-card p-6">
-                    <div class="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="zap" class="w-5 h-5 text-[#FFD700]"></i>
+                </a>
+
+                <!-- İnşaat / Şantiye -->
+                <a href="{{ url_for('sektorler') }}#insaat"
+                   class="sector-img-card group relative overflow-hidden rounded-lg block" style="height:260px;">
+                    <img src="{{ url_for('static', filename='img/sectors/insaat.png') }}"
+                         alt="İnşaat / Şantiye"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="sector-img-overlay"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i data-feather="tool" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span class="text-white font-bold text-sm leading-tight">İnşaat / Şantiye</span>
+                        </div>
+                        <p class="text-gray-300 text-xs leading-relaxed">Şantiye ve ağır makine güç desteği</p>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Acil Durum & Afet</h3>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">İstanbul genelinde kritik anlarda anında mobil jeneratör desteği</p>
-                    <a href="{{ url_for('sektorler') }}#acil" class="text-[#FFD700] hover:text-[#E6C200] font-medium text-sm flex items-center gap-1.5 transition-colors">
-                        Detaylar
-                        <i data-feather="arrow-right" class="w-3.5 h-3.5"></i>
-                    </a>
-                </div>
-                
-                <div class="electric-card p-6">
-                    <div class="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="heart" class="w-5 h-5 text-[#FFD700]"></i>
+                </a>
+
+                <!-- Acil Durum & Afet -->
+                <a href="{{ url_for('sektorler') }}#acil"
+                   class="sector-img-card group relative overflow-hidden rounded-lg block" style="height:260px;">
+                    <img src="{{ url_for('static', filename='img/sectors/acil.png') }}"
+                         alt="Acil Durum & Afet"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="sector-img-overlay"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i data-feather="zap" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span class="text-white font-bold text-sm leading-tight">Acil Durum & Afet</span>
+                        </div>
+                        <p class="text-gray-300 text-xs leading-relaxed">Kritik anlarda anında güç desteği</p>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Sağlık & Hastane</h3>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">Hastane ve sağlık tesisleri için kritik güç desteği</p>
-                    <a href="{{ url_for('sektorler') }}#saglik" class="text-[#FFD700] hover:text-[#E6C200] font-medium text-sm flex items-center gap-1.5 transition-colors">
-                        Detaylar
-                        <i data-feather="arrow-right" class="w-3.5 h-3.5"></i>
-                    </a>
-                </div>
-                
-                <div class="electric-card p-6">
-                    <div class="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="radio" class="w-5 h-5 text-[#FFD700]"></i>
+                </a>
+
+                <!-- Tarım & Kırsal Alan -->
+                <a href="{{ url_for('sektorler') }}#tarim"
+                   class="sector-img-card group relative overflow-hidden rounded-lg block" style="height:260px;">
+                    <img src="{{ url_for('static', filename='img/sectors/tarim.png') }}"
+                         alt="Tarım & Kırsal Alan"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="sector-img-overlay"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i data-feather="map" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span class="text-white font-bold text-sm leading-tight">Tarım & Kırsal Alan</span>
+                        </div>
+                        <p class="text-gray-300 text-xs leading-relaxed">Sulama, hayvancılık ve kırsal tesisler</p>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Telekomünikasyon</h3>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">Baz istasyon ve telecom altyapısı için sürekli enerji</p>
-                    <a href="{{ url_for('sektorler') }}#telekom" class="text-[#FFD700] hover:text-[#E6C200] font-medium text-sm flex items-center gap-1.5 transition-colors">
-                        Detaylar
-                        <i data-feather="arrow-right" class="w-3.5 h-3.5"></i>
-                    </a>
-                </div>
-                
-                <div class="electric-card p-6">
-                    <div class="w-10 h-10 bg-[#FFD700]/10 rounded-lg flex items-center justify-center mb-4">
-                        <i data-feather="book-open" class="w-5 h-5 text-[#FFD700]"></i>
+                </a>
+
+                <!-- Sağlık & Hastane -->
+                <a href="{{ url_for('sektorler') }}#saglik"
+                   class="sector-img-card group relative overflow-hidden rounded-lg block" style="height:260px;">
+                    <img src="{{ url_for('static', filename='img/sectors/saglik.png') }}"
+                         alt="Sağlık & Hastane"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="sector-img-overlay"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i data-feather="heart" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span class="text-white font-bold text-sm leading-tight">Sağlık & Hastane</span>
+                        </div>
+                        <p class="text-gray-300 text-xs leading-relaxed">Hastane ve sağlık tesisleri için kesintisiz güç</p>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Eğitim & Kampüs</h3>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">Okul, üniversite ve eğitim kurumları için güvenilir enerji</p>
-                    <a href="{{ url_for('sektorler') }}#egitim" class="text-[#FFD700] hover:text-[#E6C200] font-medium text-sm flex items-center gap-1.5 transition-colors">
-                        Detaylar
-                        <i data-feather="arrow-right" class="w-3.5 h-3.5"></i>
-                    </a>
-                </div>
+                </a>
+
+                <!-- Telekomünikasyon -->
+                <a href="{{ url_for('sektorler') }}#telekom"
+                   class="sector-img-card group relative overflow-hidden rounded-lg block" style="height:260px;">
+                    <img src="{{ url_for('static', filename='img/sectors/telekom.png') }}"
+                         alt="Telekomünikasyon"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="sector-img-overlay"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i data-feather="radio" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span class="text-white font-bold text-sm leading-tight">Telekomünikasyon</span>
+                        </div>
+                        <p class="text-gray-300 text-xs leading-relaxed">Baz istasyon ve telecom altyapısı</p>
+                    </div>
+                </a>
+
+                <!-- Eğitim & Kampüs -->
+                <a href="{{ url_for('sektorler') }}#egitim"
+                   class="sector-img-card group relative overflow-hidden rounded-lg block" style="height:260px;">
+                    <img src="{{ url_for('static', filename='img/sectors/egitim.png') }}"
+                         alt="Eğitim & Kampüs"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="sector-img-overlay"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i data-feather="book-open" class="w-4 h-4 text-[#FFD700] flex-shrink-0"></i>
+                            <span class="text-white font-bold text-sm leading-tight">Eğitim & Kampüs</span>
+                        </div>
+                        <p class="text-gray-300 text-xs leading-relaxed">Okul ve üniversite kampüslerine kesintisiz enerji</p>
+                    </div>
+                </a>
+
             </div>
             
             <div class="text-center mt-10">
