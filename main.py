@@ -82,7 +82,7 @@ def sektorler():
             'id': 'etkinlik',
             'title': 'Etkinlik & Organizasyon',
             'icon': 'calendar',
-            'description': 'Konsert, festival, düğün ve kurumsal etkinlikler için kesintisiz güç.',
+            'description': 'Konser, festival, düğün ve kurumsal etkinlikler için kesintisiz güç.',
             'features': [
                 'Sessiz çalışma (< 60 dB)',
                 'Hızlı kurulum (< 10 dakika)',

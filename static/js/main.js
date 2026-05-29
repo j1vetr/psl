@@ -2,64 +2,43 @@
 
 // Mobile Menu Toggle
 function initMobileMenu() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const hamburger = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const backdrop = document.getElementById('mobile-menu-backdrop');
 
-    console.log('Mobile Menu Init:', { mobileMenuButton, mobileMenu, mobileMenuClose });
+    if (!hamburger || !mobileMenu) return;
 
-    if (!mobileMenuButton || !mobileMenu) {
-        console.log('Mobile menu elements not found');
-        return;
-    }
-
-    function openMobileMenu() {
-        console.log('Opening mobile menu');
+    function openMenu() {
         mobileMenu.classList.add('active');
+        hamburger.classList.add('open');
         document.body.classList.add('mobile-menu-open');
     }
 
-    function closeMobileMenu() {
-        console.log('Closing mobile menu');
+    function closeMenu() {
         mobileMenu.classList.remove('active');
+        hamburger.classList.remove('open');
         document.body.classList.remove('mobile-menu-open');
     }
 
-    mobileMenuButton.addEventListener('click', function (e) {
-        console.log('Mobile menu button clicked');
+    hamburger.addEventListener('click', function (e) {
         e.stopPropagation();
-        if (mobileMenu.classList.contains('active')) {
-            closeMobileMenu();
-        } else {
-            openMobileMenu();
-        }
+        mobileMenu.classList.contains('active') ? closeMenu() : openMenu();
     });
 
-    if (mobileMenuClose) {
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
-    }
+    if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMenu);
+    if (backdrop) backdrop.addEventListener('click', closeMenu);
 
-    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link, .mobile-cta-btn, .mobile-call-btn');
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-    });
-
-    document.addEventListener('click', function (e) {
-        if (mobileMenu.classList.contains('active') &&
-            !mobileMenu.contains(e.target) &&
-            !mobileMenuButton.contains(e.target)) {
-            closeMobileMenu();
-        }
+    mobileMenu.querySelectorAll('.mm-link, .mm-cta, .mm-contact-btn').forEach(link => {
+        link.addEventListener('click', closeMenu);
     });
 
     window.addEventListener('resize', function () {
-        if (window.innerWidth >= 768) closeMobileMenu();
+        if (window.innerWidth >= 1024) closeMenu();
     });
 
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-            closeMobileMenu();
-        }
+        if (e.key === 'Escape') closeMenu();
     });
 }
 
