@@ -175,10 +175,10 @@ body {
 .circuit-connector { display: none !important; }
 
 .futuristic-title-inline {
-  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-size: clamp(1.85rem, 5.5vw, 5rem);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
   color: white;
 }
 
@@ -450,5 +450,4 @@ body.mobile-menu-open { overflow: hidden; }
 /* ─── Mobile overrides ─── */
 @media (max-width: 768px) {
   .mobile-menu-content { max-width: 100%; border-right: none; }
-  .futuristic-hero { padding-top: 64px; }
 }
