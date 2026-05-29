@@ -71,7 +71,7 @@
     <link rel="preload" href="{{ url_for('static', filename='img/hero-van.jpg') }}" as="image">
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=20260529b">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v={{ v }}">
     
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
@@ -135,7 +135,7 @@
     </button>
     
     <!-- Scripts -->
-    <script src="{{ url_for('static', filename='js/main.js') }}?v=20260529b"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}?v={{ v }}"></script>
     
     <script>
         feather.replace();

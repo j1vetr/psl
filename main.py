@@ -12,6 +12,7 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret-key-change-in-production")
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 # Configuration
 SMTP_CONFIG = {
@@ -340,9 +341,11 @@ def sitemap_xml():
 @app.context_processor
 def utility_processor():
     """Add utility functions to template context"""
+    import time
     return {
         'whatsapp_phone': WHATSAPP_PHONE,
-        'current_year': datetime.now().year
+        'current_year': datetime.now().year,
+        'v': int(time.time())
     }
 
 if __name__ == '__main__':
