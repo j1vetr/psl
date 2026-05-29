@@ -2,8 +2,8 @@
     <!-- Background image — full opacity, positioned right so van shows on right side -->
     <div class="hero-background"></div>
 
-    <!-- Gradient: solid black on left half, fades out on right so image shows -->
-    <div class="absolute inset-0" style="background: linear-gradient(to right, #000000 0%, #000000 38%, rgba(0,0,0,0.7) 55%, rgba(0,0,0,0.2) 75%, transparent 100%);"></div>
+    <!-- Gradient: solid black far left, fades quickly so image shows from ~30% onwards -->
+    <div class="absolute inset-0" style="background: linear-gradient(to right, #000000 0%, #000000 22%, rgba(0,0,0,0.75) 38%, rgba(0,0,0,0.2) 58%, transparent 80%);"></div>
 
     <!-- Main Content — left-aligned on desktop -->
     <div class="relative z-10 w-full px-6 pt-24 pb-4 md:py-0 md:min-h-screen md:flex md:items-center">
@@ -39,44 +39,42 @@
     </div>
 
     <!-- Stats Bar — fixed at bottom of hero -->
-    <div class="absolute bottom-0 left-0 right-0 z-10" style="background:rgba(0,0,0,0.82); border-top:1px solid rgba(255,215,0,0.15);">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
-                <div class="flex items-center gap-3 px-4 py-4">
-                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(255,215,0,0.15); border:1px solid rgba(255,215,0,0.3);">
-                        <i data-feather="zap" class="w-4 h-4 text-[#FFD700]"></i>
-                    </div>
-                    <div>
-                        <div class="text-base font-bold text-white">250 kVA</div>
-                        <div class="text-xs text-gray-500 uppercase tracking-wider">Maksimum Güç</div>
-                    </div>
+    <div class="absolute bottom-0 left-0 right-0 z-10" style="background:rgba(10,10,10,0.88); border-top:1px solid rgba(255,255,255,0.07);">
+        <div class="grid grid-cols-2 md:grid-cols-4">
+            <div class="flex items-center gap-4 px-8 py-5" style="border-right:1px solid rgba(255,255,255,0.08);">
+                <div class="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1a1a1a; border:2px solid rgba(255,215,0,0.5);">
+                    <i data-feather="zap" class="w-5 h-5 text-[#FFD700]"></i>
                 </div>
-                <div class="flex items-center gap-3 px-4 py-4">
-                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(255,215,0,0.15); border:1px solid rgba(255,215,0,0.3);">
-                        <i data-feather="clock" class="w-4 h-4 text-[#FFD700]"></i>
-                    </div>
-                    <div>
-                        <div class="text-base font-bold text-white">24 Saat</div>
-                        <div class="text-xs text-gray-500 uppercase tracking-wider">Kesintisiz</div>
-                    </div>
+                <div>
+                    <div class="text-lg font-bold text-white leading-tight">250 kVA</div>
+                    <div class="text-sm text-gray-400">Maksimum Güç</div>
                 </div>
-                <div class="flex items-center gap-3 px-4 py-4">
-                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(255,215,0,0.15); border:1px solid rgba(255,215,0,0.3);">
-                        <i data-feather="watch" class="w-4 h-4 text-[#FFD700]"></i>
-                    </div>
-                    <div>
-                        <div class="text-base font-bold text-white">5 Dakika</div>
-                        <div class="text-xs text-gray-500 uppercase tracking-wider">Kurulum</div>
-                    </div>
+            </div>
+            <div class="flex items-center gap-4 px-8 py-5" style="border-right:1px solid rgba(255,255,255,0.08);">
+                <div class="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1a1a1a; border:2px solid rgba(255,215,0,0.5);">
+                    <i data-feather="clock" class="w-5 h-5 text-[#FFD700]"></i>
                 </div>
-                <div class="flex items-center gap-3 px-4 py-4">
-                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(255,215,0,0.15); border:1px solid rgba(255,215,0,0.3);">
-                        <i data-feather="headphones" class="w-4 h-4 text-[#FFD700]"></i>
-                    </div>
-                    <div>
-                        <div class="text-base font-bold text-white">7/24</div>
-                        <div class="text-xs text-gray-500 uppercase tracking-wider">Destek</div>
-                    </div>
+                <div>
+                    <div class="text-lg font-bold text-white leading-tight">24 Saat</div>
+                    <div class="text-sm text-gray-400">Kesintisiz</div>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 px-8 py-5" style="border-right:1px solid rgba(255,255,255,0.08);">
+                <div class="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1a1a1a; border:2px solid rgba(255,215,0,0.5);">
+                    <i data-feather="watch" class="w-5 h-5 text-[#FFD700]"></i>
+                </div>
+                <div>
+                    <div class="text-lg font-bold text-white leading-tight">5 Dakika</div>
+                    <div class="text-sm text-gray-400">Kurulum</div>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 px-8 py-5">
+                <div class="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1a1a1a; border:2px solid rgba(255,215,0,0.5);">
+                    <i data-feather="headphones" class="w-5 h-5 text-[#FFD700]"></i>
+                </div>
+                <div>
+                    <div class="text-lg font-bold text-white leading-tight">7/24</div>
+                    <div class="text-sm text-gray-400">Destek</div>
                 </div>
             </div>
         </div>
