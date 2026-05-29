@@ -67,6 +67,9 @@
         }
     </script>
     
+    <!-- Preload critical assets -->
+    <link rel="preload" href="{{ url_for('static', filename='img/hero-van.jpg') }}" as="image">
+
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     

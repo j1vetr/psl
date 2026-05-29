@@ -47,7 +47,7 @@
                     <div class="glass-panel rounded-lg overflow-hidden group cursor-pointer"
                          onclick="openLightbox({{ item.id }})">
                         <div class="relative">
-                            <img src="{{ item.thumbnail }}"
+                            <img loading="lazy" src="{{ item.thumbnail }}"
                                  alt="{{ item.title }}"
                                  class="w-full h-56 object-cover">
                             
@@ -121,11 +121,11 @@
         { id: 2, title: 'Elektrik Sistemi', src: '{{ url_for("static", filename="img/gallery-2.jpeg") }}' },
         { id: 3, title: 'Araç Üstü Jeneratör', src: '{{ url_for("static", filename="img/gallery-3.jpeg") }}' },
         { id: 4, title: 'Kontrol Paneli', src: '{{ url_for("static", filename="img/gallery-4.jpeg") }}' },
-        { id: 5, title: 'Etkinlik — Konser Sahnesi', src: '{{ url_for("static", filename="img/gallery/galeri-etkinlik-1.png") }}' },
-        { id: 6, title: 'Gece Konseri Güç Desteği', src: '{{ url_for("static", filename="img/gallery/galeri-etkinlik-2.png") }}' },
-        { id: 7, title: 'Tünel Çalışması — Kurulum', src: '{{ url_for("static", filename="img/gallery/galeri-tünel.png") }}' },
-        { id: 8, title: 'Film Seti Güç Sistemi', src: '{{ url_for("static", filename="img/gallery/galeri-film.png") }}' },
-        { id: 9, title: 'Plaza — Gece Kurulumu', src: '{{ url_for("static", filename="img/gallery/galeri-plaza.png") }}' }
+        { id: 5, title: 'Etkinlik — Konser Sahnesi', src: '{{ url_for("static", filename="img/gallery/galeri-etkinlik-1.jpg") }}' },
+        { id: 6, title: 'Gece Konseri Güç Desteği', src: '{{ url_for("static", filename="img/gallery/galeri-etkinlik-2.jpg") }}' },
+        { id: 7, title: 'Tünel Çalışması — Kurulum', src: '{{ url_for("static", filename="img/gallery/galeri-tünel.jpg") }}' },
+        { id: 8, title: 'Film Seti Güç Sistemi', src: '{{ url_for("static", filename="img/gallery/galeri-film.jpg") }}' },
+        { id: 9, title: 'Plaza — Gece Kurulumu', src: '{{ url_for("static", filename="img/gallery/galeri-plaza.jpg") }}' }
     ];
     
     document.querySelectorAll('.gallery-filter').forEach(button => {

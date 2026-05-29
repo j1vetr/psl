@@ -156,7 +156,7 @@ body {
 .hero-background {
   position: absolute;
   inset: 0;
-  background-image: url('/static/img/hero-van.png');
+  background-image: url('/static/img/hero-van.jpg');
   background-size: cover;
   background-position: 65% center;
   opacity: 1;

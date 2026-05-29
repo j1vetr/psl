@@ -24,6 +24,16 @@ SMTP_CONFIG = {
 
 WHATSAPP_PHONE = os.environ.get('WHATSAPP_PHONE', '905335295399')
 
+@app.after_request
+def add_cache_headers(response):
+    if request.path.startswith('/static/img/'):
+        response.cache_control.max_age = 2592000  # 30 days
+        response.cache_control.public = True
+    elif request.path.startswith('/static/css/') or request.path.startswith('/static/js/'):
+        response.cache_control.max_age = 86400  # 1 day
+        response.cache_control.public = True
+    return response
+
 def send_email(name, phone, email, message):
     """
     Stub function for sending emails. 
@@ -238,36 +248,36 @@ def galeri():
             'id': 5,
             'title': 'Etkinlik — Konser Sahnesi',
             'category': 'projects',
-            'thumbnail': '/static/img/gallery/galeri-etkinlik-1.png',
-            'full': '/static/img/gallery/galeri-etkinlik-1.png'
+            'thumbnail': '/static/img/gallery/galeri-etkinlik-1.jpg',
+            'full': '/static/img/gallery/galeri-etkinlik-1.jpg'
         },
         {
             'id': 6,
             'title': 'Gece Konseri Güç Desteği',
             'category': 'projects',
-            'thumbnail': '/static/img/gallery/galeri-etkinlik-2.png',
-            'full': '/static/img/gallery/galeri-etkinlik-2.png'
+            'thumbnail': '/static/img/gallery/galeri-etkinlik-2.jpg',
+            'full': '/static/img/gallery/galeri-etkinlik-2.jpg'
         },
         {
             'id': 7,
             'title': 'Tünel Çalışması — Kurulum',
             'category': 'setup',
-            'thumbnail': '/static/img/gallery/galeri-tünel.png',
-            'full': '/static/img/gallery/galeri-tünel.png'
+            'thumbnail': '/static/img/gallery/galeri-tünel.jpg',
+            'full': '/static/img/gallery/galeri-tünel.jpg'
         },
         {
             'id': 8,
             'title': 'Film Seti Güç Sistemi',
             'category': 'projects',
-            'thumbnail': '/static/img/gallery/galeri-film.png',
-            'full': '/static/img/gallery/galeri-film.png'
+            'thumbnail': '/static/img/gallery/galeri-film.jpg',
+            'full': '/static/img/gallery/galeri-film.jpg'
         },
         {
             'id': 9,
             'title': 'Plaza — Gece Kurulumu',
             'category': 'setup',
-            'thumbnail': '/static/img/gallery/galeri-plaza.png',
-            'full': '/static/img/gallery/galeri-plaza.png'
+            'thumbnail': '/static/img/gallery/galeri-plaza.jpg',
+            'full': '/static/img/gallery/galeri-plaza.jpg'
         }
     ]
     
