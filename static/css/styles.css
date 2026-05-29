@@ -516,11 +516,14 @@ body.mobile-menu-open { overflow: hidden; }
 .circuit-connector { display: none !important; }
 
 .futuristic-title-inline {
-  font-size: clamp(1.85rem, 5.5vw, 5rem);
+  font-size: clamp(2.4rem, 5.5vw, 5rem);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.025em;
   color: white;
+}
+@media (max-width: 767px) {
+  .futuristic-title-inline { text-align: center; }
 }
 
 .title-text { display: block; }
