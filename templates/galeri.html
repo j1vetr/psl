@@ -79,60 +79,6 @@
                 </div>
                 {% endfor %}
                 
-                <!-- Placeholder items -->
-                <div class="gallery-item equipment" data-category="equipment">
-                    <div class="glass-panel rounded-lg overflow-hidden group cursor-pointer" onclick="openLightbox(4)">
-                        <div class="relative">
-                            <div class="w-full h-56 bg-[#111]/80 flex items-center justify-center">
-                                <div class="text-center text-gray-600">
-                                    <i data-feather="image" class="w-10 h-10 mx-auto mb-3"></i>
-                                    <p class="text-xs">Yakında eklenecek</p>
-                                </div>
-                            </div>
-                            <div class="absolute top-3 left-3 bg-[#1C1C1C] border border-white/10 text-gray-400 px-2.5 py-1 rounded text-xs font-medium">Yakında</div>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold text-sm text-white">Kontrol Paneli Detayı</h3>
-                            <p class="text-xs text-gray-500 mt-1">Sistem kontrol özellikleri</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item projects" data-category="projects">
-                    <div class="glass-panel rounded-lg overflow-hidden group cursor-pointer" onclick="openLightbox(5)">
-                        <div class="relative">
-                            <div class="w-full h-56 bg-[#111]/80 flex items-center justify-center">
-                                <div class="text-center text-gray-600">
-                                    <i data-feather="camera" class="w-10 h-10 mx-auto mb-3"></i>
-                                    <p class="text-xs">Güncelleniyor</p>
-                                </div>
-                            </div>
-                            <div class="absolute top-3 left-3 bg-[#FFD700] text-black px-2.5 py-1 rounded text-xs font-semibold">Proje</div>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold text-sm text-white">Etkinlik Enerjisi</h3>
-                            <p class="text-xs text-gray-500 mt-1">Açık hava konseri projesi</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item setup" data-category="setup">
-                    <div class="glass-panel rounded-lg overflow-hidden group cursor-pointer" onclick="openLightbox(6)">
-                        <div class="relative">
-                            <div class="w-full h-56 bg-[#111]/80 flex items-center justify-center">
-                                <div class="text-center text-gray-600">
-                                    <i data-feather="settings" class="w-10 h-10 mx-auto mb-3"></i>
-                                    <p class="text-xs">Hazırlanıyor</p>
-                                </div>
-                            </div>
-                            <div class="absolute top-3 left-3 bg-[#FFD700] text-black px-2.5 py-1 rounded text-xs font-semibold">Kurulum</div>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold text-sm text-white">Kablo Bağlantıları</h3>
-                            <p class="text-xs text-gray-500 mt-1">Güvenli elektrik bağlantısı</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -174,7 +120,12 @@
         { id: 1, title: 'Mobil Jeneratör Van', src: '{{ url_for("static", filename="img/gallery-1.jpeg") }}' },
         { id: 2, title: 'Elektrik Sistemi', src: '{{ url_for("static", filename="img/gallery-2.jpeg") }}' },
         { id: 3, title: 'Araç Üstü Jeneratör', src: '{{ url_for("static", filename="img/gallery-3.jpeg") }}' },
-        { id: 4, title: 'Kontrol Paneli', src: '{{ url_for("static", filename="img/gallery-4.jpeg") }}' }
+        { id: 4, title: 'Kontrol Paneli', src: '{{ url_for("static", filename="img/gallery-4.jpeg") }}' },
+        { id: 5, title: 'Etkinlik — Konser Sahnesi', src: '{{ url_for("static", filename="img/gallery/galeri-etkinlik-1.png") }}' },
+        { id: 6, title: 'Gece Konseri Güç Desteği', src: '{{ url_for("static", filename="img/gallery/galeri-etkinlik-2.png") }}' },
+        { id: 7, title: 'Tünel Çalışması — Kurulum', src: '{{ url_for("static", filename="img/gallery/galeri-tünel.png") }}' },
+        { id: 8, title: 'Film Seti Güç Sistemi', src: '{{ url_for("static", filename="img/gallery/galeri-film.png") }}' },
+        { id: 9, title: 'Plaza — Gece Kurulumu', src: '{{ url_for("static", filename="img/gallery/galeri-plaza.png") }}' }
     ];
     
     document.querySelectorAll('.gallery-filter').forEach(button => {

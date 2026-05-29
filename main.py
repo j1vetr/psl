@@ -233,6 +233,41 @@ def galeri():
             'category': 'projects',
             'thumbnail': '/static/img/gallery-4.jpeg',
             'full': '/static/img/gallery-4.jpeg'
+        },
+        {
+            'id': 5,
+            'title': 'Etkinlik — Konser Sahnesi',
+            'category': 'projects',
+            'thumbnail': '/static/img/gallery/galeri-etkinlik-1.png',
+            'full': '/static/img/gallery/galeri-etkinlik-1.png'
+        },
+        {
+            'id': 6,
+            'title': 'Gece Konseri Güç Desteği',
+            'category': 'projects',
+            'thumbnail': '/static/img/gallery/galeri-etkinlik-2.png',
+            'full': '/static/img/gallery/galeri-etkinlik-2.png'
+        },
+        {
+            'id': 7,
+            'title': 'Tünel Çalışması — Kurulum',
+            'category': 'setup',
+            'thumbnail': '/static/img/gallery/galeri-tünel.png',
+            'full': '/static/img/gallery/galeri-tünel.png'
+        },
+        {
+            'id': 8,
+            'title': 'Film Seti Güç Sistemi',
+            'category': 'projects',
+            'thumbnail': '/static/img/gallery/galeri-film.png',
+            'full': '/static/img/gallery/galeri-film.png'
+        },
+        {
+            'id': 9,
+            'title': 'Plaza — Gece Kurulumu',
+            'category': 'setup',
+            'thumbnail': '/static/img/gallery/galeri-plaza.png',
+            'full': '/static/img/gallery/galeri-plaza.png'
         }
     ]
     
