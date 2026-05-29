@@ -175,10 +175,10 @@ body {
 .circuit-connector { display: none !important; }
 
 .futuristic-title-inline {
-  font-size: clamp(2.75rem, 6vw, 5rem);
+  font-size: clamp(3.25rem, 7.5vw, 6.5rem);
   font-weight: 800;
   line-height: 1.05;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   color: white;
 }
 
