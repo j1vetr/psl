@@ -484,19 +484,32 @@ body.mobile-menu-open { overflow: hidden; }
 }
 .sector-photo-card:hover img { transform: scale(1.06); }
 
+.sector-photo-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.38);
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+.sector-photo-card:hover::after {
+  background: rgba(0,0,0,0.28);
+}
+
 .sector-strip {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 11px 14px;
-  background: rgba(10,10,10,0.88);
+  padding: 15px 16px;
+  background: rgba(10,10,10,0.90);
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   gap: 8px;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
+  z-index: 1;
 }
 
 /* ─── Mobile overrides ─── */
