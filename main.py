@@ -30,8 +30,9 @@ def add_cache_headers(response):
         response.cache_control.max_age = 2592000  # 30 days
         response.cache_control.public = True
     elif request.path.startswith('/static/css/') or request.path.startswith('/static/js/'):
-        response.cache_control.max_age = 86400  # 1 day
-        response.cache_control.public = True
+        response.cache_control.no_store = True
+        response.cache_control.no_cache = True
+        response.cache_control.max_age = 0
     return response
 
 def send_email(name, phone, email, message):
