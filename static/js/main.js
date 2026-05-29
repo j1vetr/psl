@@ -93,7 +93,7 @@ function initContactPanel() {
     if (!contactToggle || !contactOptions) return;
 
     contactToggle.addEventListener('click', function () {
-        contactOptions.classList.toggle('hidden');
+        contactOptions.classList.toggle('open');
     });
 }
 
