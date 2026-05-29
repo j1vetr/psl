@@ -29,7 +29,7 @@ function initMobileMenu() {
     if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMenu);
     if (backdrop) backdrop.addEventListener('click', closeMenu);
 
-    mobileMenu.querySelectorAll('.mm-link, .mm-cta, .mm-contact-btn').forEach(link => {
+    mobileMenu.querySelectorAll('.mm-link, .mm-cta, .mm-wa-full').forEach(link => {
         link.addEventListener('click', closeMenu);
     });
 
