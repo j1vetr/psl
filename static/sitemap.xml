@@ -7,7 +7,7 @@
     <!-- Ana Sayfa -->
     <url>
         <loc>https://pslmobilenerji.com/</loc>
-        <lastmod>2025-08-25</lastmod>
+        <lastmod>2026-06-05</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -15,7 +15,7 @@
     <!-- Sektörler -->
     <url>
         <loc>https://pslmobilenerji.com/sektorler</loc>
-        <lastmod>2025-08-25</lastmod>
+        <lastmod>2026-06-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -23,7 +23,7 @@
     <!-- Teknoloji -->
     <url>
         <loc>https://pslmobilenerji.com/teknoloji</loc>
-        <lastmod>2025-08-25</lastmod>
+        <lastmod>2026-06-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -31,7 +31,7 @@
     <!-- Galeri -->
     <url>
         <loc>https://pslmobilenerji.com/galeri</loc>
-        <lastmod>2025-08-25</lastmod>
+        <lastmod>2026-06-05</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -39,7 +39,7 @@
     <!-- İletişim -->
     <url>
         <loc>https://pslmobilenerji.com/iletisim</loc>
-        <lastmod>2025-08-25</lastmod>
+        <lastmod>2026-06-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>

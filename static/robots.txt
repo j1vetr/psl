@@ -7,15 +7,12 @@ Sitemap: https://pslmobilenerji.com/sitemap.xml
 # Crawl delays
 Crawl-delay: 1
 
-# Specific directives
+# Disallow admin and API only
 Disallow: /admin/
 Disallow: /api/
-Disallow: /static/js/
-Disallow: /static/css/
 
-# Allow important pages
-Allow: /static/img/
-Allow: /
+# Allow all static assets (CSS/JS needed by Google for rendering)
+Allow: /static/
 
 # Social media bots
 User-agent: facebookexternalhit

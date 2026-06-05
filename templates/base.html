@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="tr" class="scroll-smooth">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18188244111"></script>
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-935X9BFJH1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('config', 'G-935X9BFJH1');
       gtag('config', 'AW-18188244111');
     </script>
 
@@ -22,6 +23,12 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{{ request.url }}">
     
+    <!-- Geo / Local SEO -->
+    <meta name="geo.region" content="TR-34">
+    <meta name="geo.placename" content="İstanbul">
+    <meta name="geo.position" content="41.0082;28.9784">
+    <meta name="ICBM" content="41.0082, 28.9784">
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="{% block og_title %}İstanbul Jeneratör Kiralama - PSL Mobil Enerji{% endblock %}">
@@ -29,11 +36,16 @@
     <meta property="og:url" content="{{ request.url }}">
     <meta property="og:site_name" content="PSL Mobil Enerji">
     <meta property="og:locale" content="tr_TR">
-    
+    <meta property="og:image" content="https://pslmobilenerji.com/static/img/hero-van.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="PSL Mobil Enerji - İstanbul Araç Üstü Mobil Jeneratör">
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% block twitter_title %}PSL Mobil Enerji{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}Sahada kesintisiz güç için mobil jeneratör çözümleri{% endblock %}">
+    <meta name="twitter:image" content="https://pslmobilenerji.com/static/img/hero-van.jpg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
@@ -84,17 +96,46 @@
         "name": "PSL Mobil Enerji",
         "alternateName": "İstanbul Jeneratör Kiralama",
         "description": "İstanbul'da jeneratör kiralama hizmeti. Araç üstü mobil jeneratör kiralama, etkinlik jeneratörü, şantiye elektrik ünitesi ve acil durum güç çözümleri.",
-        "url": "{{ request.url_root }}",
+        "url": "https://pslmobilenerji.com",
         "telephone": "+90-533-529-5399",
         "email": "info@pslmobilenerji.com",
+        "image": "https://pslmobilenerji.com/static/img/hero-van.jpg",
+        "logo": "https://pslmobilenerji.com/static/img/psl-logo.png",
         "address": {
             "@type": "PostalAddress",
             "addressCountry": "TR",
             "addressRegion": "İstanbul",
             "addressLocality": "İstanbul"
         },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "41.0082",
+            "longitude": "28.9784"
+        },
+        "areaServed": [
+            {"@type": "City", "name": "İstanbul"},
+            {"@type": "AdministrativeArea", "name": "Şişli"},
+            {"@type": "AdministrativeArea", "name": "Kadıköy"},
+            {"@type": "AdministrativeArea", "name": "Beşiktaş"},
+            {"@type": "AdministrativeArea", "name": "Üsküdar"},
+            {"@type": "AdministrativeArea", "name": "Fatih"},
+            {"@type": "AdministrativeArea", "name": "Bakırköy"},
+            {"@type": "AdministrativeArea", "name": "Maltepe"}
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Mobil Jeneratör Kiralama Hizmetleri",
+            "itemListElement": [
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Etkinlik Jeneratörü Kiralama"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Şantiye Elektrik Ünitesi"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Acil Durum Jeneratörü"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Film Seti Güç Kaynağı"}}
+            ]
+        },
         "openingHours": "Mo-Su 00:00-23:59",
-        "priceRange": "$$"
+        "priceRange": "$$",
+        "currenciesAccepted": "TRY",
+        "paymentAccepted": "Cash, Credit Card, Bank Transfer"
     }
     </script>
     
